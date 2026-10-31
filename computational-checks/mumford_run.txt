@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "small_field_reduction_cases": 2852,
+  "secp256k1_reduction_cases": 391,
+  "contact_orders": [
+    2,
+    24
+  ],
+  "example_p101_P4_24_d8_degree_path": [
+    8,
+    6,
+    4,
+    2,
+    1
+  ],
+  "limits": "Exact modular-arithmetic consistency checks, not an independent proof audit."
+}

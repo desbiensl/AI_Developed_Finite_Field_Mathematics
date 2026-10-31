@@ -1,0 +1,17 @@
+{
+  "publication_date": "2026-10-29",
+  "status": "Public AI-developed mathematical research artifact; candidate results independently unverified",
+  "script_sha256": {
+    "verify_revision_identities.py": "619c2d317e3a9780d2dd327be522369f5fb9e1aa5aa87b265a31d89eac11536f",
+    "verify_mumford.py": "d4aec1adb644bee807d86dce389848c6188c07426571f9d0985fd308882945d4",
+    "verify_osculation.py": "ce67993b37318a1a4e2ff766b1a43a87b2f2b5a125c2f090da3e7bbc829d4235",
+    "verify_cm_eds.py": "df64d79e29d0f82063c41db7a2880f0c72f01a0ce6b6aee026ac126385127499",
+    "verify_small_fourier.py": "51a5515a60968e6b2cfb6e30feceed9ec5609ac9db4f2be971c2eda7c699d9c3",
+    "verify_prime_certificate.py": "f6082625e2d5c1ee8afc1ed659043738801224765c2803ebee576b3539b61756",
+    "check_finite_algebra.py": "ee720829d9c0e03b7bed43ee60b79a668a94cdf04439c1454166d359deee4bf2"
+  },
+  "previous_rerun_records_preserved": true,
+  "license": "not selected",
+  "mathematical_audit": "not performed",
+  "note": "No private research notes, source conversations or handoff files are included."
+}

@@ -1,0 +1,1 @@
+PASS: 46 recursive Lucas primality certificates; standard library only.

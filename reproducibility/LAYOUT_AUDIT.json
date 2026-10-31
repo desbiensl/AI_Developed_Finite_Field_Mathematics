@@ -1,0 +1,37 @@
+{
+  "pdf_01_Osculation_and_Divisor_Reduction": {
+    "pages": 11
+  },
+  "pdf_02_Primitive_CM_Dynamics_and_Rigidity": {
+    "pages": 14
+  },
+  "pdf_03_EDS_Kummer_and_Cyclic_Sequences": {
+    "pages": 18
+  },
+  "pdf_04_Quaternionic_Elliptic_Fourier": {
+    "pages": 20
+  },
+  "pdf_05_Symmetry_Constraints_on_Scalar_Observables": {
+    "pages": 10
+  },
+  "word_01_Osculation_and_Divisor_Reduction": {
+    "pages": 9
+  },
+  "word_02_Primitive_CM_Dynamics_and_Rigidity": {
+    "pages": 12
+  },
+  "word_03_EDS_Kummer_and_Cyclic_Sequences": {
+    "pages": 16
+  },
+  "word_04_Quaternionic_Elliptic_Fourier": {
+    "pages": 24
+  },
+  "word_05_Symmetry_Constraints_on_Scalar_Observables": {
+    "pages": 9
+  },
+  "pdf_bounds_01_Osculation_and_Divisor_Reduction": [],
+  "pdf_bounds_02_Primitive_CM_Dynamics_and_Rigidity": [],
+  "pdf_bounds_03_EDS_Kummer_and_Cyclic_Sequences": [],
+  "pdf_bounds_04_Quaternionic_Elliptic_Fourier": [],
+  "pdf_bounds_05_Symmetry_Constraints_on_Scalar_Observables": []
+}

@@ -1,0 +1,1211 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+  11pt,
+  a4paper,
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+  \setmainfont[]{Latin Modern Roman}
+  \setmathfont[]{Latin Modern Math}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[top=25mm,bottom=24mm,left=27mm,right=27mm]{geometry}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+% Mathematics-focused preprint layout: monochrome, Latin Modern OpenType text and math.
+% Latin Modern fonts are supplied by a standard TeX installation, not embedded in this source archive.
+\usepackage{microtype}
+\usepackage{setspace}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{needspace}
+\setstretch{1.13}
+\setlength{\parindent}{1.15em}
+\setlength{\parskip}{3.25pt plus 1.0pt minus .6pt}
+\titlespacing*{\section}{0pt}{17pt plus 4pt minus 2pt}{7pt plus 2pt}
+\titlespacing*{\subsection}{0pt}{13pt plus 3pt minus 1pt}{5pt plus 1pt}
+\titlespacing*{\subsubsection}{0pt}{10pt plus 2pt minus 1pt}{3pt plus 1pt}
+\titleformat{\section}{\normalfont\bfseries\large}{\thesection}{0.7em}{}
+\titleformat{\subsection}{\normalfont\bfseries\normalsize}{\thesubsection}{0.6em}{}
+\titleformat{\subsubsection}{\normalfont\bfseries\normalsize}{\thesubsubsection}{0.6em}{}
+\AtBeginDocument{%
+  \setlength{\abovedisplayskip}{12pt plus 3pt minus 2pt}%
+  \setlength{\belowdisplayskip}{12pt plus 3pt minus 2pt}%
+  \setlength{\abovedisplayshortskip}{9pt plus 2pt minus 1pt}%
+  \setlength{\belowdisplayshortskip}{10pt plus 2pt minus 1pt}%
+  \pagestyle{plain}%
+}
+\setlength{\emergencystretch}{4em}
+\setcounter{secnumdepth}{0}
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+
+\usepackage{longtable,booktabs,array,calc}
+\usepackage{fvextra}
+\RecustomVerbatimEnvironment{verbatim}{Verbatim}{breaklines=true,breakanywhere=true,fontsize=\footnotesize}
+\usepackage{upquote}
+
+\hypersetup{
+  pdftitle={Division-polynomial covariance and Kummer sequences on secp256k1},
+  pdfauthor={Louis Desbiens (human initiator and curator)},
+  pdfsubject={AI-developed mathematical research artifact; independently unverified candidate results},
+  colorlinks=true,
+  linkcolor={black},
+  filecolor={black},
+  citecolor={black},
+  urlcolor={black},
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Division-polynomial covariance and Kummer sequences on secp256k1}
+\usepackage{etoolbox}
+\makeatletter
+\providecommand{\subtitle}[1]{%
+  \apptocmd{\@title}{\par {\large #1 \par}}{}{}
+}
+\makeatother
+\subtitle{Exact character targets, disjoint branch layers, and limits of finite-orbit inference}
+\author{}
+\date{Public mathematical research artifact \textbar{} 31 October 2026}
+\begin{document}
+\maketitle
+
+\textbf{Human initiator and curator:} Louis Desbiens\\
+\textbf{AI mathematical research contributor:} OpenAI's ChatGPT\\
+\textbf{Document classification:} Public AI-developed mathematical
+research artifact -- independently unverified candidate results\\
+\textbf{Institutional affiliation:} None claimed\\
+\textbf{Manuscript license:} Creative Commons Attribution 4.0 International (CC BY 4.0)
+
+\textbf{Status and reading guide.} This document records a
+human-initiated, substantially AI-developed mathematical investigation.
+The human curator directed the objectives but does not independently
+certify its advanced mathematical arguments. The novel claims and
+supplied proofs are candidate results awaiting independent specialist
+verification; public availability does not certify correctness,
+completeness or originality. This artifact proposes Kummer covariance
+obstructions, recurrence and word-occurrence bounds, and higher-genus
+quotient/isogeny constructions. The integer threshold checks do not
+verify the underlying character-sum estimates, geometric independence,
+conductor assumptions or isogeny/descent arguments. Those steps require
+independent mathematical examination. No unrestricted
+private-key-recovery claim is made.
+
+\section{Abstract}\label{abstract}
+
+The division-polynomial investigation is organized around an exact
+covariance equation: a base-field sextic character of a rational
+function is sought that reproduces the sextic character of a hidden
+scalar. On secp256k1, a primitive degree-three CM endomorphism turns the
+question into a cyclic-character problem. The manuscript proposes a
+divisor calculation for a division-polynomial covariance ratio,
+identifies a cubic atom, and investigates an obstruction to the
+separable single-division-polynomial family as exact scalar-character
+extractors. A proposed conductor argument yields large effective divisor
+support for products. Along the primitive orbit, the cubic atom defines
+a ternary sequence with nontrivial holonomy; proposed disjoint branch
+layers of sizes \(18\cdot3^i\) lead to recurrence and block-occurrence
+estimates. Subject to the stated geometric and character-sum hypotheses,
+the manuscript proposes exclusion of nonzero affine recurrences of
+length at most 78 and occurrence of every ternary word of length at most
+39. It also develops a cubic-extension Kummer-symbol model, genus-seven
+covering geometry, candidate quotient curves, a Jacobian decomposition,
+and a degree-three isogeny between elliptic quotients of a reciprocal
+genus-two model. Independence and descent assumptions are separated
+explicitly. These proposals concern restricted observables, not general
+private-key recovery, and require specialist examination.
+
+\textbf{Keywords:} elliptic divisibility sequence; division polynomial;
+Kummer cover; cubic character; CM endomorphism; cyclic sequence;
+secp256k1.
+
+\section{1. Setting and conventions}\label{setting-and-conventions}
+
+The relationship between elliptic divisibility sequences and discrete
+logarithms is established prior work {[}4{]}. Here the question is
+narrower: can a rational function's sextic character reproduce the
+multiplicative sextic character of an unknown scalar, at every nonzero
+point of one fixed prime-order group? The exploratory investigation used
+numerical evaluations to test the initial intuition; the exact
+covariance equation below replaces any statistical criterion in the
+mathematical argument.
+
+Use the SEC 2 curve {[}5{]}
+
+\[
+E/\mathbf F_p:y^2=x^3+7,\qquad p=2^{256}-2^{32}-977.
+\]
+
+The group order \(n\) and the two oriented cube roots are specified by
+concatenating each pair of hexadecimal lines:
+
+\begin{verbatim}
+n      = FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFE
+         BAAEDCE6AF48A03BBFD25E8CD0364141
+beta   = 7ae96a2b657c07106e64479eac3434e9
+         9cf0497512f58995c1396c28719501ee
+lambda = 5363ad4cc05c30e0a5261c028812645a
+         122e22ea20816678df02967c1b23bd72
+\end{verbatim}
+
+SEC 2 specifies a generator \(G\) of this prime-order group. The
+identity \(\phi(G)=[\lambda]G\), where \(\phi(x,y)=(\beta x,y)\), is
+checked by the ordinary group law on its published coordinates. Hence
+\(\phi=[\lambda]\) on all rational points. We fix this orientation,
+rather than interchanging the two cube roots implicitly.
+
+Put \(H=\{\pm1,\pm\lambda,\pm\lambda^2\}\), \(h=2+\lambda\),
+\(\Psi=2+\phi=1-\phi^2\), and \(M=(n-1)/6\). Appendix A prints the
+complete certificate that \(h\) has order \(n-1\). The map \(\Psi\) is
+separable of degree three: its kernel is
+\(\{O,(0,\sqrt7),(0,-\sqrt7)\}\), and its differential is nonzero.
+Alternatively its Eisenstein norm is three. The chord from \(P\) to
+\(-\phi^2P\) gives
+
+\[
+x(\Psi P)=-\frac{\beta}{3}\frac{x^3+28}{x^2},\qquad
+F(t)=-\frac{(t+28)^3}{27t^2},\quad t=x^3. \qquad (1.1)
+\]
+
+Indeed the slope is \(-2y/[x(\beta^2-1)]\), and
+\((\beta^2-1)^2=-3\beta^2\). Cubing the abscissa gives
+\(t(\Psi P)=F(t(P))\). The identity \(\Psi^2=-[3]\phi^2\) follows by
+expanding \((2+\phi)^2\) and using \(1+\phi+\phi^2=0\).
+
+The coordinate \(t\) is a complete sixfold quotient: equality of two
+cubes of abscissae gives \(x(Q)=\beta^j x(P)\), and the curve equation
+then gives \(y(Q)=\pm y(P)\). No nonidentity rational point has a
+nontrivial stabilizer, since that would give two- or three-torsion.
+Primitivity of \(h\) therefore makes \(\Psi\) a single \((n-1)\)-cycle
+on nonzero points and \(F\) a single \(M\)-cycle on their quotient.
+
+For nonzero field elements set
+
+\[
+\eta(z)=z^{(p-1)/6},\qquad \chi_3(z)=z^{(p-1)/3}=\eta(z)^2.
+\]
+
+The values here are initially roots of unity in \(\mathbf F_p\).
+Whenever absolute values or character sums are used, identify \(\beta\)
+with \(e^{2\pi i/3}\) and \(-1\) with the usual complex number \(-1\).
+This specifies a compatible complex character. Let
+\(\iota:\mu_6(\mathbf F_n)\to\mu_6(\mathbf F_p)\) send \(\lambda\) to
+\(\beta\) and \(-1\) to \(-1\). Appendix A verifies
+
+\[
+h^M=-\lambda^2,\quad M\equiv1\pmod3,\quad p\equiv7\pmod9,\quad
+\chi_3(\beta/81)=1. \qquad (1.2)
+\]
+
+All multiplication indices below are positive integers prime to \(p\);
+indices divisible by \(n\) are also excluded when evaluating a division
+polynomial on every nonidentity rational point.
+
+\section{2. The exact sextic target and
+covariance}\label{the-exact-sextic-target-and-covariance}
+
+Let \(P_d=[d]G\) for \(d\in\mathbf F_n^*\) and define the scalar label
+
+\[
+C(P_d)=\iota(d^M).
+\]
+
+The proposed exact extractor is a rational function
+\(g\in\mathbf F_p(E)^*\), finite and nonzero at every \(P_d\), with
+
+\[
+\eta(g(P_d))=C(P_d). \qquad (2.1)
+\]
+
+Unlike its covariance ratio, this label is not invariant under all
+sixfold scalar symmetries. With \(\xi=\iota(h^M)=-\beta^2\), it
+satisfies \(C(\Psi P)=\xi C(P)\).
+
+\textbf{Proposition 2.1 (orbit covariance).} Put \(R_g=(g\circ\Psi)/g\).
+A necessary condition for (2.1) is
+
+\[
+\eta(R_g(P))=\xi. \qquad (2.2)
+\]
+
+Equation (2.2) is required at every nonidentity rational point.
+Conversely, (2.2) together with (2.1) at one point implies (2.1)
+everywhere on that set.
+
+\textbf{Proof.} Taking the ratio of (2.1) at \(\Psi P\) and \(P\) gives
+(2.2). Conversely, propagation along the single \((n-1)\)-cycle of
+\(\Psi\) determines the label from one anchor. \(\square\)
+
+Thus the exact target has a concrete mathematical meaning. A weak
+correlation on sampled points, or an identity valid only after knowing
+\(d\), is not a substitute for (2.2).
+
+\section{3. Division-polynomial covariance
+divisors}\label{division-polynomial-covariance-divisors}
+
+Let \(\psi_m\) be the standard division polynomial. Its divisor, for
+\(p\nmid m\), is {[}1{]}
+
+\[
+\operatorname{div}(\psi_m)=[m]^*(O)-m^2(O). \qquad (3.1)
+\]
+
+Over an algebraic closure, write \(\tau=(0,\sqrt7)\). The kernel of
+\(\Psi\) is \(\{O,\tau,-\tau\}\), and \(\tau\) has order three. Define
+
+\[
+R_m(P)=\frac{\psi_m(\Psi P)}{\psi_m(P)}.
+\]
+
+\textbf{Proposition 3.1.} The covariance divisor is
+
+\[
+\operatorname{div}(R_m)=[m]^*((\tau)+(-\tau))-m^2((\tau)+(-\tau)). \qquad (3.2)
+\]
+
+Moreover \(R_m\) is invariant under negation and \(\phi\), so it belongs
+to \(\mathbf F_p(t)\).
+
+\textbf{Proof.} Pull (3.1) back by \(\Psi\) and subtract (3.1). Since
+the two endomorphisms commute and \(\Psi^*(O)=(O)+(\tau)+(-\tau)\), the
+terms involving \((O)\) cancel and give (3.2). The division-polynomial
+transformation factors under negation and the cubic automorphism are
+constants; those constants cancel in the ratio. Thus \(R_m\) descends
+through the sixfold quotient. \(\square\)
+
+If \(n\nmid m\), neither \(P\) nor \(\Psi P\) is killed by \([m]\) for a
+nonidentity rational \(P\). Hence \(R_m\) is finite and nonzero at every
+such point. The standard composition identity gives the useful exact
+relation
+
+\[
+R_{ab}(P)=R_a([b]P)R_b(P)^{a^2}. \qquad (3.3)
+\]
+
+This formula reduces character behavior of composite indices to atomic
+factors evaluated at known multiples. It does not reveal the unknown
+scalar of \(P\).
+
+\section{4. The cubic atom and the single-factor
+obstruction}\label{the-cubic-atom-and-the-single-factor-obstruction}
+
+Since \(\psi_3=3x(t+28)\), substitution of (1.1) gives
+
+\[
+R_3(t)=\frac{\beta}{81}\frac{f(t)}{t^3},\qquad
+f(t)=t^3-672t^2+2352t+21952. \qquad (4.1)
+\]
+
+To verify (4.1), substitute (1.1) into \(3x(t+28)\) and divide by
+\(3x(t+28)\); the numerator factorization is \((t+28)^3-756t^2=f(t)\),
+and the remaining factors give the displayed constant and \(t^3\)
+denominator. By (1.2),
+
+\[
+A(P):=\chi_3(R_3(P))=\chi_3(f(t(P))). \qquad (4.2)
+\]
+
+\textbf{Proposition 4.1.} No function \(g=c\psi_m\), with
+\(c\in\mathbf F_p^*\), \(p\nmid m\), and \(n\nmid m\), satisfies the
+exact extractor equation (2.1).
+
+\textbf{Proof.} First impose the symmetries of the target. Since \(M\)
+is even, \(C(-P)=C(P)\). The identities
+\(\psi_m(-P)=(-1)^{m-1}\psi_m(P)\) and \(\eta(-1)=-1\) force \(m\) to be
+odd. Also \(C(\phi P)=\beta C(P)\). The standard weight transformation
+of division polynomials is \(\psi_m(\phi P)=\beta^{2(m^2-1)}\psi_m(P)\);
+applying \(\eta\) forces \(3\mid m\). Explicitly,
+\((p-1)/6\equiv1\pmod3\), so \(\eta(\beta)=\beta\); the exponent
+\(2(m^2-1)\) is zero modulo three when \(3\nmid m\) and one when
+\(3\mid m\). Thus \(m=3b\) with \(m\equiv3\pmod6\).
+
+Equation (3.3) implies
+
+\[
+\chi_3(R_{3b}(P))=\chi_3(R_3([b]P)), \qquad (4.3)
+\]
+
+because the remaining exponent is nine. Multiplication by \(b\) permutes
+the nonidentity rational group. Therefore (2.2) would force \(A\) to be
+constant there, with value \(\xi^2=\beta\).
+
+The divisor of \(R_3\) has eighteen simple zeros and poles of order nine
+at \(\tau\) and \(-\tau\). Its cubic Kummer sheaf is geometrically
+nontrivial, ramified at exactly eighteen geometric points. The tame
+character-sum bound on a genus-one curve gives
+
+\[
+\left|\sum_{P\in E(\mathbf F_p)}\chi_3(R_3(P))\right|\leq18\sqrt p. \qquad (4.4)
+\]
+
+Here the function is interpreted by its finite nonzero value at \(O\);
+all geometric branch points are nonrational. If the \(n-1\) nonidentity
+terms were constant, the full sum would have magnitude at least \(n-2\).
+But \(n-2>18\sqrt p\). This contradiction proves the proposition.
+\(\square\)
+
+\textbf{Lemma 4.2 (the character-sum input).} Let \(R\) define a
+finite-order rank-one Kummer local system on a smooth genus-one curve
+over \(\mathbf F_p\), with exactly \(s>0\) geometric ramification
+points, all tame and with nontrivial inertia. Give its unramified
+extension the usual Frobenius trace at every remaining rational point.
+Then the sum of its traces has absolute value at most \(s\sqrt p\).
+
+\textbf{Proof.} Remove precisely the ramification points and denote the
+resulting open curve by \(U\). Nontrivial geometric ramification
+excludes a constant constituent, so
+\(H_c^0(U,\mathcal L)=H_c^2(U,\mathcal L)=0\). The tame
+Euler-characteristic formula gives \(\chi_c(U,\mathcal L)=2-2g-s=-s\),
+hence \(\dim H_c^1=s\). The finite-order local system is pure of weight
+zero; the curve trace formula and the Weil weight bound give eigenvalues
+of absolute value at most \(\sqrt p\) in \(H_c^1\) {[}2,3{]}. As inertia
+has no invariants at the removed points, its middle-extension traces
+there are zero. Taking the trace proves the assertion. At a zero or pole
+whose valuation is divisible by the character order, use the unramified
+local extension, not an artificial zero value. \(\square\)
+
+For (4.4), all rational points, including \(O\), are unramified and
+\(R_3\) is a local unit there. Removing \(O\) changes a sum by at most
+one. This accounts explicitly for the constants \(n-2\) and \(+1\) used
+later.
+
+The result closes this separable single-factor family even for enormous
+\(m\). It does not close every product of factors or every compact
+arithmetic circuit.
+
+\section{5. Products and effective
+support}\label{products-and-effective-support}
+
+Consider
+
+\[
+g=c\prod_{i=1}^s\psi_{m_i}^{e_i},
+\]
+
+where \(p\nmid m_i\), \(n\nmid m_i\), and exponents may be reduced
+modulo six for the character question. The same symmetry tests give the
+necessary congruences
+
+\[
+\sum_{2\mid m_i}e_i\equiv0\pmod2,\qquad
+\sum_{3\mid m_i}e_i\equiv1\pmod3. \qquad (5.1)
+\]
+
+Define \(s_6(R_g)\) as the number of geometric points where the
+valuation of \(R_g\) is not divisible by six. This is the effective
+branch support for its sextic Kummer character, rather than its
+unreduced polynomial degree.
+
+\textbf{Proposed Theorem 5.1 (support obstruction).} Any exact product
+extractor satisfying (2.1) must satisfy
+
+\[
+n-2\leq s_6(R_g)\sqrt p,\qquad
+s_6(R_g)\leq2\sum_{e_i\not\equiv0\,(6)}(m_i^2+1). \qquad (5.2)
+\]
+
+\textbf{Proof.} The second bound follows by taking the union of the two
+degree-\(m_i^2\) pullback supports and the two possible poles in (3.2);
+cancellations only decrease the support. For the first bound, a
+geometrically nontrivial rank-one Kummer sheaf gives the same genus-one
+estimate as in Section 4, with \(s_6\) in place of eighteen.
+
+One must justify nontriviality instead of assuming it. Suppose every
+valuation of \(R_g\) were divisible by six. The finite divisor
+\(D=\operatorname{div}(g)\), taken modulo six, would satisfy
+\(\Psi^*D=D\). Since \(\Psi\) is etale of degree three, the support of
+the pullback has three times as many geometric points as that of \(D\).
+Thus this finite support must be empty. Write
+\(\operatorname{div}(g)=6D_0\) with \(D_0\) rational. Its class is
+rational six-torsion in \(\operatorname{Pic}^0(E)=E\), but the rational
+group has prime order coprime to six. Consequently \(D_0\) is principal.
+A function with this rational divisor can be chosen over
+\(\mathbf F_p\): its one-dimensional space of sections is
+Frobenius-stable, and a scalar rescaling removes the Frobenius
+multiplier (equivalently, use Hilbert 90 over a finite extension). Thus
+\(g=c_0g_0^6\) with \(c_0\in\mathbf F_p^*\). Its sextic character is
+constant, contradicting (2.1). Hence \(s_6>0\) for an exact extractor,
+and the Kummer estimate applies. Covariance makes all nonidentity
+summands equal; adding the identity term gives the lower bound \(n-2\).
+\(\square\)
+
+The bound is on effective divisor complexity. Large indices can have
+short evaluation recurrences, so (5.2) is not a general running-time
+lower bound.
+
+\section{6. A cubic splitting field and geometric
+independence}\label{a-cubic-splitting-field-and-geometric-independence}
+
+The polynomial in (4.1) has
+
+\[
+\operatorname{disc}(f)=5334336^2=2^{12}3^{10}7^6,
+\qquad f(-7)=-27783. \qquad (6.1)
+\]
+
+To prove irreducibility explicitly, let \(K=\mathbf F_{p^3}\) and choose
+\(\rho\) with \(\rho^3=19+\beta\). The exact residue identity
+\((19+\beta)^{(p-1)/3}=\beta\) gives \(\rho^p=\beta\rho\). One root of
+\(f\) is
+
+\[
+\alpha=224+84\left(\rho+\frac7\rho\right),\qquad
+f(t)=N_{K/\mathbf F_p}(t-\alpha). \qquad (6.2)
+\]
+
+\textbf{Verification of the root and its degree.} The identity
+\((19+\beta)(19+\beta^2)=343\) gives \(\rho^3+(7/\rho)^3=37\). Thus
+\(u=\rho+7/\rho\) satisfies \(u^3-21u-37=0\), and direct substitution
+yields
+
+\[
+f(224+84u)=84^3(u^3-21u-37).
+\]
+
+The residue check in Appendix A makes \(19+\beta\) a noncube, so
+\(1,\rho,\rho^2\) is a basis of \(K\) over \(\mathbf F_p\). If
+\(\rho+7/\rho\) were Frobenius-fixed, then
+\((\beta-1)\rho+7(\beta^2-1)/\rho=0\), forcing \(\rho^2\in\mathbf F_p\),
+a contradiction. Hence \(\alpha\) has degree three. Its three Frobenius
+conjugates are exactly the roots of the monic cubic \(f\), proving both
+irreducibility and (6.2).
+
+Consequently, with \(\widetilde\chi_3(z)=z^{(p^3-1)/3}\),
+
+\[
+A(P)=\widetilde\chi_3(t(P)-\alpha). \qquad (6.3)
+\]
+
+This is a linear Kummer symbol over a small extension. It is not itself
+the usual three-isogeny descent function. Over a field containing
+\(s=\sqrt7\), that descent-type function is \(y-s\), with divisor
+\(3(\tau)-3(O)\). In contrast, \(t-\alpha\) has six simple zeros.
+
+\textbf{Proposition 6.1.} The smooth normalization of
+
+\[
+\mathcal C:\quad y^2=x^3+7,\qquad z^3=x^3-\alpha
+\]
+
+has genus seven. Its pullback by \([b]\), for \(b>0\) and \(p\nmid b\),
+has genus \(6b^2+1\).
+
+\textbf{Proof.} The cubic Kummer cover of \(E\) has six simple branch
+points and an unramified pole of order six at \(O\). Riemann--Hurwitz
+gives \(2g-2=6(3-1)=12\). An etale pullback by \([b]\) gives \(6b^2\)
+branch points, yielding \(g=6b^2+1\). \(\square\)
+
+\textbf{Proposition 6.2 (positive-index independence).} For distinct
+positive integers \(b_1,\ldots,b_s\), all prime to \(p\), the classes of
+
+\[
+h_b(P)=t([b]P)-\alpha
+\]
+
+are linearly independent in \(\bar K(E)^*/\bar K(E)^{*3}\). Their cube
+roots define a cover with group \((\mathbf Z/3)^s\).
+
+\textbf{Proof.} The six zeros of \(t-\alpha\) are points of exact order
+nine: they belong to \(\ker\Psi^3\setminus\ker\Psi^2\). For the largest
+index \(b\), choose a preimage \(Q\) of one such zero under \([b]\) with
+exact order \(9b\). Such a preimage exists by choosing compatible bases
+of the prime-to-\(p\) Tate modules: a primitive order-nine vector lifts
+under \([b]\) to an order-\(9b\) vector, and the prime-to-three factors
+of \(b\) can be supplied in the other torsion components. If \([c]Q\)
+were a zero for a smaller positive index \(c\), its order would be nine,
+forcing \(\gcd(c,9b)=b\) and hence \(b\mid c\), impossible. Nor is it a
+pole for a smaller index. The valuation at \(Q\) isolates the exponent
+of \(h_b\) in any proposed cube relation. It must be zero modulo three.
+Descending through the indices proves independence. \(\square\)
+
+The restriction to positive indices is explicit: \(h_b=h_{-b}\), so
+unrestricted ``distinct indices'' would be false. Also, functions with
+distinct geometric indices may agree on the finite rational group when
+the indices coincide modulo \(n\). Geometric Kummer independence must
+never be confused with independence of finite samples or with the
+absence of every finite-orbit character identity.
+
+\section{7. The ternary sequence and its
+holonomy}\label{the-ternary-sequence-and-its-holonomy}
+
+Set
+
+\[
+P_r=\Psi^rG=[h^r]G,\quad t_r=F^r(t(G)),\quad
+A(P_r)=\beta^{a_r},\qquad a_r\in\mathbf F_3.
+\]
+
+Since \(A\) is sixfold invariant, \((a_r)\) is \(M\)-periodic. If
+\(b=h^s\pmod n\), then \(A([b]P_r)=A(P_{r+s})\). Thus scalar pullbacks
+of this atom are shifts of a single cyclic sequence, and a
+multiplicative character relation becomes an affine relation among its
+shifts.
+
+Define \(\chi_3(\psi_3(P_r))=\beta^{c_r}\). The ratio defining \(R_3\)
+gives
+
+\[
+a_r=c_{r+1}-c_r. \qquad (7.1)
+\]
+
+The \(c_r\) are not \(M\)-periodic. Since \(h^M=-\lambda^2\) and
+\(\psi_3(\phi P)=\beta\psi_3(P)\), the orientation identities yield
+
+\[
+c_{r+M}=c_r+1,\qquad \sum_{r=0}^{M-1}a_r=1\pmod3. \qquad (7.2)
+\]
+
+For the sign and exponent in (7.2), \(P_{r+M}=-\phi^2P_r\). The
+polynomial \(\psi_3\) is even under negation and has \(\phi\)-weight
+\(\beta\), so \(\psi_3(P_{r+M})=\beta^2\psi_3(P_r)\). Since
+\((p-1)/3\equiv2\pmod3\), applying \(\chi_3\) multiplies by
+\(\beta^{4}=\beta\). This gives the increment one. Summing (7.1) over a
+full quotient cycle telescopes to that increment, rather than to zero.
+
+With \(d_r=c_r-r\) and \(b_r=a_r-1\), one obtains genuinely periodic
+sequences satisfying
+
+\[
+b_r=d_{r+1}-d_r,\qquad \sum_rb_r=0. \qquad (7.3)
+\]
+
+This is nontrivial cyclic holonomy, not a globally periodic primitive
+\(c_r\).
+
+For clarity, fix the backward cyclic shift \((Sb)_r=b_{r-1}\) and write
+\(B(X)=\sum_rb_rX^r\) in \(\mathbf F_3[X]/(X^M-1)\). Its minimal
+annihilator is
+
+\[
+m_b(X)=\frac{X^M-1}{\gcd(B(X),X^M-1)}. \qquad (7.4)
+\]
+
+Indeed, \(E(S)b=0\) is equivalent to \((X^M-1)\mid E(X)B(X)\). A
+forward-shift convention replaces the annihilator by its reciprocal; the
+convention is therefore part of the statement. Since \(3\nmid M\),
+\(X^M-1\) is square-free, and \(B(1)=0\).
+
+\textbf{Open problem.} Does \(\gcd(B(X),X^M-1)=X-1\) hold? This
+maximal-complexity possibility is not proved here. The local results
+below do not settle that global question.
+
+\section{8. Disjoint branch layers and recurrence
+bounds}\label{disjoint-branch-layers-and-recurrence-bounds}
+
+Let \(K_j=\ker\Psi^j\) over an algebraic closure, so \(|K_j|=3^j\). The
+cubic Kummer branch support of \(R_3\) is
+
+\[
+B_0=K_3\setminus K_2.
+\]
+
+For \(r_i(P)=R_3(\Psi^iP)\), the effective cubic support is
+
+\[
+B_i=K_{i+3}\setminus K_{i+2},\qquad |B_i|=18\cdot3^i. \qquad (8.1)
+\]
+
+To justify (8.1), observe that \(K_2=E[3]\) by \(\Psi^2=-[3]\phi^2\). In
+(3.2) with \(m=3\), the eighteen preimages of \(\tau\) and \(-\tau\) are
+precisely \(K_3\setminus K_2\), with multiplicity one; the only poles
+are \(\tau,-\tau\), of order nine. Pullback by the etale map \(\Psi^i\)
+gives \(\Psi^{-i}(K_j)=K_{i+j}\) and preserves the local multiplicities.
+Every pulled-back pole still has valuation divisible by three.
+
+These supports are pairwise disjoint. The poles have valuations
+divisible by three and do not enter the cubic conductor. Therefore a
+nonzero exponent vector \(e_i\in\{0,1,2\}\) gives exactly
+
+\[
+s\left(\prod_i r_i^{e_i}\right)=18\sum_{e_i\neq0}3^i. \qquad (8.2)
+\]
+
+There is no cancellation between different levels modulo cubes.
+
+\textbf{Proposed Theorem 8.1 (short affine recurrences).} A nonzero
+relation
+
+\[
+\sum_{i=0}^{k-1}e_i a_{r+i}=c\qquad\text{for every }r
+\]
+
+requires
+
+\[
+n-2\leq18\left(\sum_{e_i\neq0}3^i\right)\sqrt p
+\leq9(3^k-1)\sqrt p. \qquad (8.3)
+\]
+
+\textbf{Proof.} The relation makes the associated nontrivial cubic
+character product constant on every nonidentity rational point, because
+the primitive orbit covers them all. Its full rational-point sum has
+magnitude at least \(n-2\), while the Kummer bound and (8.2) give the
+upper bound. \(\square\)
+
+The exact integer comparisons printed in Appendix A show that
+\(9(3^{78}-1)\sqrt p<n-2\), whereas the corresponding sufficient
+inequality at \(k=79\) no longer holds. Thus the theorem excludes every
+nonzero affine recurrence supported within \textbf{78 consecutive
+positions}, indexed \(0,\ldots,77\). It does not assert existence of a
+recurrence at length 79.
+
+\section{9. Every short word occurs}\label{every-short-word-occurs}
+
+For \(w\in\mathbf F_3^k\), let \(N_w\) count nonidentity rational
+starting points for which the next \(k\) labels are \(w\). Character
+orthogonality and (8.2) give
+
+\[
+\left|N_w-\frac{n-1}{3^k}\right|
+\leq6(3^k-1)\sqrt p+1-3^{-k}. \qquad (9.1)
+\]
+
+\textbf{Proof.} Expand the indicator of each coordinate equality using
+the three additive characters of \(\mathbf F_3\). The zero exponent
+vector contributes \((n-1)/3^k\). Each nonzero vector contributes a
+character sum bounded by \(s(e)\sqrt p+1\), the additional one
+accounting for removing \(O\). In the sum over all exponent vectors, the
+\(i\)th coordinate is nonzero in \(2\cdot3^{k-1}\) cases. Hence
+
+\[
+\frac1{3^k}\sum_e s(e)
+=\frac{18}{3^k}(2\cdot3^{k-1})\sum_{i=0}^{k-1}3^i
+=6(3^k-1).
+\]
+
+The \(3^k-1\) nonzero vectors contribute the remaining \(1-3^{-k}\).
+\(\square\)
+
+Each quotient starting state corresponds to six rational points with the
+same word, so the number of occurrences on the quotient cycle is
+\(N_w/6\). A sufficient condition for positivity is
+
+\[
+n-3^k>6\cdot3^k(3^k-1)\sqrt p. \qquad (9.2)
+\]
+
+It holds at \(k=39\) and therefore for every smaller positive length. At
+\(k=40\) this estimate is insufficient. Accordingly \textbf{every
+ternary word of length at most 39 occurs}. This is a consequence of the
+conductor calculation, not an extrapolation from a finite simulated
+prefix.
+
+A deterministic autonomous symbol generator reproducing the sequence
+would need at least \(3^{39}\) distinguishable starting states, since
+two states producing different length-39 words cannot be the same state.
+This is a state-count consequence, not a time lower bound: roughly 62
+bits already suffice to name that many states. It does not exclude a
+compact description with a large state space.
+
+\section{10. Kummer towers and the distinction between driven and
+autonomous
+states}\label{kummer-towers-and-the-distinction-between-driven-and-autonomous-states}
+
+The disjoint supports show that adjoining cube roots of
+\(r_0,\ldots,r_{k-1}\) gives geometric deck group \((\mathbf Z/3)^k\).
+Pullback by \(\Psi\) shifts the corresponding Kummer classes. Thus each
+extra level adds genuinely new geometric branch data.
+
+A related rational-function formulation uses \(u_j(t)=F^j(t)+28\). Its
+new zero set is \(F^{-j}(-28)\), consisting of \(3^j\) distinct points.
+The postcritical values of \(F\) are \(0,\infty,-7\), as follows from
+\(F'/F=(t-56)/(t(t+28))\). Thus these inverse images are unramified and
+the zero sets are disjoint: a shared point would make \(-28\) periodic,
+whereas \(-28\mapsto0\mapsto\infty\mapsto\infty\). At a zero of \(u_j\),
+a later \(u_{j+2}\) has a pole of order six, and all subsequent poles
+there have that same order; they vanish modulo three. Alternatively, the
+latest nonzero exponent in any finite relation is isolated at a fresh
+simple zero. This proves that the classes \([u_j]\) are independent
+modulo cubes. In particular, there is no fixed finite-dimensional
+pullback-stable Kummer span containing \([t+28]\). This conclusion is
+restricted to this generic Kummer representation; it is not a theorem
+against all finite-field algorithms or all automata.
+
+There is also a three-valued extension driven by the quotient. Let
+\(D(P)=\chi_3(x(P))\). Because \(\chi_3(-\beta/3)=1\), the explicit
+\(x\) map gives
+
+\[
+\frac{D(\Psi P)}{D(P)}=\chi_3(t(P)+28),\qquad
+A(P_r)=\frac{D(P_{r+2})}{D(P_{r+1})}. \qquad (10.1)
+\]
+
+This is a small \textbf{fiber state driven by the quotient coordinate}.
+The base coordinate still ranges over \(M\) states. It is not an
+autonomous three-state generator of the ternary sequence, and does not
+contradict the block bound.
+
+\section{11. Explicit higher-genus quotients and elliptic
+factors}\label{explicit-higher-genus-quotients-and-elliptic-factors}
+
+The curve \(\mathcal C\) of Proposition 6.1 has a visible subgroup
+\(A\simeq C_3\times C_3\) generated by
+
+\[
+a:(x,z,y)\mapsto(\beta x,z,y),\qquad
+b:(x,z,y)\mapsto(x,\beta z,y).
+\]
+
+Negation of \(y\) gives a commuting involution. No assertion that this
+subgroup is the entire automorphism group is needed.
+
+\textbf{Proposition 11.1 (four quotients).} Put \(R=(\alpha+7)/7\). The
+four order-three subgroups of \(A\) give quotient curves of genera
+\(1,1,2,3\), respectively. They have the following models, interpreted
+through smooth projective normalization:
+
+\[
+E:y^2=x^3+7,\qquad E_\alpha:y^2=z^3+\alpha+7,
+\] \[
+D_2:Y^2=7(w^3-1)(Rw^3-1),
+\] \[
+D_3:v^3=(y^2-7)(y^2-\alpha-7).
+\]
+
+Moreover, over \(K=\mathbf F_{p^3}\),
+
+\[
+\operatorname{Jac}(\mathcal C)\ \sim_K\
+E\times E_\alpha\times\operatorname{Jac}(D_2)\times\operatorname{Jac}(D_3). \qquad (11.1)
+\]
+
+\textbf{Proof.} The quotients by \(\langle b\rangle\) and
+\(\langle a\rangle\) forget \(z\) and \(x\), giving the two elliptic
+curves. For \(\langle ab\rangle\), the invariant \(w=x/z\) satisfies
+
+\[
+w^3=\frac{y^2-7}{y^2-\alpha-7}.
+\]
+
+Setting \(Y=y(w^3-1)\) gives \(D_2\). Its degree-six polynomial has six
+distinct roots because \(R\neq0,1\), so its genus is two. For
+\(\langle ab^{-1}\rangle\), the invariant \(v=xz\) gives \(D_3\). The
+degree-four polynomial in \(y\) has four distinct roots, and infinity is
+also ramified in its cubic cover of \(\mathbf P^1_y\). Riemann--Hurwitz
+gives \(2g-2=3(-2)+5\cdot2=4\), hence genus three. The conditions used
+here follow from \(f(0)\neq0\) and \(f(-7)\neq0\).
+
+For the isogeny, use the sum of pullback maps from the four quotient
+Jacobians. On first cohomology with characteristic-zero coefficients,
+every nontrivial character of \(A\) has a unique order-three kernel. Its
+eigenspace therefore occurs in exactly one of the four quotient
+invariant spaces. The trivial-character part is zero because
+\(\mathcal C/A=\mathbf P^1_y\). These invariant spaces consequently form
+a direct sum equal to \(H^1(\mathcal C)\); their dimensions are
+\(2,2,4,6\). The pullback map from the product has full rank on Tate
+modules, so is an isogeny. All quotient maps are defined over \(K\),
+giving (11.1) over that field. The functorial pullback and norm maps on
+Jacobians used here are standard {[}6{]}. \(\square\)
+
+\textbf{Proposition 11.2 (reciprocal form and its two elliptic
+quotients).} One has \(N_{K/\mathbf F_p}(R)=81\). The element \(R\) is a
+square and a noncube in \(K\). Choose \(\gamma\in K\) with
+\(\gamma^2=R\), and put \(S=\gamma+\gamma^{-1}\). Over the cubic
+extension \(L=\mathbf F_{p^9}\), \(D_2\) is isomorphic to
+
+\[
+D_0:Y^2=7(X^6-SX^3+1). \qquad (11.2)
+\]
+
+The curve \(D_0\), itself defined over \(K\), has degree-two maps to the
+elliptic curves
+
+\[
+E_+:V_+^2=7(u+2)(u^3-3u-S),
+\] \[
+E_-:V_-^2=7(u-2)(u^3-3u-S). \qquad (11.3)
+\]
+
+\textbf{Proof.} The norm equals \(-f(-7)/7^3=81\). Compatibility of norm
+with residue characters gives \(\eta_{6,K}(R)=\eta_{6,p}(81)=\beta\):
+indeed \(\chi_3(81)=\chi_3(\beta)=\beta^2\) by (1.2), and \(81\) is a
+square, fixing the sextic value. Thus \(R\) is a square but not a cube.
+Choose \(a_0\) with \(a_0^3=\gamma^{-1}\). It lies in \(L\), and
+substituting \(w=a_0X\) gives (11.2).
+
+The involutions \(\sigma(X,Y)=(X^{-1},Y/X^3)\) and \(-\sigma\), where
+the minus is the hyperelliptic involution, have invariant functions
+
+\[
+u=X+X^{-1},\qquad V_\pm=Y(X\pm1)/X^2.
+\]
+
+Substitution gives (11.3). Both quartics are nonsingular because
+\(S^2\neq4\), and each has the rational point \(u=\mp2,V_\pm=0\), so
+their smooth models are elliptic curves. The degree-two quotient maps
+will be denoted \(\pi_\pm\). \(\square\)
+
+\textbf{Proposition 11.3 (a degree-three isogeny).} The elliptic curves
+\(E_+\) and \(E_-\) in (11.3) are three-isogenous over \(K\). Also
+\(\operatorname{Jac}(D_0)\sim_K E_+\times E_-\); consequently this
+further splitting applies to \(\operatorname{Jac}(D_2)\) over \(L\).
+
+\textbf{Proof.} Let \(J=\operatorname{Jac}(D_0)\) and let \(r\) be the
+automorphism induced by \((X,Y)\mapsto(\beta X,Y)\). The quotient by
+\(r\) has the conic model \(Y^2=7(Z^2-SZ+1)\), so \(1+r+r^2=0\) on
+\(J\). Also \(\sigma r\sigma=r^{-1}\). The pullback and norm identities
+for the two degree-two maps are
+
+\[
+\pi_+^*\pi_{+*}=1+\sigma,\quad
+\pi_-^*\pi_{-*}=1-\sigma,\quad
+\pi_{\pm*}\pi_\pm^*=[2].
+\]
+
+The first two eigenspaces are complementary on rational Tate modules,
+giving the claimed product isogeny. Define
+
+\[
+\varphi=\pi_{-*}\,r\,\pi_+^*:E_+\longrightarrow E_-.
+\]
+
+Under the principal polarizations its dual is
+\(\widehat\varphi=\pi_{+*}r^{-1}\pi_-^*\). Let \(A=\pi_{+*}r\pi_+^*\).
+Since \(\sigma\) acts trivially on \(\pi_+^*E_+\) and
+\(\pi_{+*}\sigma=\pi_{+*}\), conjugating by \(\sigma\) gives
+\(A=\pi_{+*}r^{-1}\pi_+^*\). Therefore
+\(2A=\pi_{+*}(r+r^{-1})\pi_+^*=[-2]\), and \(A=[-1]\) because an
+elliptic-curve endomorphism group is torsion-free. Now
+
+\[
+\widehat\varphi\varphi
+=\pi_{+*}r^{-1}(1-\sigma)r\pi_+^*
+=\pi_{+*}(1-r\sigma)\pi_+^*
+=[2]-A=[3].
+\]
+
+Thus \(\varphi\) is nonzero and has degree three. Every map in this
+construction is defined over \(K\), and characteristic is not three.
+\(\square\)
+
+The field distinction matters. The reciprocal curve \(D_0\) and the
+isogeny in Proposition 11.3 are defined over \(K\), but the change
+\(D_2\simeq D_0\) uses \(a_0\in L\). The assertion that the original
+factor \(\operatorname{Jac}(D_2)\) splits over \(K\) does not follow;
+its twist and Frobenius descent require a separate argument. Likewise, a
+full classification of the inverse-iteration tower or an unrestricted
+cyclic-annihilator theorem is not claimed here.
+
+\section{12. Conclusion}\label{conclusion}
+
+The exact sextic target leads to a covariance equation whose nontrivial
+character sums obstruct a single division polynomial and all products of
+sufficiently small effective support. Along the primitive quotient
+orbit, the cubic atom becomes a cyclic sequence with explicitly computed
+holonomy, disjoint ramification layers, no affine recurrence in 78
+consecutive positions, and occurrence of every ternary word of length at
+most 39. Appendix A supplies the complete finite arithmetic underlying
+these numerical thresholds.
+
+The higher-genus constructions provide explicit quotient curves and
+isogenies, not an unknown-scalar multiplication operation. Geometric
+independence does not imply statistical independence on a finite orbit.
+The full cyclic annihilator and the descent of the further genus-two
+splitting remain separate questions. No faster private-key-recovery
+algorithm follows from the statements proved here.
+
+\section{Appendix A. Complete arithmetic
+certificate}\label{appendix-a.-complete-arithmetic-certificate}
+
+This appendix gives all data needed to certify the scalar order; it does
+not rely on an external computation file. The prime coordinate modulus
+and the curve parameters are the published SEC 2 parameters. The order
+\(n\), the three large factors of \(n-1\), and every auxiliary prime
+used below are certified by the following elementary criterion.
+
+\textbf{Lucas criterion.} Suppose the complete factorization
+\(q-1=\prod t^{e_t}\) is known, every \(t\) has already been proved
+prime, and an integer \(a\) satisfies
+
+\[
+a^{q-1}\equiv1\pmod q,\qquad
+\gcd(a^{(q-1)/t}-1,q)=1\quad\text{for every }t\mid q-1.
+\]
+
+Then \(q\) is prime and \(a\) has order \(q-1\) modulo \(q\). Indeed,
+for every prime divisor \(\ell\) of \(q\), the displayed conditions
+force the order of \(a\) modulo \(\ell\) to contain the full power of
+every prime dividing \(q-1\). Thus \(q-1\mid\ell-1\), so \(\ell\geq q\)
+and \(\ell=q\).
+
+Use the parameters \(n,\lambda\) of Section 1 and \(h=\lambda+2\). The
+labels in the table mean
+
+\[
+q_1=107361793816595537,\qquad q_2=174723607534414371449,
+\] \[
+q_3=341948486974166000522343609283189,
+\] \[
+r_0=29047611873442575647497758179.
+\]
+
+Starting with the prime \(2\), the rows are in increasing numerical
+order. Each row states a complete factorization and a Lucas witness.
+Integer multiplication, modular exponentiation, and the Euclidean
+algorithm verify every row. No probabilistic primality test is required.
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3000}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3000}}
+  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.4000}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+\(q\)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Factorization of \(q-1\)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Witness \(a\)
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\(3\) & \(2\) & \(2\) \\
+\(5\) & \(2^{2}\) & \(2\) \\
+\(7\) & \(2\cdot 3\) & \(3\) \\
+\(11\) & \(2\cdot 5\) & \(2\) \\
+\(13\) & \(2^{2}\cdot 3\) & \(2\) \\
+\(17\) & \(2^{4}\) & \(3\) \\
+\(19\) & \(2\cdot 3^{2}\) & \(2\) \\
+\(23\) & \(2\cdot 11\) & \(5\) \\
+\(29\) & \(2^{2}\cdot 7\) & \(2\) \\
+\(37\) & \(2^{2}\cdot 3^{2}\) & \(2\) \\
+\(41\) & \(2^{3}\cdot 5\) & \(6\) \\
+\(59\) & \(2\cdot 29\) & \(2\) \\
+\(67\) & \(2\cdot 3\cdot 11\) & \(2\) \\
+\(73\) & \(2^{3}\cdot 3^{2}\) & \(5\) \\
+\(97\) & \(2^{5}\cdot 3\) & \(5\) \\
+\(109\) & \(2^{2}\cdot 3^{3}\) & \(6\) \\
+\(113\) & \(2^{4}\cdot 7\) & \(3\) \\
+\(149\) & \(2^{2}\cdot 37\) & \(2\) \\
+\(199\) & \(2\cdot 3^{2}\cdot 11\) & \(3\) \\
+\(293\) & \(2^{2}\cdot 73\) & \(2\) \\
+\(461\) & \(2^{2}\cdot 5\cdot 23\) & \(2\) \\
+\(631\) & \(2\cdot 3^{2}\cdot 5\cdot 7\) & \(3\) \\
+\(797\) & \(2^{2}\cdot 199\) & \(2\) \\
+\(1409\) & \(2^{7}\cdot 11\) & \(3\) \\
+\(1871\) & \(2\cdot 5\cdot 11\cdot 17\) & \(14\) \\
+\(2011\) & \(2\cdot 3\cdot 5\cdot 67\) & \(3\) \\
+\(2731\) & \(2\cdot 3\cdot 5\cdot 7\cdot 13\) & \(3\) \\
+\(2861\) & \(2^{2}\cdot 5\cdot 11\cdot 13\) & \(2\) \\
+\(4051\) & \(2\cdot 3^{4}\cdot 5^{2}\) & \(10\) \\
+\(9349\) & \(2^{2}\cdot 3\cdot 19\cdot 41\) & \(2\) \\
+\(16699\) & \(2\cdot 3\cdot 11^{2}\cdot 23\) & \(3\) \\
+\(28181\) & \(2^{2}\cdot 5\cdot 1409\) & \(2\) \\
+\(85831\) & \(2\cdot 3\cdot 5\cdot 2861\) & \(3\) \\
+\(120233\) & \(2^{3}\cdot 7\cdot 19\cdot 113\) & \(3\) \\
+\(305873\) & \(2^{4}\cdot 7\cdot 2731\) & \(3\) \\
+\(1627771\) & \(2\cdot 3\cdot 5\cdot 29\cdot 1871\) & \(3\) \\
+\(4681609\) & \(2^{3}\cdot 3\cdot 97\cdot 2011\) & \(23\) \\
+\(44706919\) & \(2\cdot 3\cdot 797\cdot 9349\) & \(6\) \\
+\(545358713\) & \(2^{3}\cdot 41\cdot 59\cdot 28181\) & \(5\) \\
+\(297159362677\) & \(2^{2}\cdot 3^{2}\cdot 11\cdot 461\cdot 1627771\) &
+\(2\) \\
+\(q_1\) & \(2^{4}\cdot 16699\cdot 85831\cdot 4681609\) & \(3\) \\
+\(q_2\) & \(2^{3}\cdot 17\cdot 59\cdot 4051\cdot 120233\cdot 44706919\)
+& \(3\) \\
+\(r_0\) & \(2\cdot 293\cdot 305873\cdot 545358713\cdot 297159362677\) &
+\(2\) \\
+\(q_3\) & \(2^{2}\cdot 3^{3}\cdot 109\cdot r_0\) & \(2\) \\
+\(n\) & \(2^{6}\cdot 3\cdot 149\cdot 631\cdot q_1\cdot q_2\cdot q_3\) &
+\(h\) \\
+\end{longtable}
+
+The last row uses \(h\) itself. It simultaneously proves that \(n\) is
+prime and that \(h\) has order \(n-1\). Its seven proper-order tests are
+precisely those for the distinct factors \(2,3,149,631,q_1,q_2,q_3\); in
+particular, the certificate is not a traversal of the curve group.
+
+The following additional checks use the same stated parameters. They can
+be reproduced by the short exact-arithmetic code printed below;
+exponentiation is repeated squaring. Here hexadecimal strings are
+concatenated before conversion.
+
+\begin{verbatim}
+from math import gcd
+p = 2**256 - 2**32 - 977
+n = int('FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFE'
+        'BAAEDCE6AF48A03BBFD25E8CD0364141', 16)
+beta = int('7ae96a2b657c07106e64479eac3434e9'
+           '9cf0497512f58995c1396c28719501ee', 16)
+lam = int('5363ad4cc05c30e0a5261c028812645a'
+          '122e22ea20816678df02967c1b23bd72', 16)
+h, M = lam + 2, (n - 1) // 6
+factors = [2, 3, 149, 631, 107361793816595537,
+           174723607534414371449,
+           341948486974166000522343609283189]
+assert (beta*beta + beta + 1) % p == 0
+assert (lam*lam + lam + 1) % n == 0
+assert pow(h, n-1, n) == 1
+for t in factors:
+    assert gcd(pow(h, (n-1)//t, n)-1, n) == 1
+assert pow(p, M, n) == 1
+for t in factors:
+    if M % t == 0:
+        assert pow(p, M//t, n) != 1
+assert pow(h, M, n) == (-lam*lam) % n
+assert M % 3 == 1 and p % 9 == 7
+assert pow((beta*pow(81, -1, p)) % p, (p-1)//3, p) == 1
+assert pow(19+beta, (p-1)//3, p) == beta
+assert pow((-beta*pow(3, -1, p)) % p, (p-1)//3, p) == 1
+assert (n-2)**2 > (9*(3**78-1))**2*p
+assert (n-2)**2 <= (9*(3**79-1))**2*p
+assert (n-3**39)**2 > (6*3**39*(3**39-1))**2*p
+assert (n-3**40)**2 <= (6*3**40*(3**40-1))**2*p
+\end{verbatim}
+
+The code uses ordinary arbitrary-precision integers; negative modular
+exponents denote inverses. The four squared inequalities are used only
+with positive sides. They therefore certify, without floating-point
+rounding, the thresholds in the character-sum applications. These finite
+arithmetic certificates support the explicitly stated parameters and
+identities; they are not a substitute for the geometric proofs.
+
+\section{Research provenance, contributions, and verification
+status}\label{research-provenance-contributions-and-verification-status}
+
+\subsection{Origin and development of the
+investigation}\label{origin-and-development-of-the-investigation}
+
+This mathematical investigation was initiated and directed by Louis
+Desbiens and developed through extensive interaction with OpenAI's
+ChatGPT. Louis Desbiens identified the original research questions, set
+the objectives, guided the investigation, assessed its progress at a
+conceptual level, and selected the material for public dissemination.
+
+ChatGPT contributed substantially to mathematical exploration, including
+alternative formulations, derivation of algebraic identities,
+formulation and examination of conjectures and proposed proofs,
+identification of potential counterexamples and exceptional cases,
+design and execution of symbolic and numerical checks, organization of
+relevant literature, and drafting and revision of the text. These
+contributions went well beyond linguistic or editorial assistance.
+
+\subsection{Attribution and scientific
+authorship}\label{attribution-and-scientific-authorship}
+
+Louis Desbiens is identified as the \textbf{human initiator and
+curator}, not as an independent mathematical authority certifying the
+results. OpenAI's ChatGPT is identified as the \textbf{AI mathematical
+research contributor}, not as an accountable conventional scholarly
+coauthor. These designations describe the provenance without implying
+that the human curator personally derived or independently verified all
+the arguments.
+
+\subsection{Mathematical verification
+status}\label{mathematical-verification-status}
+
+The candidate mathematical contributions have not undergone independent
+specialist validation, formal proof verification, or an exhaustive
+originality and priority review. In particular, independent examination
+is needed of Kummer character-sum hypotheses and conductors;
+independence and branch-support arguments underlying the 78/39
+thresholds; quotient genera, Jacobian splitting, isogeny and fields of
+definition. Locally displayed proofs are proposed arguments. Established
+results cited from public literature should be assessed separately from
+new deductions; neither an AI-generated proof nor a successful
+computational check is by itself an independently certified theorem.
+Individual statements may be correct, partly correct, incomplete, or
+incorrect.
+
+\subsection{Responsibility and purpose of public
+release}\label{responsibility-and-purpose-of-public-release}
+
+Louis Desbiens assumes responsibility for the decision to release this
+collection and for a good-faith account of its origin, contributors and
+verification status. He does \textbf{not} claim to have personally
+established or independently certified the correctness, completeness or
+originality of the proposed mathematical results. The material is made
+available for independent examination, criticism, reproducibility and
+possible further development; publication does not constitute scientific
+endorsement. This disclosure does not eliminate ordinary
+responsibilities associated with distributing public material.
+
+\subsection{Institutional independence, funding, and competing
+interests}\label{institutional-independence-funding-and-competing-interests}
+
+No institutional affiliation or endorsement is claimed. The
+investigation was undertaken independently, without institutional
+funding or resources. No external research funding was received. The
+human curator reports no competing interests.
+
+\subsection{Computational evidence and source
+availability}\label{computational-evidence-and-source-availability}
+
+Numerical evaluations helped develop the initial intuition. The public
+repository contains the available scripts, archived results, and a
+claim-by-claim verification coverage guide. These are scoped finite
+arithmetic, symbolic, and numerical checks, not independent verification
+of the general mathematical results. Historical exploratory calculations
+for which independent source data are unavailable are not treated as
+reproducible evidence.
+
+\section{References}\label{references}
+
+{[}1{]} S. D. Galbraith, \emph{Mathematics of Public Key Cryptography},
+Cambridge University Press, 2012. Public author version and errata:
+\url{https://www.math.auckland.ac.nz/}\textasciitilde sgal018/crypto-book/crypto-book.html.
+
+{[}2{]} P. Deligne, ``La conjecture de Weil. II,'' \emph{Publications
+Mathematiques de l'IHES} 52 (1980), 137--252. DOI: 10.1007/BF02684780.
+Public text: \url{https://www.numdam.org/item/PMIHES}\_1980\_\_52\_\_137\_0/.
+
+{[}3{]} J. S. Milne, \emph{Elliptic Curves}, second edition, World
+Scientific, 2021. Public author version:
+\url{https://www.jmilne.org/math/Books/EC2.pdf}.
+
+{[}4{]} K. E. Lauter and K. E. Stange, \emph{The elliptic curve discrete
+logarithm problem and equivalent hard problems for elliptic divisibility
+sequences}, arXiv:0803.0728v2, 2008; published in \emph{Selected Areas
+in Cryptography}, LNCS 5381, 2009, pp.~309--327. DOI:
+10.1007/978-3-642-04159-4\_20. Public version:
+\url{https://arxiv.org/abs/0803.0728v2}. The composition argument and the
+distinction between a point function and a normalized sequence are used
+explicitly in the text.
+
+{[}5{]} Certicom Research, \emph{SEC 2: Recommended Elliptic Curve
+Domain Parameters}, version 2.0, 27 January 2010, Section 2.4.1.
+\url{https://www.secg.org/sec2-v2.pdf}.
+
+{[}6{]} J. S. Milne, ``Jacobian varieties,'' in \emph{Arithmetic
+Geometry}, Springer, 1986, pp.~167--212. Corrected public author
+version, 12 June 2021, especially Sections 2 and 6:
+\url{https://www.jmilne.org/math/xnotes/JVs.pdf}.
+\end{document}

@@ -1,0 +1,7 @@
+General two-torsion translation identity: PASS
+Quaternion intertwiner determinant, order, coset traces: PASS
+Even/odd finite-factor moment traces through order 12: PASS
+Extension-degree phase traces for degrees 1..6: PASS
+Symmetric-power rank formulas through degree 12: PASS
+Improved moment-rank identity through moment 12: PASS
+These checks do not verify the geometric or sheaf-theoretic arguments.

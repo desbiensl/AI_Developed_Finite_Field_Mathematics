@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "design": "Fixed small-field enumeration. Only prime-order groups are tested.",
+  "model_count": 152,
+  "fourier_coefficients_tested": 3262,
+  "exact_nontrivial_autocorrelations_tested": 3110,
+  "max_fourier_over_2sqrtp": 0.9739313294171474,
+  "numpy_version": "2.3.5"
+}

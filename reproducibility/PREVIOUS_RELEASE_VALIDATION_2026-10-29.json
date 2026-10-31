@@ -1,0 +1,42 @@
+{
+  "validation_date": "2026-10-29",
+  "edition": "Public AI-developed mathematical research artifacts",
+  "release_papers": [
+    {
+      "article": "01_Osculation_and_Divisor_Reduction",
+      "pdf_pages": 11,
+      "word_math_objects": 244,
+      "metadata_curator_role": true
+    },
+    {
+      "article": "02_Primitive_CM_Dynamics_and_Rigidity",
+      "pdf_pages": 14,
+      "word_math_objects": 394,
+      "metadata_curator_role": true
+    },
+    {
+      "article": "03_EDS_Kummer_and_Cyclic_Sequences",
+      "pdf_pages": 18,
+      "word_math_objects": 599,
+      "metadata_curator_role": true
+    },
+    {
+      "article": "04_Quaternionic_Elliptic_Fourier",
+      "pdf_pages": 20,
+      "word_math_objects": 487,
+      "metadata_curator_role": true
+    },
+    {
+      "article": "05_Symmetry_Constraints_on_Scalar_Observables",
+      "pdf_pages": 10,
+      "word_math_objects": 245,
+      "metadata_curator_role": true
+    }
+  ],
+  "total_word_math_objects": 1969,
+  "seven_original_scripts_reran_successfully": true,
+  "five_json_reports_byte_identical_to_archived": true,
+  "no_independent_specialist_mathematical_review": true,
+  "no_formal_proof_assistant_verification": true,
+  "notes": "LaTeX PDF layout audit found no off-page text. Publication framing and metadata checked. Not a mathematical proof audit."
+}

@@ -1,0 +1,735 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+  11pt,
+  a4paper,
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+  \setmainfont[]{Latin Modern Roman}
+  \setmathfont[]{Latin Modern Math}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[top=25mm,bottom=24mm,left=27mm,right=27mm]{geometry}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+% Mathematics-focused preprint layout: monochrome, Latin Modern OpenType text and math.
+% Latin Modern fonts are supplied by a standard TeX installation, not embedded in this source archive.
+\usepackage{microtype}
+\usepackage{setspace}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{needspace}
+\setstretch{1.13}
+\setlength{\parindent}{1.15em}
+\setlength{\parskip}{3.25pt plus 1.0pt minus .6pt}
+\titlespacing*{\section}{0pt}{17pt plus 4pt minus 2pt}{7pt plus 2pt}
+\titlespacing*{\subsection}{0pt}{13pt plus 3pt minus 1pt}{5pt plus 1pt}
+\titlespacing*{\subsubsection}{0pt}{10pt plus 2pt minus 1pt}{3pt plus 1pt}
+\titleformat{\section}{\normalfont\bfseries\large}{\thesection}{0.7em}{}
+\titleformat{\subsection}{\normalfont\bfseries\normalsize}{\thesubsection}{0.6em}{}
+\titleformat{\subsubsection}{\normalfont\bfseries\normalsize}{\thesubsubsection}{0.6em}{}
+\AtBeginDocument{%
+  \setlength{\abovedisplayskip}{12pt plus 3pt minus 2pt}%
+  \setlength{\belowdisplayskip}{12pt plus 3pt minus 2pt}%
+  \setlength{\abovedisplayshortskip}{9pt plus 2pt minus 1pt}%
+  \setlength{\belowdisplayshortskip}{10pt plus 2pt minus 1pt}%
+  \pagestyle{plain}%
+}
+\setlength{\emergencystretch}{4em}
+\setcounter{secnumdepth}{0}
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+
+\usepackage{longtable,booktabs,array,calc}
+\usepackage{fvextra}
+\RecustomVerbatimEnvironment{verbatim}{Verbatim}{breaklines=true,breakanywhere=true,fontsize=\footnotesize}
+\usepackage{upquote}
+
+\hypersetup{
+  pdftitle={Symmetry constraints on elliptic-curve scalar observables},
+  pdfauthor={Louis Desbiens (human initiator and curator)},
+  pdfsubject={AI-developed mathematical research artifact; independently unverified candidate results},
+  colorlinks=true,
+  linkcolor={black},
+  filecolor={black},
+  citecolor={black},
+  urlcolor={black},
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Symmetry constraints on elliptic-curve scalar observables}
+\usepackage{etoolbox}
+\makeatletter
+\providecommand{\subtitle}[1]{%
+  \apptocmd{\@title}{\par {\large #1 \par}}{}{}
+}
+\makeatother
+\subtitle{Parity, normalized division polynomials, collision quotients, and Fourier null models}
+\author{}
+\date{Public mathematical research artifact \textbar{} 31 October 2026}
+\begin{document}
+\maketitle
+
+\textbf{Human initiator and curator:} Louis Desbiens\\
+\textbf{AI mathematical research contributor:} OpenAI's ChatGPT\\
+\textbf{Document classification:} Public AI-developed mathematical
+research artifact -- independently unverified candidate results\\
+\textbf{Institutional affiliation:} None claimed\\
+\textbf{Manuscript license:} Creative Commons Attribution 4.0 International (CC BY 4.0)
+
+\textbf{Status and reading guide.} This document records a
+human-initiated, substantially AI-developed mathematical investigation.
+The human curator directed the objectives but does not independently
+certify its advanced mathematical arguments. The novel claims and
+supplied proofs are candidate results awaiting independent specialist
+verification; public availability does not certify correctness,
+completeness or originality. This artifact develops scalar-parity
+symmetry restrictions, division-polynomial normalization identities, and
+a deliberately specified random-sign Fourier model. Elementary pairing
+and counting arguments are included, while normalization conventions,
+covariance calculations and the probabilistic limit should be checked
+independently. The surrogate model is not a measured property of
+deterministic elliptic-curve predicates, and no ECDLP hardness theorem
+or cryptanalytic speedup is proposed.
+
+\section{Abstract}\label{abstract}
+
+This manuscript investigates the constraints imposed by exact symmetries
+on public functions of elliptic-curve points when the corresponding
+scalar is unknown. In a cyclic group of odd prime order, a
+negation-invariant feature has one-half accuracy for canonical scalar
+parity under a symmetric distribution; a pairing argument is supplied.
+The treatment contrasts this obstruction with orientation-sensitive
+contact quantities and presents a proposed normalization identity for an
+intrinsic division-polynomial point function, distinct from a normalized
+elliptic divisibility sequence. The sixfold complex-multiplication
+quotient gives collision identities, but the idealized birthday gain is
+only a constant-factor effect. A coefficient-counting argument limits
+bounded-digit cyclotomic scalar representations. The manuscript also
+derives Fourier symmetry identities and studies a deliberately defined
+random-sign surrogate: its covariance is calculated and Gaussian
+marginal behavior is argued using characteristic functions. Parseval
+normalization, signed-orbit selection, and the limitations of
+Fourier-envelope deductions are treated separately. The candidate
+conclusions concern mathematical identities and the stated surrogate
+model, not benchmarks, deterministic parity leakage, or a general ECDLP
+lower bound.
+
+\textbf{Keywords:} elliptic discrete logarithm; scalar parity; division
+polynomial; complex multiplication; collision search; Fourier transform;
+symmetry.
+
+\section{1. Questions and mathematical
+setting}\label{questions-and-mathematical-setting}
+
+Let \(E/\mathbf F_q\) be a nonsingular short Weierstrass curve in
+characteristic greater than three. Let \(G\) generate a subgroup of odd
+prime order \(n>3\), and write \(P_d=[d]G\). A scalar means its residue
+class modulo \(n\) unless a canonical representative \(0\leq d<n\) is
+explicitly specified. Coordinate arithmetic takes place in
+\(\mathbf F_q\), not in the scalar field \(\mathbf F_n\).
+
+The exploratory investigation used numerical evaluations to test and
+refine the initial intuition about coordinate observables. This note
+isolates the exact identities and symmetry constraints underlying those
+questions. It makes no quantitative claim about a historical classifier,
+timing measurement, or numerical sample. The distinction is important:
+an algebraic obstruction, a deliberately specified random model, and a
+measured property of an actual deterministic predicate are different
+statements.
+
+The standard theory of elliptic arithmetic, division polynomials, and
+collision algorithms is described in {[}1{]}. The relationship between
+scalar parity, normalized elliptic divisibility sequences, and ECDLP is
+prior work {[}2{]}. The role of efficient endomorphisms in known-scalar
+multiplication is likewise established {[}3{]}. We do not claim those
+general mechanisms as new.
+
+\section{2. Scalar division and an exact parity
+oracle}\label{scalar-division-and-an-exact-parity-oracle}
+
+\textbf{Proposition 2.1 (scalar layers).} Let \(m\geq1\) be coprime to
+\(n\). For \(0\leq k<n\), the representative \(x\) with \(0\leq x<n\) of
+\(km^{-1}\pmod n\) satisfies
+
+\[
+x=\frac{k+\ell n}{m},\qquad 0\leq\ell<m,\qquad
+k+\ell n\equiv0\pmod m. \qquad (2.1)
+\]
+
+\textbf{Proof.} The integer \(mx-k\) is a multiple of \(n\). It lies
+strictly above \(-n\) and strictly below \(mn\), so it is \(\ell n\)
+with \(0\leq\ell<m\). The congruence determines \(\ell\) uniquely since
+\(n\) is invertible modulo \(m\). Conversely, that choice makes the
+quotient integral and between zero and \(n-1\). \(\square\)
+
+In particular, for \(m=2\), even \(k\) gives \(x=k/2<n/2\), whereas odd
+\(k\) gives \(x=(k+n)/2>n/2\). This is a statement about the hidden
+integer representative. The easily computed point \([m^{-1}]P_k\) does
+not itself identify which scalar interval contains \(x\).
+
+\textbf{Proposition 2.2 (an exact oracle suffices).} An oracle returning
+canonical scalar parity for every point of \(\langle G\rangle\)
+determines the complete scalar using at most \(\lceil\log_2 n\rceil\)
+oracle calls and known group operations.
+
+\textbf{Proof.} Starting from \(Q=[d]G\), let \(b\in\{0,1\}\) be the
+returned parity and set \(Q'=[2^{-1}](Q-[b]G)\). Since \(d-b\) is even
+as an integer and \(0\leq(d-b)/2<n\), the canonical scalar of \(Q'\) is
+exactly \((d-b)/2\), with no modular wrap. Repeat until the point is
+\(O\). The recorded bits, in least-significant-first order, recover
+\(d\). This is the standard parity-oracle reduction, also given in {[}2,
+Proposition 2{]}. \(\square\)
+
+A bit of an ordinate is not that oracle. Its usefulness requires a
+separate relation to the canonical scalar label.
+
+\section{3. Negation-invariant features cannot predict
+parity}\label{negation-invariant-features-cannot-predict-parity}
+
+\textbf{Proposed Theorem 3.1.} Let \(L(P)=L(-P)\) on nonidentity
+subgroup points. Under the uniform distribution on nonzero scalars,
+every deterministic predictor depending only on \(L(P_d)\) has parity
+accuracy exactly \(1/2\). The same holds in expectation for a randomized
+predictor whose auxiliary randomness is independent of the hidden
+scalar. More generally, the conclusion holds for any distribution
+assigning equal mass to \(d\) and \(n-d\).
+
+\textbf{Proof.} The involution \(d\mapsto n-d\) pairs all nonzero
+scalars without fixed points. Because \(n\) is odd, the canonical
+representatives in a pair have opposite parity. Their features are
+identical, so a deterministic prediction is correct on exactly one
+member. For a randomized predictor, condition on its random choices or
+pair its two equal prediction probabilities. Averaging proves the
+statement. \(\square\)
+
+The theorem applies to any vector of functions of \(x(P)\) or
+\(y(P)^2\), not only to one scalar feature. Undefined values must be
+excluded symmetrically. It does not apply to a nonsymmetric interval
+prior or to features containing orientation information. In particular,
+adding a known offset to a point can destroy the symmetry of a feature,
+but that fact alone does not imply predictive advantage.
+
+\section{4. Contact norms and an orientation-sensitive
+quantity}\label{contact-norms-and-an-orientation-sensitive-quantity}
+
+Write \(E:y^2=C(x)\) and let \(A,B\) be fixed rational functions of
+\(x\). For \(h=A-By\) and \(\bar h=A+By\),
+
+\[
+N=h\bar h=A^2-CB^2
+\]
+
+is invariant under negation. Wherever the denominators are nonzero,
+define
+
+\[
+J_h=\frac{d}{dx}\log\frac{h}{\bar h}
+=\frac{2C(A'B-AB')-ABC'}{y(A^2-CB^2)}. \qquad (4.1)
+\]
+
+\textbf{Derivation.} Since \(y'=C'/(2y)\), expand \(h'\bar h-h\bar h'\).
+The cross terms leave \(2y(A'B-AB')-ABC'/y\). Dividing by \(h\bar h\)
+yields (4.1). The numerator depends only on \(x\), while the denominator
+contains one factor of \(y\), so \(J_h(-P)=-J_h(P)\).
+
+The fixed-function qualification matters: if \(A,B\) are themselves
+selected by a point-dependent rule, the whole rule's transformation
+under negation must be checked. For fixed \(A,B\), the norm is subject
+to Theorem 3.1 and the oriented quantity is not. Neither statement
+supplies a correlation theorem for \(J_h\).
+
+\section{5. An intrinsic normalized division-polynomial
+function}\label{an-intrinsic-normalized-division-polynomial-function}
+
+Assume in this section that \(\gcd(n,q-1)=1\). Let \(\psi_m\) be the
+standard division polynomials, with \(\psi_1=1\), \(\psi_2=2y\), and
+composition identity
+
+\[
+\psi_{ab}(P)=\psi_a([b]P)\,\psi_b(P)^{a^2}. \qquad (5.1)
+\]
+
+For nonzero \(P\in\langle G\rangle\), define \(L=q-1\), choose \(u\)
+with \(u n^2\equiv1\pmod L\), and set
+
+\[
+\Theta(P)=\left(\frac{\psi_L(P)}{\psi_{L+n}(P)}\right)^u. \qquad (5.2)
+\]
+
+Both denominator and numerator are nonzero: their indices are not
+divisible by the prime order \(n\). Exponentiation by \(u\) is the
+unique inverse to the \(n^2\)-power map of \(\mathbf F_q^*\). Thus (5.2)
+is a function of the point, with known indices independent of its
+unknown scalar.
+
+\textbf{Proposed Theorem 5.1 (normalization identity).} For every
+integer \(e\) not divisible by \(n\),
+
+\[
+\Theta([e]P)=\Theta(P)^{e^2}\psi_e(P). \qquad (5.3)
+\]
+
+\textbf{Proof.} First take positive \(e\); negative indices follow from
+\(\psi_{-e}=-\psi_e\) and the same composition identity. Put
+\(U=\psi_e(P)\). Since \([L+n]P=[L]P\), applying (5.1) in both orders
+gives
+
+\[
+\frac{\psi_L([e]P)}{\psi_{L+n}([e]P)}
+=\left(\frac{\psi_L(P)}{\psi_{L+n}(P)}\right)^{e^2}
+ U^{(L+n)^2-L^2}.
+\]
+
+The last exponent is congruent to \(n^2\) modulo \(L\). Taking the
+unique \(n^2\)th root proves (5.3). All cancellations are legitimate:
+\(n\) divides neither \(e\) nor \(L\), so \(\psi_e(P)\) and
+\(\psi_e([L]P)\) are nonzero. \(\square\)
+
+To distinguish the conventions explicitly, the normalized sequence
+attached to a \emph{fixed} base point is
+
+\[
+\widetilde W_P(e)=\frac{\Theta([e]P)}{\Theta(P)}
+=\Theta(P)^{e^2-1}\psi_e(P),\qquad \widetilde W_P(1)=1. \qquad (5.4)
+\]
+
+The exponent in the intrinsic point-function identity is \(e^2\); the
+exponent in the normalized sequence is \(e^2-1\). The distinction is
+forced already by substituting \(e=1\). With \(\Theta(O)=0\), (5.4) is
+periodic in \(e\) modulo \(n\) and has zero terms exactly at multiples
+of \(n\). The specific factor \(\Theta(P)^{e^2-1}\) preserves the
+normalized Ward recurrence: both sides acquire the common factor
+\(\Theta(P)^{2(m^2+n_0^2)-2}\) when its recurrence indices are
+\(m,n_0\). This is the normalization mechanism studied in {[}2, Section
+3{]}; the derivation above fixes the point-function and sequence
+conventions without relying on a formula inferred from numerical data.
+
+Let \(\chi_q\) be the quadratic character. If \(\chi_q(\Theta(P))=-1\),
+(5.3) gives
+
+\[
+\chi_q(\Theta([e]P))=(-1)^e\chi_q(\psi_e(P)). \qquad (5.5)
+\]
+
+The left side is a public point function, but the unknown-index term on
+the right is not supplied by it. Knowing that term would provide scalar
+parity; merely computing \(\Theta(Q)\) does not. The character condition
+on \(\Theta(P)\) is explicit, rather than assumed for every generator.
+The normalization and residue problems in {[}2{]} explain why this is a
+substantive missing input.
+
+\section{6. Sixfold symmetry and exact collision
+equations}\label{sixfold-symmetry-and-exact-collision-equations}
+
+Assume \(E:y^2=x^3+b\) with \(b\neq0\), \(q\equiv1\pmod3\), and that the
+subgroup is preserved by \(\phi(x,y)=(\beta x,y)\), where \(\beta\) has
+order three. Write \(\phi(G)=[\lambda]G\) and assume \(\lambda\) has
+order three modulo \(n\). These hypotheses hold for the standard
+secp256k1 group {[}4{]}. Put \(H=\{\pm1,\pm\lambda,\pm\lambda^2\}\).
+Every nonzero scalar orbit has six elements, since multiplication by a
+nontrivial unit of \(H\) fixes no element of \(\mathbf F_n^*\).
+
+A collision state with public coefficients is \(R_i=[A_i]G+[B_i]Q\),
+where \(Q=[d]G\). If \(R_i=[v]R_j\) for a known \(v\in H\), then
+
+\[
+(B_i-vB_j)d=vA_j-A_i\pmod n.
+\]
+
+When \(B_i-vB_j\neq0\), this determines
+
+\[
+d=(vA_j-A_i)(B_i-vB_j)^{-1}\pmod n. \qquad (6.1)
+\]
+
+This follows by substituting \(Q=[d]G\) and comparing coefficients of a
+generator. If the denominator is zero, a consistent collision also has
+zero numerator and provides no equation for \(d\). Every proposed answer
+should be checked by \([d]G=Q\).
+
+Canonicalizing a state by \(R\mapsto[v]R\) requires changing its
+coefficients to \((vA,vB)\) at the same time. Otherwise the stored
+relation between point and coefficients is false.
+
+\subsection{6.1. The idealized birthday
+gain}\label{the-idealized-birthday-gain}
+
+For independent uniform samples from a set of \(M\) states, the
+probability of no collision in the first \(s\) samples is
+
+\[
+\prod_{j=0}^{s-1}(1-j/M).
+\]
+
+For \(s=O(\sqrt M)\), expanding its logarithm gives
+\(-s(s-1)/(2M)+O(s^3/M^2)\). Thus the collision scale is \(\sqrt M\).
+Replacing \(n-1\) states by \((n-1)/6\) in this \emph{sampling model}
+yields the factor \(\sqrt6\) in sample count. It does not establish a
+measured running-time gain for a deterministic or Pollard-style quotient
+walk. Walk mixing, fruitless cycles, restarts, field costs, and
+coefficient bookkeeping require their own analysis {[}1{]}.
+
+Efficient-endomorphism decompositions \(k\equiv a+\lambda b\pmod n\) can
+accelerate a known scalar multiplication \([k]P=[a]P+[b]\phi(P)\)
+{[}3{]}. Applying the same notation to an unknown \(d\) does not reveal
+\(a,b\) or produce two independent smaller discrete logarithms.
+
+\section{7. Bounded-digit representations need a coverage
+proof}\label{bounded-digit-representations-need-a-coverage-proof}
+
+\textbf{Proposition 7.1.} Let a field of odd characteristic contain an
+element \(\gamma\) of even order \(D\), and let
+\(A_j\in\{0,\ldots,L-1\}\). The number of distinct values represented by
+\(\sum_{j=0}^{D-1}A_j\gamma^j\) is at most
+
+\[
+(2L-1)^{D/2}. \qquad (7.1)
+\]
+
+\textbf{Proof.} Since \(\gamma^{D/2}=-1\),
+
+\[
+\sum_{j=0}^{D-1}A_j\gamma^j
+=\sum_{j=0}^{D/2-1}(A_j-A_{j+D/2})\gamma^j.
+\]
+
+There are at most \(2L-1\) possible integer differences at each
+position. Reducing them into the field or identifying different vectors
+can only lower the number of outputs. \(\square\)
+
+For \(D=64\) and \(L=16\), the upper bound is \(31^{32}\), fewer than
+\(2^{159}\), rather than \(16^{64}=2^{256}\). This rules out full
+coverage of a roughly 256-bit scalar field by that particular digit box.
+Cycling coefficients can still give a valid multiplication identity;
+coverage does not follow from that identity.
+
+\section{8. Ordinate predicates and Fourier
+symmetry}\label{ordinate-predicates-and-fourier-symmetry}
+
+Now let \(q=p\) be an odd prime, let \(E(\mathbf F_p)=\langle G\rangle\)
+have prime order \(n\), and retain the order-three automorphism of
+Section 6. For canonical ordinate representatives \(0\leq y<p\), three
+possible predicates are
+
+\[
+f_{\mathrm{bit}}(P)=(-1)^y,\qquad
+f_{\mathrm{half}}(P)=\begin{cases}1,&2y<p,\\-1,&2y>p,\end{cases}
+\] \[
+f_{\mathrm{quad}}(P)=\chi_p(y(P)),\qquad f(O)=0.
+\]
+
+There is no rational nonzero two-torsion, so \(y\neq0\) away from \(O\).
+All three predicates are invariant under \(\phi\). The first two are odd
+under negation because the representative of \(-y\) is \(p-y\); the
+third is odd when \(p\equiv3\pmod4\). None of these identities is a
+scalar-parity prediction.
+
+For any real sequence satisfying \(f_0=0\), \(f_{\lambda d}=f_d\), and
+\(f_{-d}=-f_d\), define
+
+\[
+S_k=\sum_{d=0}^{n-1}f_d e^{-2\pi i kd/n}.
+\]
+
+Changing variables gives
+
+\[
+S_0=0,\quad S_{\lambda k}=S_k,\quad
+S_{-k}=-S_k=\overline{S_k}. \qquad (8.1)
+\]
+
+The spectrum is purely imaginary, and there are \((n-1)/6\) nonzero
+frequency orbits of equal magnitude. Equality of frequency values within
+an orbit is deterministic dependence, not evidence for independent
+observations.
+
+\section{9. A symmetry-preserving random-sign
+model}\label{a-symmetry-preserving-random-sign-model}
+
+Choose one representative \(d_j\) of each sixfold scalar orbit and
+independent signs \(\varepsilon_j\in\{-1,1\}\) of equal probability.
+Define \(f_{\lambda^a d_j}=\varepsilon_j\),
+\(f_{-\lambda^a d_j}=-\varepsilon_j\) for \(a=0,1,2\), and \(f_0=0\).
+This is a specified surrogate, not an assertion that an arithmetic
+predicate is random.
+
+\textbf{Proposition 9.1 (covariance).} For nonzero frequencies \(k,l\),
+
+\[
+\mathbb E S_k=0,\qquad
+\mathbb E(S_k\overline{S_l})=
+\begin{cases}
+n,&l\in\{k,\lambda k,\lambda^2k\},\\
+-n,&l\in\{-k,-\lambda k,-\lambda^2k\},\\
+0,&\text{otherwise}.
+\end{cases} \qquad (9.1)
+\]
+
+\textbf{Proof.} For nonzero scalar indices, the input covariance is one
+when \(e=\lambda^a d\), minus one when \(e=-\lambda^a d\), and zero
+otherwise. Substitute this into the double Fourier sum. For each \(a\),
+the sums over \(d\neq0\) are \(n-1\) when the relevant frequency is zero
+and \(-1\) otherwise. The two constant terms cancel, leaving
+
+\[
+n\sum_{a=0}^2\bigl(\mathbf1_{l\lambda^a=k}-\mathbf1_{l\lambda^a=-k}\bigr).
+\]
+
+The three multipliers are distinct and none is the negative of another,
+which proves (9.1). \(\square\)
+
+\textbf{Proposition 9.2 (Gaussian marginals of the surrogate).} Along
+any sequence of such prime orders \(n\to\infty\), the real variable
+\(S_k/(i\sqrt n)\) converges in distribution to a standard normal
+variable for any choice of a nonzero frequency at each size.
+
+\textbf{Proof.} The contribution of each scalar orbit is an imaginary
+number times its independent sign. Thus
+\(S_k/i=\sum_j a_j\varepsilon_j\) with real \(a_j\) and \(|a_j|\leq6\).
+Proposition 9.1 gives \(\sum_j a_j^2=n\). For fixed real \(t\), the
+characteristic function is
+
+\[
+\prod_j\cos(t a_j/\sqrt n).
+\]
+
+Using \(\log\cos u=-u^2/2+O(u^4)\) uniformly near zero, its logarithm is
+
+\[
+-\frac{t^2}{2}+O\!\left(\frac{t^4\sum_j a_j^4}{n^2}\right)
+=-\frac{t^2}{2}+O(t^4/n),
+\]
+
+since \(\sum_j a_j^4\leq36n\). Convergence of characteristic functions
+proves the assertion. \(\square\)
+
+This is a theorem about the explicitly generated signs. It is not a
+Gaussian-limit theorem for ordinate parity, threshold predicates, or the
+quadratic ordinate character. Nor does zero covariance between different
+frequency orbits make the finite-size Fourier coefficients independent.
+
+\section{10. Parseval, sign selection, and envelope
+consequences}\label{parseval-sign-selection-and-envelope-consequences}
+
+For any deterministic sign sequence with \(f_0=0\) and \(|f_d|=1\) for
+\(d\neq0\), Fourier orthogonality gives
+
+\[
+\sum_{k=0}^{n-1}|S_k|^2=n(n-1). \qquad (10.1)
+\]
+
+When \(S_0=0\), its nonzero-frequency average is exactly \(n\). If
+\(S_k\) is imaginary and \(X_k=S_k/(2i\sqrt p)\), then
+
+\[
+\frac1n\sum_k X_k^2=\frac{n-1}{4p},\qquad
+\frac1{n-1}\sum_{k\neq0}X_k^2=\frac{n}{4p}. \qquad (10.2)
+\]
+
+Thus a variance match is not an independent distribution test. Selecting
+one member from each sixfold frequency orbit preserves all even moments,
+but not the signed empirical law: choosing the positive imaginary member
+of each pair makes the selected values nonnegative. A canonical signed
+comparison uses the full spectrum or includes both signs for each orbit.
+
+\textbf{Proposition 10.1 (consequences of an assumed envelope).} Suppose
+\(|S_k|\leq B\) at every nonzero frequency and \(S_0=0\). A
+Fourier-supported approximation capturing a fraction \(\eta\) of the
+total energy must use at least \(\eta n(n-1)/B^2\) frequencies. Also,
+for every fixed \(u\neq0,v\pmod n\),
+
+\[
+\left|\frac1{n-1}\sum_{d=1}^{n-1}(-1)^d f_{ud+v}\right|
+\leq\frac{B(2+\log n)+1}{n-1}. \qquad (10.3)
+\]
+
+\textbf{Proof.} A set of \(s\) frequencies contains at most \(sB^2\)
+energy; compare with (10.1). For the second assertion let \(a_d=(-1)^d\)
+on \(0\leq d<n\). A finite geometric sum gives
+
+\[
+|\widehat a(k)|=\frac1{|\cos(\pi k/n)|}.
+\]
+
+Pair frequencies around \(n/2\) and use \(\sin x\geq2x/\pi\) for
+\(0\leq x\leq\pi/2\). The resulting sum over half-integers gives
+
+\[
+\sum_{k=1}^{n-1}|\widehat a(k)|\leq n(2+\log n).
+\]
+
+The Fourier magnitudes of \(d\mapsto f_{ud+v}\) are a permutation of
+those of \(f\). Fourier inversion bounds the full scalar correlation by
+\(B(2+\log n)\). Removing its \(d=0\) term changes it by at most one.
+Division by \(n-1\) proves (10.3). \(\square\)
+
+The envelope is an explicit hypothesis here, not an assumed property of
+every predicate. These conclusions concern sparse Fourier approximation
+and direct correlation with one fixed affine query. They do not rule out
+arbitrary adaptive combinations, other features, or non-Fourier
+algorithms.
+
+\section{11. Interpretation}\label{interpretation}
+
+The useful distinction is between information preserved by a symmetry
+and a method for extracting a hidden scalar. Negation-invariant features
+cannot predict canonical parity under symmetric sampling.
+Orientation-sensitive quantities escape that exact obstruction but
+require a further argument to become useful. Normalized
+division-polynomial point functions satisfy a precise identity, yet the
+unknown-index residue remains a separate input. Sixfold quotient
+collisions yield exact equations when coefficients are tracked, while
+their birthday benefit remains a constant-factor statement in an
+explicit model.
+
+The Fourier null model demonstrates how Gaussian-looking marginal
+behavior can follow from symmetry-compatible random signs. It does not
+prescribe the law of a deterministic arithmetic observable. Numerical
+evaluations can motivate a sharper arithmetic theorem, but they neither
+replace that theorem nor establish a general security conclusion. The
+scope of every restriction in this note is therefore specified by its
+hypotheses rather than by a numerical observation.
+
+\section{Research provenance, contributions, and verification
+status}\label{research-provenance-contributions-and-verification-status}
+
+\subsection{Origin and development of the
+investigation}\label{origin-and-development-of-the-investigation}
+
+This mathematical investigation was initiated and directed by Louis
+Desbiens and developed through extensive interaction with OpenAI's
+ChatGPT. Louis Desbiens identified the original research questions, set
+the objectives, guided the investigation, assessed its progress at a
+conceptual level, and selected the material for public dissemination.
+
+ChatGPT contributed substantially to mathematical exploration, including
+alternative formulations, derivation of algebraic identities,
+formulation and examination of conjectures and proposed proofs,
+identification of potential counterexamples and exceptional cases,
+design and execution of symbolic and numerical checks, organization of
+relevant literature, and drafting and revision of the text. These
+contributions went well beyond linguistic or editorial assistance.
+
+\subsection{Attribution and scientific
+authorship}\label{attribution-and-scientific-authorship}
+
+Louis Desbiens is identified as the \textbf{human initiator and
+curator}, not as an independent mathematical authority certifying the
+results. OpenAI's ChatGPT is identified as the \textbf{AI mathematical
+research contributor}, not as an accountable conventional scholarly
+coauthor. These designations describe the provenance without implying
+that the human curator personally derived or independently verified all
+the arguments.
+
+\subsection{Mathematical verification
+status}\label{mathematical-verification-status}
+
+The candidate mathematical contributions have not undergone independent
+specialist validation, formal proof verification, or an exhaustive
+originality and priority review. In particular, independent examination
+is needed of the scope of the parity pairing; division-polynomial
+normalization and recurrence conventions; the random-sign covariance and
+Gaussian limit; separating the assumed Fourier envelope from
+deterministic-curve conclusions. Locally displayed proofs are proposed
+arguments. Established results cited from public literature should be
+assessed separately from new deductions; neither an AI-generated proof
+nor a successful computational check is by itself an independently
+certified theorem. Individual statements may be correct, partly correct,
+incomplete, or incorrect.
+
+\subsection{Responsibility and purpose of public
+release}\label{responsibility-and-purpose-of-public-release}
+
+Louis Desbiens assumes responsibility for the decision to release this
+collection and for a good-faith account of its origin, contributors and
+verification status. He does \textbf{not} claim to have personally
+established or independently certified the correctness, completeness or
+originality of the proposed mathematical results. The material is made
+available for independent examination, criticism, reproducibility and
+possible further development; publication does not constitute scientific
+endorsement. This disclosure does not eliminate ordinary
+responsibilities associated with distributing public material.
+
+\subsection{Institutional independence, funding, and competing
+interests}\label{institutional-independence-funding-and-competing-interests}
+
+No institutional affiliation or endorsement is claimed. The
+investigation was undertaken independently, without institutional
+funding or resources. No external research funding was received. The
+human curator reports no competing interests.
+
+\subsection{Computational evidence and source
+availability}\label{computational-evidence-and-source-availability}
+
+Numerical evaluations helped develop the initial intuition. The public
+repository contains the available scripts, archived results, and a
+claim-by-claim verification coverage guide. These are scoped finite
+arithmetic, symbolic, and numerical checks, not independent verification
+of the general mathematical results. Historical exploratory calculations
+for which independent source data are unavailable are not treated as
+reproducible evidence.
+
+\section{References}\label{references}
+
+{[}1{]} S. D. Galbraith, \emph{Mathematics of Public Key Cryptography},
+Cambridge University Press, 2012. Public author version and errata:
+\url{https://www.math.auckland.ac.nz/}\textasciitilde sgal018/crypto-book/crypto-book.html.
+
+{[}2{]} K. E. Lauter and K. E. Stange, \emph{The elliptic curve discrete
+logarithm problem and equivalent hard problems for elliptic divisibility
+sequences}, arXiv:0803.0728v2, 2008; published in \emph{Selected Areas
+in Cryptography}, LNCS 5381, 2009, pp.~309--327. DOI:
+10.1007/978-3-642-04159-4\_20. Public version:
+\url{https://arxiv.org/abs/0803.0728v2}. The composition argument and the
+distinction between a point function and a normalized sequence are used
+explicitly in the text.
+
+{[}3{]} R. P. Gallant, R. J. Lambert, and S. A. Vanstone, ``Faster point
+multiplication on elliptic curves with efficient endomorphisms,''
+\emph{CRYPTO 2001}, LNCS 2139, 190--200, 2001. DOI:
+10.1007/3-540-44647-8\_11. Public conference paper:
+\url{https://www.iacr.org/archive/crypto2001/21390189.pdf}. A public
+exposition of the endomorphism method is also contained in {[}1{]}.
+
+{[}4{]} Certicom Research, \emph{SEC 2: Recommended Elliptic Curve
+Domain Parameters}, version 2.0, 27 January 2010, Section 2.4.1.
+\url{https://www.secg.org/sec2-v2.pdf}.
+\end{document}

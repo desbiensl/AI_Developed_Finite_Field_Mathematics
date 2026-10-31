@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "intrinsic_theta_identity_exact_cases": 27,
+  "normalized_Ward_recurrence_exact_cases": 9,
+  "symbolic_quotient_identities": 3,
+  "orbit_covariance_group_orders": [
+    7,
+    13,
+    19,
+    31,
+    43
+  ],
+  "orbit_covariance_tolerance": 1e-10,
+  "orbit_covariance_max_absolute_error": 7.105427357601002e-15,
+  "limitations": "These checks do not independently verify the sheaf-theoretic arguments, isogeny proof, asymptotic limit arguments, or novelty. No unknown scalar is recovered."
+}

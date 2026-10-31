@@ -1,0 +1,55 @@
+{
+  "edition_date": "2026-10-31",
+  "prepared_on": "2026-10-30",
+  "edition": "Public AI-developed mathematical research artifacts; mathematical claims independently unverified",
+  "paper_counts": {
+    "pdfs": 5,
+    "latex_sources": 5,
+    "markdown_companions": 5,
+    "word_companions": 5,
+    "total_pdf_pages": 73,
+    "pdf_pages_by_paper": [
+      11,
+      14,
+      18,
+      20,
+      10
+    ]
+  },
+  "fonts": "Latin Modern Roman and Latin Modern Math (embedded in PDFs)",
+  "licenses": {
+    "manuscripts_and_text": "CC-BY-4.0",
+    "python_verification_code": "MIT",
+    "makefile": "MIT"
+  },
+  "versions": {
+    "all_five_manuscripts_show_date": "31 October 2026",
+    "all_five_pdfs_show_license": "CC BY 4.0",
+    "all_five_word_documents_show_license": "CC BY 4.0"
+  },
+  "source_integrity": {
+    "all_five_tex_bodies_unchanged_except_license_date": true,
+    "all_five_markdown_bodies_unchanged_except_license_date": true,
+    "all_five_word_scientific_paragraphs_unchanged": true,
+    "native_word_math_objects_by_paper": [
+      244,
+      394,
+      599,
+      487,
+      245
+    ],
+    "total_native_math_objects": 1969
+  },
+  "checks": {
+    "seven_python_programs_byte_identical_to_prior_release": true,
+    "six_archived_json_reports_byte_identical_to_prior_release": true,
+    "checks_last_rerun_before_this_license_only_edition": "2026-10-29"
+  },
+  "pdf": {
+    "five_lualatex_documents_compiled": true,
+    "pdf_pages_rendered_for_visual_inspection": 73,
+    "no_text_block_outside_page_detected": true,
+    "published_by_user_on_GitHub": false
+  },
+  "scope": "Licensing and edition date only. No specialist mathematical audit or originality review was performed."
+}

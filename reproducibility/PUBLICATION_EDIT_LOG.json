@@ -1,0 +1,37 @@
+[
+  {
+    "article": "01",
+    "source": "01_Osculation_and_Divisor_Reduction.md",
+    "old_md_sha256": "5bbc421a568fdef9ff17feb6c29eded9984611ace024bfb7b1530b4aa47a2727",
+    "new_md_sha256": "967d800bcae993ca1c4461b16c217b986d858d3299797964ef6e10dabddfb87b",
+    "review_priorities": "divisor multiplicities and non-split residual divisors; exceptional contact orders and torsion cases; the rational-contact norm and divisor pushforward; distinguishing scalar-index identities from inversion procedures"
+  },
+  {
+    "article": "02",
+    "source": "02_Primitive_CM_Dynamics_and_Rigidity.md",
+    "old_md_sha256": "2ae17e192a890387227224167c5bfbc10510f93172a8ab79a86cb11a00aab271",
+    "new_md_sha256": "6e355f6e4c53836bdfb7c775deb65be02542a18af06318720cd99283da72bb6d",
+    "review_priorities": "the complete arithmetic certificate and fixed endomorphism orientation; the quotient-cycle deduction; hypotheses and use of classical rigidity; scope of the finite-set degree obstruction and conditional correspondences"
+  },
+  {
+    "article": "03",
+    "source": "03_EDS_Kummer_and_Cyclic_Sequences.md",
+    "old_md_sha256": "7026dcbef050a472a884604472ac8c1bc1ba65f5e6f8bb21eb3cd68608010d66",
+    "new_md_sha256": "80987a30aefb9f3e1a026dc4967bd4a72d94bca4ce2afbc3633e0539b5f175d1",
+    "review_priorities": "Kummer character-sum hypotheses and conductors; independence and branch-support arguments underlying the 78/39 thresholds; quotient genera, Jacobian splitting, isogeny and fields of definition"
+  },
+  {
+    "article": "04",
+    "source": "04_Quaternionic_Elliptic_Fourier.md",
+    "old_md_sha256": "e396aded27215bb5bc28561802a0d42dc62ffdb1a01a542f26dae8b844aa2437",
+    "new_md_sha256": "34bb15278c0169dd7121b2413f6138337dddd6871da612035bf408632828c337",
+    "review_priorities": "the compatible-cover and quaternionic actions; convolution duality and its arithmetic sign; convolution Tannaka group identification; the Frobenius-stable projector and purity estimate; the moment and extension-degree calculations"
+  },
+  {
+    "article": "05",
+    "source": "05_Symmetry_Constraints_on_Scalar_Observables.md",
+    "old_md_sha256": "b79c484e6e42ec5137a8e9379eb45dea40355e8347bf5e83f308ae083df32bba",
+    "new_md_sha256": "5751a23ef63d82adf02a5470038179324158c9938dfec678c9811015709aab94",
+    "review_priorities": "the scope of the parity pairing; division-polynomial normalization and recurrence conventions; the random-sign covariance and Gaussian limit; separating the assumed Fourier envelope from deterministic-curve conclusions"
+  }
+]
