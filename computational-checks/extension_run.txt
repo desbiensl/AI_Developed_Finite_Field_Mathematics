@@ -1,0 +1,26 @@
+BASE p=7, a=0, b=2, N=9
+  degree=2; field=49; points=63; coefficients=9: PASS
+  degree=3; field=343; points=324; coefficients=9: PASS
+  degree=4; field=2401; points=2331; coefficients=9: PASS
+  degree=5; field=16807; points=17019; coefficients=9: PASS
+  degree=6; field=117649; points=117936; coefficients=9: PASS
+BASE p=7, a=1, b=1, N=5
+  degree=2; field=49; points=55; coefficients=5: PASS
+  degree=3; field=343; points=380; coefficients=5: PASS
+BASE p=11, a=1, b=4, N=9
+  degree=2; field=121; points=135; coefficients=9: PASS
+  degree=3; field=1331; points=1404; coefficients=9: PASS
+  degree=4; field=14641; points=14715; coefficients=9: PASS
+BASE p=19, a=1, b=1, N=21
+  degree=2; field=361; points=399; coefficients=21: PASS
+  degree=3; field=6859; points=6804; coefficients=21: PASS
+BASE p=23, a=1, b=3, N=27
+  degree=2; field=529; points=567; coefficients=27: PASS
+  degree=3; field=12167; points=11988; coefficients=27: PASS
+BASE p=31, a=0, b=7, N=21
+  degree=2; field=961; points=903; coefficients=21: PASS
+  degree=3; field=29791; points=29484; coefficients=21: PASS
+BASE p=43, a=0, b=7, N=31
+  degree=2; field=1849; points=1767; coefficients=31: PASS
+  degree=3; field=79507; points=78988; coefficients=31: PASS
+ALL CHECKS PASSED. Results: /mnt/data/article_iv_2026_11_02_work/results/extension_results.json

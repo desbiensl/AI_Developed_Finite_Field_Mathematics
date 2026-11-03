@@ -1,0 +1,13 @@
+p=5: 8 models; 40 shifts: PASS
+p=7: 16 models; 112 shifts: PASS
+p=11: 40 models; 440 shifts: PASS
+p=13: 56 models; 728 shifts: PASS
+p=17: 96 models; 1632 shifts: PASS
+p=19: 120 models; 2280 shifts: PASS
+p=23: 176 models; 4048 shifts: PASS
+p=29: 280 models; 8120 shifts: PASS
+p=31: 320 models; 9920 shifts: PASS
+p=37: 456 models; 16872 shifts: PASS
+p=41: 560 models; 22960 shifts: PASS
+p=43: 616 models; 26488 shifts: PASS
+ALL CHECKS PASSED. Results: /mnt/data/article_iv_2026_11_02_work/results/rank_two_results.json

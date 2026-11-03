@@ -1,0 +1,2592 @@
+{
+  "python": "3.13.5",
+  "sympy": "1.14.0",
+  "scope": "Exact selected extension-field tests; no formal or independent proof certification.",
+  "base_models": 7,
+  "extension_cases": 18,
+  "enumerated_extension_points": 285262,
+  "group_ring_coefficient_equalities": 282,
+  "cases": [
+    {
+      "p": 7,
+      "a": 0,
+      "b": 2,
+      "base_group_order": 9,
+      "base_group_cyclic": false,
+      "extension_degree": 2,
+      "q": 49,
+      "extension_group_order": 63,
+      "modulus_coefficients": [
+        1,
+        0,
+        1
+      ],
+      "primitive_element": 9,
+      "coefficient_equalities": 9,
+      "all_passed": true,
+      "group_ring_coefficients": [
+        {
+          "point": null,
+          "observed": 6,
+          "predicted": 6
+        },
+        {
+          "point": [
+            0,
+            3
+          ],
+          "observed": -5,
+          "predicted": -5
+        },
+        {
+          "point": [
+            0,
+            4
+          ],
+          "observed": -5,
+          "predicted": -5
+        },
+        {
+          "point": [
+            3,
+            1
+          ],
+          "observed": 3,
+          "predicted": 3
+        },
+        {
+          "point": [
+            3,
+            6
+          ],
+          "observed": 3,
+          "predicted": 3
+        },
+        {
+          "point": [
+            5,
+            1
+          ],
+          "observed": 3,
+          "predicted": 3
+        },
+        {
+          "point": [
+            5,
+            6
+          ],
+          "observed": 3,
+          "predicted": 3
+        },
+        {
+          "point": [
+            6,
+            1
+          ],
+          "observed": 3,
+          "predicted": 3
+        },
+        {
+          "point": [
+            6,
+            6
+          ],
+          "observed": 3,
+          "predicted": 3
+        }
+      ]
+    },
+    {
+      "p": 7,
+      "a": 0,
+      "b": 2,
+      "base_group_order": 9,
+      "base_group_cyclic": false,
+      "extension_degree": 3,
+      "q": 343,
+      "extension_group_order": 324,
+      "modulus_coefficients": [
+        1,
+        0,
+        1,
+        1
+      ],
+      "primitive_element": 9,
+      "coefficient_equalities": 9,
+      "all_passed": true,
+      "group_ring_coefficients": [
+        {
+          "point": null,
+          "observed": 0,
+          "predicted": 0
+        },
+        {
+          "point": [
+            0,
+            3
+          ],
+          "observed": 36,
+          "predicted": 36
+        },
+        {
+          "point": [
+            0,
+            4
+          ],
+          "observed": -36,
+          "predicted": -36
+        },
+        {
+          "point": [
+            3,
+            1
+          ],
+          "observed": 12,
+          "predicted": 12
+        },
+        {
+          "point": [
+            3,
+            6
+          ],
+          "observed": -12,
+          "predicted": -12
+        },
+        {
+          "point": [
+            5,
+            1
+          ],
+          "observed": 12,
+          "predicted": 12
+        },
+        {
+          "point": [
+            5,
+            6
+          ],
+          "observed": -12,
+          "predicted": -12
+        },
+        {
+          "point": [
+            6,
+            1
+          ],
+          "observed": 12,
+          "predicted": 12
+        },
+        {
+          "point": [
+            6,
+            6
+          ],
+          "observed": -12,
+          "predicted": -12
+        }
+      ]
+    },
+    {
+      "p": 7,
+      "a": 0,
+      "b": 2,
+      "base_group_order": 9,
+      "base_group_cyclic": false,
+      "extension_degree": 4,
+      "q": 2401,
+      "extension_group_order": 2331,
+      "modulus_coefficients": [
+        1,
+        0,
+        0,
+        1,
+        1
+      ],
+      "primitive_element": 13,
+      "coefficient_equalities": 9,
+      "all_passed": true,
+      "group_ring_coefficients": [
+        {
+          "point": null,
+          "observed": 42,
+          "predicted": 42
+        },
+        {
+          "point": [
+            0,
+            3
+          ],
+          "observed": 19,
+          "predicted": 19
+        },
+        {
+          "point": [
+            0,
+            4
+          ],
+          "observed": 19,
+          "predicted": 19
+        },
+        {
+          "point": [
+            3,
+            1
+          ],
+          "observed": 3,
+          "predicted": 3
+        },
+        {
+          "point": [
+            3,
+            6
+          ],
+          "observed": 3,
+          "predicted": 3
+        },
+        {
+          "point": [
+            5,
+            1
+          ],
+          "observed": 3,
+          "predicted": 3
+        },
+        {
+          "point": [
+            5,
+            6
+          ],
+          "observed": 3,
+          "predicted": 3
+        },
+        {
+          "point": [
+            6,
+            1
+          ],
+          "observed": 3,
+          "predicted": 3
+        },
+        {
+          "point": [
+            6,
+            6
+          ],
+          "observed": 3,
+          "predicted": 3
+        }
+      ]
+    },
+    {
+      "p": 7,
+      "a": 0,
+      "b": 2,
+      "base_group_order": 9,
+      "base_group_cyclic": false,
+      "extension_degree": 5,
+      "q": 16807,
+      "extension_group_order": 17019,
+      "modulus_coefficients": [
+        1,
+        0,
+        0,
+        0,
+        3,
+        1
+      ],
+      "primitive_element": 11,
+      "coefficient_equalities": 9,
+      "all_passed": true,
+      "group_ring_coefficients": [
+        {
+          "point": null,
+          "observed": 0,
+          "predicted": 0
+        },
+        {
+          "point": [
+            0,
+            3
+          ],
+          "observed": -149,
+          "predicted": -149
+        },
+        {
+          "point": [
+            0,
+            4
+          ],
+          "observed": 149,
+          "predicted": 149
+        },
+        {
+          "point": [
+            3,
+            1
+          ],
+          "observed": 29,
+          "predicted": 29
+        },
+        {
+          "point": [
+            3,
+            6
+          ],
+          "observed": -29,
+          "predicted": -29
+        },
+        {
+          "point": [
+            5,
+            1
+          ],
+          "observed": 29,
+          "predicted": 29
+        },
+        {
+          "point": [
+            5,
+            6
+          ],
+          "observed": -29,
+          "predicted": -29
+        },
+        {
+          "point": [
+            6,
+            1
+          ],
+          "observed": 29,
+          "predicted": 29
+        },
+        {
+          "point": [
+            6,
+            6
+          ],
+          "observed": -29,
+          "predicted": -29
+        }
+      ]
+    },
+    {
+      "p": 7,
+      "a": 0,
+      "b": 2,
+      "base_group_order": 9,
+      "base_group_cyclic": false,
+      "extension_degree": 6,
+      "q": 117649,
+      "extension_group_order": 117936,
+      "modulus_coefficients": [
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        1
+      ],
+      "primitive_element": 8,
+      "coefficient_equalities": 9,
+      "all_passed": true,
+      "group_ring_coefficients": [
+        {
+          "point": null,
+          "observed": 356,
+          "predicted": 356
+        },
+        {
+          "point": [
+            0,
+            3
+          ],
+          "observed": -216,
+          "predicted": -216
+        },
+        {
+          "point": [
+            0,
+            4
+          ],
+          "observed": -216,
+          "predicted": -216
+        },
+        {
+          "point": [
+            3,
+            1
+          ],
+          "observed": -216,
+          "predicted": -216
+        },
+        {
+          "point": [
+            3,
+            6
+          ],
+          "observed": -216,
+          "predicted": -216
+        },
+        {
+          "point": [
+            5,
+            1
+          ],
+          "observed": -216,
+          "predicted": -216
+        },
+        {
+          "point": [
+            5,
+            6
+          ],
+          "observed": -216,
+          "predicted": -216
+        },
+        {
+          "point": [
+            6,
+            1
+          ],
+          "observed": -216,
+          "predicted": -216
+        },
+        {
+          "point": [
+            6,
+            6
+          ],
+          "observed": -216,
+          "predicted": -216
+        }
+      ]
+    },
+    {
+      "p": 7,
+      "a": 1,
+      "b": 1,
+      "base_group_order": 5,
+      "base_group_cyclic": true,
+      "extension_degree": 2,
+      "q": 49,
+      "extension_group_order": 55,
+      "modulus_coefficients": [
+        1,
+        0,
+        1
+      ],
+      "primitive_element": 9,
+      "coefficient_equalities": 5,
+      "all_passed": true,
+      "group_ring_coefficients": [
+        {
+          "point": null,
+          "observed": 10,
+          "predicted": 10
+        },
+        {
+          "point": [
+            0,
+            1
+          ],
+          "observed": 3,
+          "predicted": 3
+        },
+        {
+          "point": [
+            0,
+            6
+          ],
+          "observed": 3,
+          "predicted": 3
+        },
+        {
+          "point": [
+            2,
+            2
+          ],
+          "observed": -1,
+          "predicted": -1
+        },
+        {
+          "point": [
+            2,
+            5
+          ],
+          "observed": -1,
+          "predicted": -1
+        }
+      ]
+    },
+    {
+      "p": 7,
+      "a": 1,
+      "b": 1,
+      "base_group_order": 5,
+      "base_group_cyclic": true,
+      "extension_degree": 3,
+      "q": 343,
+      "extension_group_order": 380,
+      "modulus_coefficients": [
+        1,
+        0,
+        1,
+        1
+      ],
+      "primitive_element": 9,
+      "coefficient_equalities": 5,
+      "all_passed": true,
+      "group_ring_coefficients": [
+        {
+          "point": null,
+          "observed": 0,
+          "predicted": 0
+        },
+        {
+          "point": [
+            0,
+            1
+          ],
+          "observed": -28,
+          "predicted": -28
+        },
+        {
+          "point": [
+            0,
+            6
+          ],
+          "observed": 28,
+          "predicted": 28
+        },
+        {
+          "point": [
+            2,
+            2
+          ],
+          "observed": -20,
+          "predicted": -20
+        },
+        {
+          "point": [
+            2,
+            5
+          ],
+          "observed": 20,
+          "predicted": 20
+        }
+      ]
+    },
+    {
+      "p": 11,
+      "a": 1,
+      "b": 4,
+      "base_group_order": 9,
+      "base_group_cyclic": true,
+      "extension_degree": 2,
+      "q": 121,
+      "extension_group_order": 135,
+      "modulus_coefficients": [
+        1,
+        0,
+        1
+      ],
+      "primitive_element": 15,
+      "coefficient_equalities": 9,
+      "all_passed": true,
+      "group_ring_coefficients": [
+        {
+          "point": null,
+          "observed": 14,
+          "predicted": 14
+        },
+        {
+          "point": [
+            0,
+            2
+          ],
+          "observed": 3,
+          "predicted": 3
+        },
+        {
+          "point": [
+            0,
+            9
+          ],
+          "observed": 3,
+          "predicted": 3
+        },
+        {
+          "point": [
+            2,
+            5
+          ],
+          "observed": 3,
+          "predicted": 3
+        },
+        {
+          "point": [
+            2,
+            6
+          ],
+          "observed": 3,
+          "predicted": 3
+        },
+        {
+          "point": [
+            3,
+            1
+          ],
+          "observed": -5,
+          "predicted": -5
+        },
+        {
+          "point": [
+            3,
+            10
+          ],
+          "observed": -5,
+          "predicted": -5
+        },
+        {
+          "point": [
+            9,
+            4
+          ],
+          "observed": 3,
+          "predicted": 3
+        },
+        {
+          "point": [
+            9,
+            7
+          ],
+          "observed": 3,
+          "predicted": 3
+        }
+      ]
+    },
+    {
+      "p": 11,
+      "a": 1,
+      "b": 4,
+      "base_group_order": 9,
+      "base_group_cyclic": true,
+      "extension_degree": 3,
+      "q": 1331,
+      "extension_group_order": 1404,
+      "modulus_coefficients": [
+        1,
+        0,
+        4,
+        1
+      ],
+      "primitive_element": 12,
+      "coefficient_equalities": 9,
+      "all_passed": true,
+      "group_ring_coefficients": [
+        {
+          "point": null,
+          "observed": 0,
+          "predicted": 0
+        },
+        {
+          "point": [
+            0,
+            2
+          ],
+          "observed": 12,
+          "predicted": 12
+        },
+        {
+          "point": [
+            0,
+            9
+          ],
+          "observed": -12,
+          "predicted": -12
+        },
+        {
+          "point": [
+            2,
+            5
+          ],
+          "observed": -12,
+          "predicted": -12
+        },
+        {
+          "point": [
+            2,
+            6
+          ],
+          "observed": 12,
+          "predicted": 12
+        },
+        {
+          "point": [
+            3,
+            1
+          ],
+          "observed": -60,
+          "predicted": -60
+        },
+        {
+          "point": [
+            3,
+            10
+          ],
+          "observed": 60,
+          "predicted": 60
+        },
+        {
+          "point": [
+            9,
+            4
+          ],
+          "observed": -12,
+          "predicted": -12
+        },
+        {
+          "point": [
+            9,
+            7
+          ],
+          "observed": 12,
+          "predicted": 12
+        }
+      ]
+    },
+    {
+      "p": 11,
+      "a": 1,
+      "b": 4,
+      "base_group_order": 9,
+      "base_group_cyclic": true,
+      "extension_degree": 4,
+      "q": 14641,
+      "extension_group_order": 14715,
+      "modulus_coefficients": [
+        1,
+        0,
+        0,
+        4,
+        1
+      ],
+      "primitive_element": 14,
+      "coefficient_equalities": 9,
+      "all_passed": true,
+      "group_ring_coefficients": [
+        {
+          "point": null,
+          "observed": 58,
+          "predicted": 58
+        },
+        {
+          "point": [
+            0,
+            2
+          ],
+          "observed": 51,
+          "predicted": 51
+        },
+        {
+          "point": [
+            0,
+            9
+          ],
+          "observed": 51,
+          "predicted": 51
+        },
+        {
+          "point": [
+            2,
+            5
+          ],
+          "observed": 51,
+          "predicted": 51
+        },
+        {
+          "point": [
+            2,
+            6
+          ],
+          "observed": 51,
+          "predicted": 51
+        },
+        {
+          "point": [
+            3,
+            1
+          ],
+          "observed": -61,
+          "predicted": -61
+        },
+        {
+          "point": [
+            3,
+            10
+          ],
+          "observed": -61,
+          "predicted": -61
+        },
+        {
+          "point": [
+            9,
+            4
+          ],
+          "observed": 51,
+          "predicted": 51
+        },
+        {
+          "point": [
+            9,
+            7
+          ],
+          "observed": 51,
+          "predicted": 51
+        }
+      ]
+    },
+    {
+      "p": 19,
+      "a": 1,
+      "b": 1,
+      "base_group_order": 21,
+      "base_group_cyclic": true,
+      "extension_degree": 2,
+      "q": 361,
+      "extension_group_order": 399,
+      "modulus_coefficients": [
+        1,
+        0,
+        1
+      ],
+      "primitive_element": 22,
+      "coefficient_equalities": 21,
+      "all_passed": true,
+      "group_ring_coefficients": [
+        {
+          "point": null,
+          "observed": 18,
+          "predicted": 18
+        },
+        {
+          "point": [
+            0,
+            1
+          ],
+          "observed": -1,
+          "predicted": -1
+        },
+        {
+          "point": [
+            0,
+            18
+          ],
+          "observed": -1,
+          "predicted": -1
+        },
+        {
+          "point": [
+            2,
+            7
+          ],
+          "observed": -1,
+          "predicted": -1
+        },
+        {
+          "point": [
+            2,
+            12
+          ],
+          "observed": -1,
+          "predicted": -1
+        },
+        {
+          "point": [
+            5,
+            6
+          ],
+          "observed": 3,
+          "predicted": 3
+        },
+        {
+          "point": [
+            5,
+            13
+          ],
+          "observed": 3,
+          "predicted": 3
+        },
+        {
+          "point": [
+            7,
+            3
+          ],
+          "observed": -1,
+          "predicted": -1
+        },
+        {
+          "point": [
+            7,
+            16
+          ],
+          "observed": -1,
+          "predicted": -1
+        },
+        {
+          "point": [
+            9,
+            6
+          ],
+          "observed": 7,
+          "predicted": 7
+        },
+        {
+          "point": [
+            9,
+            13
+          ],
+          "observed": 7,
+          "predicted": 7
+        },
+        {
+          "point": [
+            10,
+            2
+          ],
+          "observed": 7,
+          "predicted": 7
+        },
+        {
+          "point": [
+            10,
+            17
+          ],
+          "observed": 7,
+          "predicted": 7
+        },
+        {
+          "point": [
+            13,
+            8
+          ],
+          "observed": -1,
+          "predicted": -1
+        },
+        {
+          "point": [
+            13,
+            11
+          ],
+          "observed": -1,
+          "predicted": -1
+        },
+        {
+          "point": [
+            14,
+            2
+          ],
+          "observed": -5,
+          "predicted": -5
+        },
+        {
+          "point": [
+            14,
+            17
+          ],
+          "observed": -5,
+          "predicted": -5
+        },
+        {
+          "point": [
+            15,
+            3
+          ],
+          "observed": 7,
+          "predicted": 7
+        },
+        {
+          "point": [
+            15,
+            16
+          ],
+          "observed": 7,
+          "predicted": 7
+        },
+        {
+          "point": [
+            16,
+            3
+          ],
+          "observed": -5,
+          "predicted": -5
+        },
+        {
+          "point": [
+            16,
+            16
+          ],
+          "observed": -5,
+          "predicted": -5
+        }
+      ]
+    },
+    {
+      "p": 19,
+      "a": 1,
+      "b": 1,
+      "base_group_order": 21,
+      "base_group_cyclic": true,
+      "extension_degree": 3,
+      "q": 6859,
+      "extension_group_order": 6804,
+      "modulus_coefficients": [
+        1,
+        0,
+        1,
+        1
+      ],
+      "primitive_element": 21,
+      "coefficient_equalities": 21,
+      "all_passed": true,
+      "group_ring_coefficients": [
+        {
+          "point": null,
+          "observed": 0,
+          "predicted": 0
+        },
+        {
+          "point": [
+            0,
+            1
+          ],
+          "observed": -12,
+          "predicted": -12
+        },
+        {
+          "point": [
+            0,
+            18
+          ],
+          "observed": 12,
+          "predicted": 12
+        },
+        {
+          "point": [
+            2,
+            7
+          ],
+          "observed": -12,
+          "predicted": -12
+        },
+        {
+          "point": [
+            2,
+            12
+          ],
+          "observed": 12,
+          "predicted": 12
+        },
+        {
+          "point": [
+            5,
+            6
+          ],
+          "observed": 60,
+          "predicted": 60
+        },
+        {
+          "point": [
+            5,
+            13
+          ],
+          "observed": -60,
+          "predicted": -60
+        },
+        {
+          "point": [
+            7,
+            3
+          ],
+          "observed": 60,
+          "predicted": 60
+        },
+        {
+          "point": [
+            7,
+            16
+          ],
+          "observed": -60,
+          "predicted": -60
+        },
+        {
+          "point": [
+            9,
+            6
+          ],
+          "observed": -12,
+          "predicted": -12
+        },
+        {
+          "point": [
+            9,
+            13
+          ],
+          "observed": 12,
+          "predicted": 12
+        },
+        {
+          "point": [
+            10,
+            2
+          ],
+          "observed": 76,
+          "predicted": 76
+        },
+        {
+          "point": [
+            10,
+            17
+          ],
+          "observed": -76,
+          "predicted": -76
+        },
+        {
+          "point": [
+            13,
+            8
+          ],
+          "observed": 60,
+          "predicted": 60
+        },
+        {
+          "point": [
+            13,
+            11
+          ],
+          "observed": -60,
+          "predicted": -60
+        },
+        {
+          "point": [
+            14,
+            2
+          ],
+          "observed": 52,
+          "predicted": 52
+        },
+        {
+          "point": [
+            14,
+            17
+          ],
+          "observed": -52,
+          "predicted": -52
+        },
+        {
+          "point": [
+            15,
+            3
+          ],
+          "observed": 60,
+          "predicted": 60
+        },
+        {
+          "point": [
+            15,
+            16
+          ],
+          "observed": -60,
+          "predicted": -60
+        },
+        {
+          "point": [
+            16,
+            3
+          ],
+          "observed": 36,
+          "predicted": 36
+        },
+        {
+          "point": [
+            16,
+            16
+          ],
+          "observed": -36,
+          "predicted": -36
+        }
+      ]
+    },
+    {
+      "p": 23,
+      "a": 1,
+      "b": 3,
+      "base_group_order": 27,
+      "base_group_cyclic": true,
+      "extension_degree": 2,
+      "q": 529,
+      "extension_group_order": 567,
+      "modulus_coefficients": [
+        1,
+        0,
+        1
+      ],
+      "primitive_element": 25,
+      "coefficient_equalities": 27,
+      "all_passed": true,
+      "group_ring_coefficients": [
+        {
+          "point": null,
+          "observed": 20,
+          "predicted": 20
+        },
+        {
+          "point": [
+            0,
+            7
+          ],
+          "observed": -7,
+          "predicted": -7
+        },
+        {
+          "point": [
+            0,
+            16
+          ],
+          "observed": -7,
+          "predicted": -7
+        },
+        {
+          "point": [
+            2,
+            6
+          ],
+          "observed": 1,
+          "predicted": 1
+        },
+        {
+          "point": [
+            2,
+            17
+          ],
+          "observed": 1,
+          "predicted": 1
+        },
+        {
+          "point": [
+            4,
+            5
+          ],
+          "observed": 1,
+          "predicted": 1
+        },
+        {
+          "point": [
+            4,
+            18
+          ],
+          "observed": 1,
+          "predicted": 1
+        },
+        {
+          "point": [
+            5,
+            8
+          ],
+          "observed": -3,
+          "predicted": -3
+        },
+        {
+          "point": [
+            5,
+            15
+          ],
+          "observed": -3,
+          "predicted": -3
+        },
+        {
+          "point": [
+            6,
+            8
+          ],
+          "observed": 5,
+          "predicted": 5
+        },
+        {
+          "point": [
+            6,
+            15
+          ],
+          "observed": 5,
+          "predicted": 5
+        },
+        {
+          "point": [
+            7,
+            10
+          ],
+          "observed": -3,
+          "predicted": -3
+        },
+        {
+          "point": [
+            7,
+            13
+          ],
+          "observed": -3,
+          "predicted": -3
+        },
+        {
+          "point": [
+            10,
+            1
+          ],
+          "observed": 1,
+          "predicted": 1
+        },
+        {
+          "point": [
+            10,
+            22
+          ],
+          "observed": 1,
+          "predicted": 1
+        },
+        {
+          "point": [
+            12,
+            8
+          ],
+          "observed": 1,
+          "predicted": 1
+        },
+        {
+          "point": [
+            12,
+            15
+          ],
+          "observed": 1,
+          "predicted": 1
+        },
+        {
+          "point": [
+            14,
+            1
+          ],
+          "observed": -3,
+          "predicted": -3
+        },
+        {
+          "point": [
+            14,
+            22
+          ],
+          "observed": -3,
+          "predicted": -3
+        },
+        {
+          "point": [
+            15,
+            9
+          ],
+          "observed": 1,
+          "predicted": 1
+        },
+        {
+          "point": [
+            15,
+            14
+          ],
+          "observed": 1,
+          "predicted": 1
+        },
+        {
+          "point": [
+            19,
+            2
+          ],
+          "observed": 9,
+          "predicted": 9
+        },
+        {
+          "point": [
+            19,
+            21
+          ],
+          "observed": 9,
+          "predicted": 9
+        },
+        {
+          "point": [
+            21,
+            4
+          ],
+          "observed": 9,
+          "predicted": 9
+        },
+        {
+          "point": [
+            21,
+            19
+          ],
+          "observed": 9,
+          "predicted": 9
+        },
+        {
+          "point": [
+            22,
+            1
+          ],
+          "observed": 1,
+          "predicted": 1
+        },
+        {
+          "point": [
+            22,
+            22
+          ],
+          "observed": 1,
+          "predicted": 1
+        }
+      ]
+    },
+    {
+      "p": 23,
+      "a": 1,
+      "b": 3,
+      "base_group_order": 27,
+      "base_group_cyclic": true,
+      "extension_degree": 3,
+      "q": 12167,
+      "extension_group_order": 11988,
+      "modulus_coefficients": [
+        1,
+        0,
+        3,
+        1
+      ],
+      "primitive_element": 24,
+      "coefficient_equalities": 27,
+      "all_passed": true,
+      "group_ring_coefficients": [
+        {
+          "point": null,
+          "observed": 0,
+          "predicted": 0
+        },
+        {
+          "point": [
+            0,
+            7
+          ],
+          "observed": 36,
+          "predicted": 36
+        },
+        {
+          "point": [
+            0,
+            16
+          ],
+          "observed": -36,
+          "predicted": -36
+        },
+        {
+          "point": [
+            2,
+            6
+          ],
+          "observed": -36,
+          "predicted": -36
+        },
+        {
+          "point": [
+            2,
+            17
+          ],
+          "observed": 36,
+          "predicted": 36
+        },
+        {
+          "point": [
+            4,
+            5
+          ],
+          "observed": 4,
+          "predicted": 4
+        },
+        {
+          "point": [
+            4,
+            18
+          ],
+          "observed": -4,
+          "predicted": -4
+        },
+        {
+          "point": [
+            5,
+            8
+          ],
+          "observed": -12,
+          "predicted": -12
+        },
+        {
+          "point": [
+            5,
+            15
+          ],
+          "observed": 12,
+          "predicted": 12
+        },
+        {
+          "point": [
+            6,
+            8
+          ],
+          "observed": -108,
+          "predicted": -108
+        },
+        {
+          "point": [
+            6,
+            15
+          ],
+          "observed": 108,
+          "predicted": 108
+        },
+        {
+          "point": [
+            7,
+            10
+          ],
+          "observed": 60,
+          "predicted": 60
+        },
+        {
+          "point": [
+            7,
+            13
+          ],
+          "observed": -60,
+          "predicted": -60
+        },
+        {
+          "point": [
+            10,
+            1
+          ],
+          "observed": -20,
+          "predicted": -20
+        },
+        {
+          "point": [
+            10,
+            22
+          ],
+          "observed": 20,
+          "predicted": 20
+        },
+        {
+          "point": [
+            12,
+            8
+          ],
+          "observed": -36,
+          "predicted": -36
+        },
+        {
+          "point": [
+            12,
+            15
+          ],
+          "observed": 36,
+          "predicted": 36
+        },
+        {
+          "point": [
+            14,
+            1
+          ],
+          "observed": -60,
+          "predicted": -60
+        },
+        {
+          "point": [
+            14,
+            22
+          ],
+          "observed": 60,
+          "predicted": 60
+        },
+        {
+          "point": [
+            15,
+            9
+          ],
+          "observed": -84,
+          "predicted": -84
+        },
+        {
+          "point": [
+            15,
+            14
+          ],
+          "observed": 84,
+          "predicted": 84
+        },
+        {
+          "point": [
+            19,
+            2
+          ],
+          "observed": -100,
+          "predicted": -100
+        },
+        {
+          "point": [
+            19,
+            21
+          ],
+          "observed": 100,
+          "predicted": 100
+        },
+        {
+          "point": [
+            21,
+            4
+          ],
+          "observed": -36,
+          "predicted": -36
+        },
+        {
+          "point": [
+            21,
+            19
+          ],
+          "observed": 36,
+          "predicted": 36
+        },
+        {
+          "point": [
+            22,
+            1
+          ],
+          "observed": 12,
+          "predicted": 12
+        },
+        {
+          "point": [
+            22,
+            22
+          ],
+          "observed": -12,
+          "predicted": -12
+        }
+      ]
+    },
+    {
+      "p": 31,
+      "a": 0,
+      "b": 7,
+      "base_group_order": 21,
+      "base_group_cyclic": true,
+      "extension_degree": 2,
+      "q": 961,
+      "extension_group_order": 903,
+      "modulus_coefficients": [
+        1,
+        0,
+        1
+      ],
+      "primitive_element": 35,
+      "coefficient_equalities": 21,
+      "all_passed": true,
+      "group_ring_coefficients": [
+        {
+          "point": null,
+          "observed": 42,
+          "predicted": 42
+        },
+        {
+          "point": [
+            0,
+            10
+          ],
+          "observed": 7,
+          "predicted": 7
+        },
+        {
+          "point": [
+            0,
+            21
+          ],
+          "observed": 7,
+          "predicted": 7
+        },
+        {
+          "point": [
+            1,
+            15
+          ],
+          "observed": -5,
+          "predicted": -5
+        },
+        {
+          "point": [
+            1,
+            16
+          ],
+          "observed": -5,
+          "predicted": -5
+        },
+        {
+          "point": [
+            4,
+            3
+          ],
+          "observed": 3,
+          "predicted": 3
+        },
+        {
+          "point": [
+            4,
+            28
+          ],
+          "observed": 3,
+          "predicted": 3
+        },
+        {
+          "point": [
+            5,
+            15
+          ],
+          "observed": -5,
+          "predicted": -5
+        },
+        {
+          "point": [
+            5,
+            16
+          ],
+          "observed": -5,
+          "predicted": -5
+        },
+        {
+          "point": [
+            7,
+            3
+          ],
+          "observed": 3,
+          "predicted": 3
+        },
+        {
+          "point": [
+            7,
+            28
+          ],
+          "observed": 3,
+          "predicted": 3
+        },
+        {
+          "point": [
+            11,
+            6
+          ],
+          "observed": 3,
+          "predicted": 3
+        },
+        {
+          "point": [
+            11,
+            25
+          ],
+          "observed": 3,
+          "predicted": 3
+        },
+        {
+          "point": [
+            20,
+            3
+          ],
+          "observed": 3,
+          "predicted": 3
+        },
+        {
+          "point": [
+            20,
+            28
+          ],
+          "observed": 3,
+          "predicted": 3
+        },
+        {
+          "point": [
+            24,
+            6
+          ],
+          "observed": 3,
+          "predicted": 3
+        },
+        {
+          "point": [
+            24,
+            25
+          ],
+          "observed": 3,
+          "predicted": 3
+        },
+        {
+          "point": [
+            25,
+            15
+          ],
+          "observed": -5,
+          "predicted": -5
+        },
+        {
+          "point": [
+            25,
+            16
+          ],
+          "observed": -5,
+          "predicted": -5
+        },
+        {
+          "point": [
+            27,
+            6
+          ],
+          "observed": 3,
+          "predicted": 3
+        },
+        {
+          "point": [
+            27,
+            25
+          ],
+          "observed": 3,
+          "predicted": 3
+        }
+      ]
+    },
+    {
+      "p": 31,
+      "a": 0,
+      "b": 7,
+      "base_group_order": 21,
+      "base_group_cyclic": true,
+      "extension_degree": 3,
+      "q": 29791,
+      "extension_group_order": 29484,
+      "modulus_coefficients": [
+        1,
+        0,
+        3,
+        1
+      ],
+      "primitive_element": 41,
+      "coefficient_equalities": 21,
+      "all_passed": true,
+      "group_ring_coefficients": [
+        {
+          "point": null,
+          "observed": 0,
+          "predicted": 0
+        },
+        {
+          "point": [
+            0,
+            10
+          ],
+          "observed": -36,
+          "predicted": -36
+        },
+        {
+          "point": [
+            0,
+            21
+          ],
+          "observed": 36,
+          "predicted": 36
+        },
+        {
+          "point": [
+            1,
+            15
+          ],
+          "observed": 156,
+          "predicted": 156
+        },
+        {
+          "point": [
+            1,
+            16
+          ],
+          "observed": -156,
+          "predicted": -156
+        },
+        {
+          "point": [
+            4,
+            3
+          ],
+          "observed": 108,
+          "predicted": 108
+        },
+        {
+          "point": [
+            4,
+            28
+          ],
+          "observed": -108,
+          "predicted": -108
+        },
+        {
+          "point": [
+            5,
+            15
+          ],
+          "observed": 156,
+          "predicted": 156
+        },
+        {
+          "point": [
+            5,
+            16
+          ],
+          "observed": -156,
+          "predicted": -156
+        },
+        {
+          "point": [
+            7,
+            3
+          ],
+          "observed": 108,
+          "predicted": 108
+        },
+        {
+          "point": [
+            7,
+            28
+          ],
+          "observed": -108,
+          "predicted": -108
+        },
+        {
+          "point": [
+            11,
+            6
+          ],
+          "observed": 92,
+          "predicted": 92
+        },
+        {
+          "point": [
+            11,
+            25
+          ],
+          "observed": -92,
+          "predicted": -92
+        },
+        {
+          "point": [
+            20,
+            3
+          ],
+          "observed": 108,
+          "predicted": 108
+        },
+        {
+          "point": [
+            20,
+            28
+          ],
+          "observed": -108,
+          "predicted": -108
+        },
+        {
+          "point": [
+            24,
+            6
+          ],
+          "observed": 92,
+          "predicted": 92
+        },
+        {
+          "point": [
+            24,
+            25
+          ],
+          "observed": -92,
+          "predicted": -92
+        },
+        {
+          "point": [
+            25,
+            15
+          ],
+          "observed": 156,
+          "predicted": 156
+        },
+        {
+          "point": [
+            25,
+            16
+          ],
+          "observed": -156,
+          "predicted": -156
+        },
+        {
+          "point": [
+            27,
+            6
+          ],
+          "observed": 92,
+          "predicted": 92
+        },
+        {
+          "point": [
+            27,
+            25
+          ],
+          "observed": -92,
+          "predicted": -92
+        }
+      ]
+    },
+    {
+      "p": 43,
+      "a": 0,
+      "b": 7,
+      "base_group_order": 31,
+      "base_group_cyclic": true,
+      "extension_degree": 2,
+      "q": 1849,
+      "extension_group_order": 1767,
+      "modulus_coefficients": [
+        1,
+        0,
+        1
+      ],
+      "primitive_element": 45,
+      "coefficient_equalities": 31,
+      "all_passed": true,
+      "group_ring_coefficients": [
+        {
+          "point": null,
+          "observed": 56,
+          "predicted": 56
+        },
+        {
+          "point": [
+            2,
+            12
+          ],
+          "observed": 1,
+          "predicted": 1
+        },
+        {
+          "point": [
+            2,
+            31
+          ],
+          "observed": 1,
+          "predicted": 1
+        },
+        {
+          "point": [
+            7,
+            7
+          ],
+          "observed": 1,
+          "predicted": 1
+        },
+        {
+          "point": [
+            7,
+            36
+          ],
+          "observed": 1,
+          "predicted": 1
+        },
+        {
+          "point": [
+            12,
+            12
+          ],
+          "observed": 1,
+          "predicted": 1
+        },
+        {
+          "point": [
+            12,
+            31
+          ],
+          "observed": 1,
+          "predicted": 1
+        },
+        {
+          "point": [
+            13,
+            21
+          ],
+          "observed": -11,
+          "predicted": -11
+        },
+        {
+          "point": [
+            13,
+            22
+          ],
+          "observed": -11,
+          "predicted": -11
+        },
+        {
+          "point": [
+            20,
+            3
+          ],
+          "observed": 5,
+          "predicted": 5
+        },
+        {
+          "point": [
+            20,
+            40
+          ],
+          "observed": 5,
+          "predicted": 5
+        },
+        {
+          "point": [
+            21,
+            18
+          ],
+          "observed": 9,
+          "predicted": 9
+        },
+        {
+          "point": [
+            21,
+            25
+          ],
+          "observed": 9,
+          "predicted": 9
+        },
+        {
+          "point": [
+            25,
+            18
+          ],
+          "observed": 9,
+          "predicted": 9
+        },
+        {
+          "point": [
+            25,
+            25
+          ],
+          "observed": 9,
+          "predicted": 9
+        },
+        {
+          "point": [
+            29,
+            12
+          ],
+          "observed": 1,
+          "predicted": 1
+        },
+        {
+          "point": [
+            29,
+            31
+          ],
+          "observed": 1,
+          "predicted": 1
+        },
+        {
+          "point": [
+            32,
+            3
+          ],
+          "observed": 5,
+          "predicted": 5
+        },
+        {
+          "point": [
+            32,
+            40
+          ],
+          "observed": 5,
+          "predicted": 5
+        },
+        {
+          "point": [
+            34,
+            3
+          ],
+          "observed": 5,
+          "predicted": 5
+        },
+        {
+          "point": [
+            34,
+            40
+          ],
+          "observed": 5,
+          "predicted": 5
+        },
+        {
+          "point": [
+            35,
+            21
+          ],
+          "observed": -11,
+          "predicted": -11
+        },
+        {
+          "point": [
+            35,
+            22
+          ],
+          "observed": -11,
+          "predicted": -11
+        },
+        {
+          "point": [
+            37,
+            7
+          ],
+          "observed": 1,
+          "predicted": 1
+        },
+        {
+          "point": [
+            37,
+            36
+          ],
+          "observed": 1,
+          "predicted": 1
+        },
+        {
+          "point": [
+            38,
+            21
+          ],
+          "observed": -11,
+          "predicted": -11
+        },
+        {
+          "point": [
+            38,
+            22
+          ],
+          "observed": -11,
+          "predicted": -11
+        },
+        {
+          "point": [
+            40,
+            18
+          ],
+          "observed": 9,
+          "predicted": 9
+        },
+        {
+          "point": [
+            40,
+            25
+          ],
+          "observed": 9,
+          "predicted": 9
+        },
+        {
+          "point": [
+            42,
+            7
+          ],
+          "observed": 1,
+          "predicted": 1
+        },
+        {
+          "point": [
+            42,
+            36
+          ],
+          "observed": 1,
+          "predicted": 1
+        }
+      ]
+    },
+    {
+      "p": 43,
+      "a": 0,
+      "b": 7,
+      "base_group_order": 31,
+      "base_group_cyclic": true,
+      "extension_degree": 3,
+      "q": 79507,
+      "extension_group_order": 78988,
+      "modulus_coefficients": [
+        1,
+        0,
+        9,
+        1
+      ],
+      "primitive_element": 44,
+      "coefficient_equalities": 31,
+      "all_passed": true,
+      "group_ring_coefficients": [
+        {
+          "point": null,
+          "observed": 0,
+          "predicted": 0
+        },
+        {
+          "point": [
+            2,
+            12
+          ],
+          "observed": 148,
+          "predicted": 148
+        },
+        {
+          "point": [
+            2,
+            31
+          ],
+          "observed": -148,
+          "predicted": -148
+        },
+        {
+          "point": [
+            7,
+            7
+          ],
+          "observed": 100,
+          "predicted": 100
+        },
+        {
+          "point": [
+            7,
+            36
+          ],
+          "observed": -100,
+          "predicted": -100
+        },
+        {
+          "point": [
+            12,
+            12
+          ],
+          "observed": 148,
+          "predicted": 148
+        },
+        {
+          "point": [
+            12,
+            31
+          ],
+          "observed": -148,
+          "predicted": -148
+        },
+        {
+          "point": [
+            13,
+            21
+          ],
+          "observed": -220,
+          "predicted": -220
+        },
+        {
+          "point": [
+            13,
+            22
+          ],
+          "observed": 220,
+          "predicted": 220
+        },
+        {
+          "point": [
+            20,
+            3
+          ],
+          "observed": 92,
+          "predicted": 92
+        },
+        {
+          "point": [
+            20,
+            40
+          ],
+          "observed": -92,
+          "predicted": -92
+        },
+        {
+          "point": [
+            21,
+            18
+          ],
+          "observed": -28,
+          "predicted": -28
+        },
+        {
+          "point": [
+            21,
+            25
+          ],
+          "observed": 28,
+          "predicted": 28
+        },
+        {
+          "point": [
+            25,
+            18
+          ],
+          "observed": -28,
+          "predicted": -28
+        },
+        {
+          "point": [
+            25,
+            25
+          ],
+          "observed": 28,
+          "predicted": 28
+        },
+        {
+          "point": [
+            29,
+            12
+          ],
+          "observed": 148,
+          "predicted": 148
+        },
+        {
+          "point": [
+            29,
+            31
+          ],
+          "observed": -148,
+          "predicted": -148
+        },
+        {
+          "point": [
+            32,
+            3
+          ],
+          "observed": 92,
+          "predicted": 92
+        },
+        {
+          "point": [
+            32,
+            40
+          ],
+          "observed": -92,
+          "predicted": -92
+        },
+        {
+          "point": [
+            34,
+            3
+          ],
+          "observed": 92,
+          "predicted": 92
+        },
+        {
+          "point": [
+            34,
+            40
+          ],
+          "observed": -92,
+          "predicted": -92
+        },
+        {
+          "point": [
+            35,
+            21
+          ],
+          "observed": -220,
+          "predicted": -220
+        },
+        {
+          "point": [
+            35,
+            22
+          ],
+          "observed": 220,
+          "predicted": 220
+        },
+        {
+          "point": [
+            37,
+            7
+          ],
+          "observed": 100,
+          "predicted": 100
+        },
+        {
+          "point": [
+            37,
+            36
+          ],
+          "observed": -100,
+          "predicted": -100
+        },
+        {
+          "point": [
+            38,
+            21
+          ],
+          "observed": -220,
+          "predicted": -220
+        },
+        {
+          "point": [
+            38,
+            22
+          ],
+          "observed": 220,
+          "predicted": 220
+        },
+        {
+          "point": [
+            40,
+            18
+          ],
+          "observed": -28,
+          "predicted": -28
+        },
+        {
+          "point": [
+            40,
+            25
+          ],
+          "observed": 28,
+          "predicted": 28
+        },
+        {
+          "point": [
+            42,
+            7
+          ],
+          "observed": 100,
+          "predicted": 100
+        },
+        {
+          "point": [
+            42,
+            36
+          ],
+          "observed": -100,
+          "predicted": -100
+        }
+      ]
+    }
+  ],
+  "all_passed": true
+}

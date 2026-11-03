@@ -1,0 +1,187 @@
+{
+  "python": "3.13.5",
+  "sympy": "1.14.0",
+  "scope": "Consistency tests for the accompanying proposed derivations; not independent proof verification.",
+  "symbolic": {
+    "quartic_discriminant": "PASS",
+    "birational_cubic_model": "PASS",
+    "cubic_discriminants": "PASS",
+    "j_invariant_numerator": "PASS",
+    "chord_identity": "PASS",
+    "quaternion_intertwiner": "PASS",
+    "four_projectors": "PASS",
+    "frobenius_projector_permutation": [
+      0,
+      2,
+      3,
+      1
+    ],
+    "invariant_line_frobenius_eigenvalue": 1,
+    "alternating_form_multiplier_identity": "PASS",
+    "four_dimensional_characteristic_polynomial": "PASS"
+  },
+  "finite_fields": {
+    "max_prime": 43,
+    "curve_models": 2744,
+    "nonzero_shifts": 93640,
+    "q_3_mod_4_models": 1288,
+    "q_3_mod_4_shifts": 43288,
+    "per_prime": [
+      {
+        "prime": 5,
+        "epsilon": 1,
+        "curve_models": 8,
+        "nonzero_shifts": 40
+      },
+      {
+        "prime": 7,
+        "epsilon": -1,
+        "curve_models": 16,
+        "nonzero_shifts": 112
+      },
+      {
+        "prime": 11,
+        "epsilon": -1,
+        "curve_models": 40,
+        "nonzero_shifts": 440
+      },
+      {
+        "prime": 13,
+        "epsilon": 1,
+        "curve_models": 56,
+        "nonzero_shifts": 728
+      },
+      {
+        "prime": 17,
+        "epsilon": 1,
+        "curve_models": 96,
+        "nonzero_shifts": 1632
+      },
+      {
+        "prime": 19,
+        "epsilon": -1,
+        "curve_models": 120,
+        "nonzero_shifts": 2280
+      },
+      {
+        "prime": 23,
+        "epsilon": -1,
+        "curve_models": 176,
+        "nonzero_shifts": 4048
+      },
+      {
+        "prime": 29,
+        "epsilon": 1,
+        "curve_models": 280,
+        "nonzero_shifts": 8120
+      },
+      {
+        "prime": 31,
+        "epsilon": -1,
+        "curve_models": 320,
+        "nonzero_shifts": 9920
+      },
+      {
+        "prime": 37,
+        "epsilon": 1,
+        "curve_models": 456,
+        "nonzero_shifts": 16872
+      },
+      {
+        "prime": 41,
+        "epsilon": 1,
+        "curve_models": 560,
+        "nonzero_shifts": 22960
+      },
+      {
+        "prime": 43,
+        "epsilon": -1,
+        "curve_models": 616,
+        "nonzero_shifts": 26488
+      }
+    ],
+    "examples": [
+      {
+        "p": 31,
+        "a": 0,
+        "b": 7,
+        "T": [
+          0,
+          10
+        ],
+        "N": 21,
+        "correlation": -7,
+        "elliptic_trace": -7,
+        "H_group_order": 39
+      },
+      {
+        "p": 31,
+        "a": 0,
+        "b": 7,
+        "T": [
+          0,
+          21
+        ],
+        "N": 21,
+        "correlation": -7,
+        "elliptic_trace": -7,
+        "H_group_order": 39
+      },
+      {
+        "p": 31,
+        "a": 0,
+        "b": 7,
+        "T": [
+          1,
+          15
+        ],
+        "N": 21,
+        "correlation": 5,
+        "elliptic_trace": 5,
+        "H_group_order": 27
+      },
+      {
+        "p": 31,
+        "a": 0,
+        "b": 7,
+        "T": [
+          1,
+          16
+        ],
+        "N": 21,
+        "correlation": 5,
+        "elliptic_trace": 5,
+        "H_group_order": 27
+      },
+      {
+        "p": 31,
+        "a": 0,
+        "b": 7,
+        "T": [
+          4,
+          3
+        ],
+        "N": 21,
+        "correlation": -3,
+        "elliptic_trace": -3,
+        "H_group_order": 35
+      },
+      {
+        "p": 31,
+        "a": 0,
+        "b": 7,
+        "T": [
+          4,
+          28
+        ],
+        "N": 21,
+        "correlation": -3,
+        "elliptic_trace": -3,
+        "H_group_order": 35
+      }
+    ],
+    "ordered_test_data_sha256": "44f57302bbbf48d5ac17f92f55ce7bf919052812b794542422dd7c458954a5e7",
+    "arithmetic": "exact integers and modular arithmetic; no floating point",
+    "all_passed": true
+  }
+}

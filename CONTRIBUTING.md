@@ -7,3 +7,6 @@ Useful contributions include: a self-contained correction to a specific equation
 For proposed geometric and Fourier results, please identify precisely the published theorem being invoked and verify its hypotheses, including character sheaves, descent, weights, irreducibility and connectedness. Sampled finite-field agreement by itself is not sufficient for this purpose.
 
 Independent reviews should state the scope checked, the reviewer's mathematical assumptions and the status of any unresolved dependencies. The curator cannot promise technical support or immediate integration of a correction.
+
+
+For proposed results in revised Article IV and companions 06--07, please identify the relevant theorem/equation and whether a finding is an independent mathematical proof check, a reproducible exact computation, or a counterexample. Report the prime field, curve model, shift, and sign convention for finite autocorrelations; extension-field character tests must use the elliptic norm pullback. Neither curator availability nor scientific correctness is guaranteed by repository inclusion.

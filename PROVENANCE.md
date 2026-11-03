@@ -29,3 +29,9 @@ The curator is responsible for deciding to publish, giving a good-faith account 
 ## Changes from the earlier draft series
 
 The mathematical cores and equations were preserved as far as possible. Front matter, abstracts, some newly proposed result labels, interpretative sentences, final contribution/disclosure sections and document metadata were revised to reflect the public-artifact status. No new independent mathematical proof audit was conducted as part of this editorial conversion.
+
+## November 2, 2026: explicit trace model and companion artifacts
+
+The revision of Article IV and the companion papers were produced in the same human-initiated, AI-developed research process. ChatGPT developed most mathematical text, equations, argument organization and exact checkers; Louis Desbiens directed the work and curated public release. Independent mathematical expertise has **not** reviewed or certified the advanced Frobenius, convolution, or semicircle arguments. The exact autocorrelation formula has a proposed elementary derivation and finite tests, but is also not independently certified. Publication licenses do not imply scientific endorsement.
+
+The four other principal manuscripts retain their 31 October 2026 content. The previous edition remains identifiable via historical ZIP checksums; the 2 November edition supersedes Article IV but does not erase the historical record.

@@ -1,0 +1,39 @@
+{
+  "companions": [
+    "06_Quaternionic_Fourier_Technical_Evidence",
+    "07_Exact_Elliptic_Autocorrelation_Trace_Identity"
+  ],
+  "edition": "2026-11-02",
+  "licenses": {
+    "manuscripts": "CC BY 4.0",
+    "python": "MIT"
+  },
+  "mathematical_status": "AI-developed candidate results; no independent expert review, formal proof checking, or certified originality",
+  "revised_article": "04_Quaternionic_Elliptic_Fourier",
+  "software": {
+    "pandoc": "pandoc 3.1.11.1",
+    "python": "3.13.5"
+  },
+  "source_collection": "31 October 2026 five-manuscript release",
+  "verification": {
+    "new_spectral": {
+      "all_assertions_passed": true,
+      "digest": "483fbcff3ba6383e547428ceeeb5d0309573d15e015b6bdb521b910d3c14f62e",
+      "models": 512,
+      "shifts": 9280
+    },
+    "prior_audit_extensions": {
+      "all_assertions_passed": true,
+      "archived_json_sha256_equal": true,
+      "cases": 18,
+      "coefficients": 282,
+      "points": 285262
+    },
+    "prior_audit_rank_two": {
+      "all_assertions_passed": true,
+      "archived_json_sha256_equal": true,
+      "models": 2744,
+      "shifts": 93640
+    }
+  }
+}

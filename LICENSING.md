@@ -1,13 +1,13 @@
 # Reuse licenses and attribution
 
-**Edition dated 31 October 2026.** This is a **mixed-license** repository. The
+**Principal edition dated 31 October 2026, with a 2 November 2026 revision of Article IV and two companion manuscripts.** This is a **mixed-license** repository. The
 licenses below apply only to copyright or similar rights that the respective
 licensor has authority to grant; no exclusive ownership of mathematical facts,
 identities, public-domain material or third-party publications is asserted.
 
 | Material | License | Full text |
 | --- | --- | --- |
-| `LaTeX/`, `PDF/`, `Word/`, `Markdown/` (five manuscripts) | **Creative Commons Attribution 4.0 International (CC BY 4.0)** | [`LICENSE`](LICENSE); [official text](https://creativecommons.org/licenses/by/4.0/legalcode) |
+| `LaTeX/`, `PDF/`, `Word/`, `Markdown/` (five principal manuscripts plus two companions) | **Creative Commons Attribution 4.0 International (CC BY 4.0)** | [`LICENSE`](LICENSE); [official text](https://creativecommons.org/licenses/by/4.0/legalcode) |
 | Repository prose documentation, including `README.md`, `PROVENANCE.md`, `VERIFICATION.md`, release notes and recorded computational outputs (`*.json`, `*.txt`, `*.log`) | **CC BY 4.0**, to the extent protected | [`LICENSE`](LICENSE) |
 | Python scripts in `computational-checks/` | **MIT License** | [`computational-checks/LICENSE`](computational-checks/LICENSE) |
 | Root `Makefile` (build instructions) | **MIT License** | [`computational-checks/LICENSE`](computational-checks/LICENSE) |
@@ -25,7 +25,7 @@ and identification of changes.
 
 > *Explorations in finite-field mathematics: AI-developed research artifacts
 > pending independent verification*. Public collection, edition dated
-> 31 October 2026. Human initiator and curator: Louis Desbiens. AI mathematical
+> 31 October 2026; Article IV update and companions 2 November 2026. Human initiator and curator: Louis Desbiens. AI mathematical
 > research contributor: OpenAI's ChatGPT. Licensed text and documents under
 > CC BY 4.0. Cite the specific manuscript and link to the repository when known.
 

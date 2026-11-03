@@ -6,14 +6,14 @@
 **Human initiator and curator:** Louis Desbiens.  
 **AI mathematical research contributor:** OpenAI's ChatGPT.  
 **Affiliation:** none claimed; no institutional endorsement.  
-**Manuscript edition date:** 31 October 2026 (prepared for public release).  
+**Original five-manuscript edition:** 31 October 2026. **Article IV revision and two companion artifacts:** 2 November 2026.  
 **Reuse licenses:** CC BY 4.0 for manuscripts and documentation; MIT for the Python verification scripts.
 
 > **Verification notice.** The documents contain candidate mathematical contributions and proposed proofs generated in a human-directed, substantially AI-developed investigation. No independent specialist audit, complete proof-assistant verification, or exhaustive novelty review has been performed. Finite computational checks cover selected identities and models only. The results could be correct, partly correct, incomplete, or incorrect. Public availability is an invitation to examine, correct and develop the material, **not** a certification of the mathematics.
 
 The human curator organized and released the investigation but does not claim the expertise to independently certify the advanced proofs. The AI is identified as a mathematical contributor, not an accountable scholarly coauthor. See [PROVENANCE.md](PROVENANCE.md) for the development process, [VERIFICATION.md](VERIFICATION.md) for a claim-level coverage map, and [CITATION.md](CITATION.md) for attribution guidance. No private notes, chat transcripts or unpublished handoffs are needed as references for the manuscripts.
 
-## The five manuscripts
+## Five principal manuscripts and two companion research artifacts
 
 | No. | Mathematical topic | Read | Sources | Word | Editable Markdown |
 | --- | --- | --- | --- | --- | --- |
@@ -22,6 +22,8 @@ The human curator organized and released the investigation but does not claim th
 | 03 | Division-polynomial covariance and Kummer sequences | [PDF](PDF/03_EDS_Kummer_and_Cyclic_Sequences.pdf) | [LaTeX](LaTeX/03_EDS_Kummer_and_Cyclic_Sequences.tex) | [Word](Word/03_EDS_Kummer_and_Cyclic_Sequences.docx) | [Markdown](Markdown/03_EDS_Kummer_and_Cyclic_Sequences.md) |
 | 04 | Quaternionic Fourier transforms and semicircle laws | [PDF](PDF/04_Quaternionic_Elliptic_Fourier.pdf) | [LaTeX](LaTeX/04_Quaternionic_Elliptic_Fourier.tex) | [Word](Word/04_Quaternionic_Elliptic_Fourier.docx) | [Markdown](Markdown/04_Quaternionic_Elliptic_Fourier.md) |
 | 05 | Symmetry constraints on scalar observables | [PDF](PDF/05_Symmetry_Constraints_on_Scalar_Observables.pdf) | [LaTeX](LaTeX/05_Symmetry_Constraints_on_Scalar_Observables.tex) | [Word](Word/05_Symmetry_Constraints_on_Scalar_Observables.docx) | [Markdown](Markdown/05_Symmetry_Constraints_on_Scalar_Observables.md) |
+| 06 | **Technical companion** -- Frobenius normalization, rank-two geometry, and verification evidence | [PDF](PDF/06_Quaternionic_Fourier_Technical_Evidence.pdf) | [LaTeX](LaTeX/06_Quaternionic_Fourier_Technical_Evidence.tex) | [Word](Word/06_Quaternionic_Fourier_Technical_Evidence.docx) | [Markdown](Markdown/06_Quaternionic_Fourier_Technical_Evidence.md) |
+| 07 | **Standalone companion** -- Exact elliptic Frobenius traces for ordinate-character autocorrelation | [PDF](PDF/07_Exact_Elliptic_Autocorrelation_Trace_Identity.pdf) | [LaTeX](LaTeX/07_Exact_Elliptic_Autocorrelation_Trace_Identity.tex) | [Word](Word/07_Exact_Elliptic_Autocorrelation_Trace_Identity.docx) | [Markdown](Markdown/07_Exact_Elliptic_Autocorrelation_Trace_Identity.md) |
 
 The text and equation detail have been retained while the publication framing, attribution and claim labels have been revised. The print editions use black-and-white A4 LaTeX with Latin Modern Roman and Latin Modern Math. Word copies are supplementary editable formats; the LaTeX source is the canonical typesetting source for each public PDF.
 
@@ -32,7 +34,7 @@ The text and equation detail have been retained while the publication framing, a
 * **Computational checks** are reproducible finite or symbolic tests on specified inputs. They are not proofs of general statements or independent mathematical audits.
 * **Cryptography:** this collection contains **no verified improvement** on elliptic-curve discrete-logarithm algorithms and no general hardness or security theorem.
 
-The most demanding outstanding dependencies are the Kummer/geometric independence arguments in Manuscript III and the convolution, arithmetic monodromy, purity and moment steps in Manuscript IV. See [VERIFICATION.md](VERIFICATION.md).
+The most demanding outstanding dependencies are the Kummer/geometric independence arguments in Manuscript III and the full convolution-group, higher-moment and semicircle arguments in Manuscript IV. The new exact autocorrelation identity has an elementary proposed proof and extensive finite checks, but no independent specialist certification. See [VERIFICATION.md](VERIFICATION.md).
 
 ## Reproducing the PDFs
 
@@ -51,7 +53,7 @@ this small release archive. The `PDF/` files are versioned reading copies. To ch
 
 ## Reproducing finite checks
 
-See [computational-checks/README.md](computational-checks/README.md). Use Python with NumPy and SymPy dependencies in `computational-checks/requirements.txt`; assertions must remain enabled. The suite contains seven original scripts. For example:
+See [computational-checks/README.md](computational-checks/README.md). Use Python with NumPy and SymPy dependencies in `computational-checks/requirements.txt`; assertions must remain enabled. The suite contains seven original scripts plus three supplemental scripts linked to revised Article IV and companions 06--07. For example:
 
 ```sh
 cd computational-checks
@@ -73,7 +75,7 @@ Specific verification questions, underlying hypotheses and unverified steps are 
 
 ## Reuse permissions and release responsibility
 
-The five manuscripts (`LaTeX/`, `PDF/`, `Markdown/`, `Word/`) and repository
+The seven mathematical artifacts (`LaTeX/`, `PDF/`, `Markdown/`, `Word/`) and repository
 prose documentation are made available under **CC BY 4.0**, to the extent that
 relevant rights are held. The Python verification programs and root Makefile
 are distributed under the **MIT License**. The full CC BY legal code is in
@@ -82,3 +84,21 @@ are distributed under the **MIT License**. The full CC BY legal code is in
 [LICENSING.md](LICENSING.md) for precise scope, required attribution and
 third-party caveats. Granting reuse permissions neither certifies the proposed
 mathematics nor removes ordinary responsibility for an accurate release.
+
+## November 2 update: where to read the new mathematics
+
+- **Article IV**, Sections 6.1a and 6.3a: Frobenius normalization on each character twist, determinant `-q`, characteristic polynomial and exact extension recurrences. Section 7.1: diagonal two-torsion projector, rank-two elliptic model and punctual correction. Section 9: the exact autocorrelation trace identity replaces the earlier envelope-only argument.
+- **Companion 06**: technical evidence dossier with the detailed geometric maps, exact tests, and the explicit proof obligations that remain.
+- **Companion 07**: stand-alone, elementary derivation of the autocorrelation identity, its cubic model, spectral-energy formula and trace mean.
+
+The labels 'Proposed Theorem' and 'Proposed Proposition' mark **candidate new deductions**, not independent proof certification. The full convolution-group and semicircle claims remain independently unverified. The extensive exact computations do not turn them into theorems reviewed by specialists. Original manuscripts 01, 02, 03 and 05 retain their 31 October 2026 edition unchanged.
+
+To run the additional tests (from the root directory, with assertions enabled):
+
+```sh
+python computational-checks/verify_rank_two_model.py --output rank_two_results_new.json
+python computational-checks/verify_frobenius_extensions.py --output extension_results_new.json
+python computational-checks/verify_autocorrelation_spectral.py --output spectral_results_new.json
+```
+
+The archived JSON outputs are in `computational-checks/`, along with run logs. `reproducibility/NEW_ARTICLE_IV_REPORT.json` records the input and output scope. Refer to `GITHUB_UPDATE_INSTRUCTIONS.md` for replacement steps.

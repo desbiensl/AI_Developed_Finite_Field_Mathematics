@@ -1,4 +1,4 @@
-# Verification register: five AI-developed mathematical research artifacts
+# Verification register: five principal AI-developed research artifacts and two companions
 
 **Interpretation:** this is a status register, not a proof of correctness. No claimed new theorem has been independently certified by a qualified specialist. Formal verification in Lean or a comparable proof assistant has not been performed. Conventional published background results are cited in the manuscripts but their application to new deductions has not been independently reviewed.
 
@@ -109,6 +109,20 @@ The five machine-readable results in `computational-checks/` are the **archived 
 | Proposed Theorem D, autocorrelation envelope | `verify_small_fourier.py` tests 3,110 nonzero shifts by **exact integer correlation** on selected small curves | Does not verify the full genus-five cover argument or the universal theorem |
 | Section 10, extension-field phases | `check_finite_algebra.py` checks finite-factor traces for extension degrees 1--6 | Does not prove the complete extension-field distribution or geometric arguments |
 | Sections 11--12, scalar-information consequences | Some simple consequences can be checked arithmetically given an envelope | No cryptanalytic speedup, security proof, or deterministic distribution law follows from these tests |
+
+
+### November 2 addendum to Article IV and companion manuscripts 06--07
+
+| Candidate mathematical step | Evidence and exact coverage | Independent-review limitation |
+| --- | --- | --- |
+| **Exact autocorrelation identity** `C_E(T) = -chi_q(-1) a(H_T)` for nonzero `T` and odd `#E(F_q)` | Standalone manuscript 07 provides a proposed elementary derivation. `verify_rank_two_model.py` tested **2,744** finite prime-field models and **93,640** nonzero shifts, all passed. `verify_autocorrelation_spectral.py` adds **512** models and **9,280** shifts with exact group-ring identities. | The general derivation still requires independent specialist checking, particularly the exceptional midpoint and projective point-count convention. |
+| Cubic presentation and `j`-invariant of `H_T` | Symbolic discriminants, birational substitution, prime-field curve-point counts | Mathematical isomorphism and boundary cases remain unreviewed by a human specialist. |
+| Frobenius pairing and determinant `det(B_psi)=-q` | Proposed proof uses inversion on the full Lang cover; exact matrix identities and extension sum predictions | Equivariance, cup-product multiplier, and conventions are not independently certified. |
+| Frobenius-compatible diagonal sheaf projector and rank-two local system | Proposed geometric quotient maps; actual finite matrix projectors; elliptic family trace tests | Descent, sheaf-level idempotent, purity and singular-fiber analysis require expert review. |
+| Fourier extension recurrences for norm-pulled-back characters | **18** extension-field cases and **282** exact group-ring coefficient equalities (largest `F_(7^6)`); rerun JSON byte-identical | Tests are finite; no universal cohomological proof checker. |
+| **Higher Catalan moments, full convolution group, semicircle limit** | Existing finite Fourier and quaternionic checks from 31 October plus newly explicit square model | **Still not independently verified.** The new model does not automatically establish these claims or improve ECDLP key recovery. |
+
+The two earlier audit programs and the new spectral program were rerun or executed on 2 November 2026. Test artifacts and the programs' MIT license are in `computational-checks/`. The revised Article IV and two companion manuscripts use CC BY 4.0.
 
 ## Article V — Symmetry constraints on elliptic-curve scalar observables
 

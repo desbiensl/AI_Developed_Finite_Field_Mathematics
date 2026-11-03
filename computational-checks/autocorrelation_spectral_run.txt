@@ -1,0 +1,8 @@
+p=5: 8 models; 40 nonzero shifts: PASS
+p=7: 16 models; 112 nonzero shifts: PASS
+p=11: 40 models; 440 nonzero shifts: PASS
+p=13: 56 models; 728 nonzero shifts: PASS
+p=17: 96 models; 1632 nonzero shifts: PASS
+p=19: 120 models; 2280 nonzero shifts: PASS
+p=23: 176 models; 4048 nonzero shifts: PASS
+PASS 512 models 9280 shifts

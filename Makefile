@@ -1,9 +1,9 @@
 LATEXMK = latexmk
 TEXFLAGS = -lualatex -interaction=nonstopmode -halt-on-error -file-line-error -output-directory=build
 
-.PHONY: all clean article-01 article-02 article-03 article-04 article-05
+.PHONY: all clean article-01 article-02 article-03 article-04 article-05 article-06 article-07
 
-all: article-01 article-02 article-03 article-04 article-05
+all: article-01 article-02 article-03 article-04 article-05 article-06 article-07
 
 article-01:
 	mkdir -p build
@@ -24,6 +24,15 @@ article-04:
 article-05:
 	mkdir -p build
 	$(LATEXMK) $(TEXFLAGS) LaTeX/05_Symmetry_Constraints_on_Scalar_Observables.tex
+
+
+article-06:
+	mkdir -p build
+	$(LATEXMK) $(TEXFLAGS) LaTeX/06_Quaternionic_Fourier_Technical_Evidence.tex
+
+article-07:
+	mkdir -p build
+	$(LATEXMK) $(TEXFLAGS) LaTeX/07_Exact_Elliptic_Autocorrelation_Trace_Identity.tex
 
 clean:
 	rm -rf build

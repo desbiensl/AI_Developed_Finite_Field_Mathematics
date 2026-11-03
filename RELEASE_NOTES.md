@@ -1,24 +1,13 @@
-# Release notes — edition dated 31 October 2026
+# Release notes -- 2 November 2026
 
-This edition replaces the earlier presentation as a conventional exploratory preprint by a GitHub-ready collection of public AI-developed mathematical research artifacts awaiting independent specialist verification.
+This package updates manuscript 04 from the 31 October collection and adds two mathematically connected but separately readable companion research artifacts.
 
-Updated: first-page attribution (human initiator/curator vs AI mathematical research contributor); document classification and reading guide; five abstracts where necessary to distinguish proposed arguments from validated results; principal new theorem/corollary labels; research-provenance and responsibility declarations; institutional and funding metadata; repository-level `PROVENANCE.md`, `VERIFICATION.md`, `LICENSING.md`, and contribution guidance.
+- **04 (revised)**: retains original Fourier bound, quaternion group, full proposed monodromy and semicircle sections; adds an explicit characterwise Lang-cover inversion pairing and determinant, characteristic polynomial and norm-extension recurrences; replaces autocorrelation envelope-only result by a proposed exact elliptic Frobenius trace; constructs a candidate geometric projector and explicit genus-two/elliptic quotients.
+- **06 (new technical evidence)**: records detailed derivations, matrix and finite-field checks, exact counts, and the unresolved specialist-review dependencies.
+- **07 (new standalone identity)**: elementary proposed proof of `C_E(T)=-chi_q(-1)(q+1-#H_T)`, cubic and j-invariant, exact Fourier-energy and trace-sum identities.
+- **Code**: seven original verification programs remain unchanged; adds the two prior audit checkers and an additional exact spectral/group-ring checker. The first two produced byte-for-byte matching archived JSON. The new checker passed 512 model tests and 9,280 nonzero shifts.
+- **Presentation**: LaTeX/PDF use A4, monochrome Latin Modern Roman and Latin Modern Math; Word companions contain native OMML equations and use the existing editable series typography. Canonical mathematical source is `.tex`; Markdown is a convenience mirror. PDF/Word rendered and visually checked.
+- **Attribution**: Louis Desbiens (human initiator and curator); OpenAI's ChatGPT (AI mathematical research contributor). Mathematical conclusions remain candidate results pending independent specialist verification. No claim of novelty or ECDLP speedup.
+- **Licenses**: manuscripts/documents CC BY 4.0 to the extent of rights held; Python scripts MIT.
 
-Preserved: the mathematical development, displayed formulas, source bibliographies, and seven validation programs with their input certificates/results. The Word conversion retains the same per-document number of native Word mathematics objects as the previous edition. No specialist verification or new novelty audit was performed during these editorial revisions.
-
-The LaTeX reading copies are A4, monochrome, using Latin Modern Roman and Latin Modern Math. The Word copies are edit-friendly companions, not byte-for-byte replicas of the typeset PDFs.
-
-## Licensing and edition update (31 October 2026)
-
-Applied **CC BY 4.0** to the five manuscripts and prose documentation,
-including PDFs, canonical LaTeX sources and editable companions. Applied the
-**MIT License** to the seven original verification scripts and repository
-Makefile. Included the complete license texts and directory-by-directory
-scope in `LICENSING.md`. All five manuscript display dates (LaTeX, Markdown and
-Word) are now 31 October 2026 and carry a visible CC BY 4.0 notice.
-
-The mathematics, existing verification scripts and archived computational
-results were not rewritten for this licensing release. Compilation and
-formatting checks are not a new specialist mathematical review. The public
-release occurs only when the curator actually makes the GitHub repository
-public; the edition date does not assert that it is already published.
+Manuscripts 01, 02, 03 and 05 are unchanged from 31 October 2026 (byte-for-byte source and PDF files). This release does not silently modify those papers. Earlier Article IV PDFs remain part of the historic 31 October archive, not this superseding file.

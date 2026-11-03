@@ -25,3 +25,7 @@ TeX `.aux`/`.log` intermediates or private files. Check `git status`, the
 staged changes and Git commit author email before pushing. The source
 package contains no personal correspondence email in the manuscript title
 blocks, but the curator's name is intentionally public.
+
+## Updating from the 31 October collection to the 2 November edition
+
+Extract the small update overlay and copy its files into the **same paths** in the GitHub repository. In particular, replace `LaTeX/04_Quaternionic_Elliptic_Fourier.tex`, `PDF/04_Quaternionic_Elliptic_Fourier.pdf`, `Word/04_Quaternionic_Elliptic_Fourier.docx`, and `Markdown/04_Quaternionic_Elliptic_Fourier.md`. Add the matching 06/07 files, three additional `computational-checks/` programs, their archived results, and the updated root documentation. Do not upload intermediate TeX compilation files or private chat transcripts. Alternatively, use the complete seven-manuscript ZIP to initialize a fresh repository. No GitHub repository was modified by preparing this ZIP.

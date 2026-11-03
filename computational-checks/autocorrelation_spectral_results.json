@@ -1,0 +1,50 @@
+{
+  "all_assertions_passed": true,
+  "digest": "483fbcff3ba6383e547428ceeeb5d0309573d15e015b6bdb521b910d3c14f62e",
+  "method": "Exact integer arithmetic on each enumerated rational group; no floating-point Fourier transform",
+  "models": 512,
+  "per_prime": [
+    {
+      "models": 8,
+      "p": 5,
+      "shifts": 40
+    },
+    {
+      "models": 16,
+      "p": 7,
+      "shifts": 112
+    },
+    {
+      "models": 40,
+      "p": 11,
+      "shifts": 440
+    },
+    {
+      "models": 56,
+      "p": 13,
+      "shifts": 728
+    },
+    {
+      "models": 96,
+      "p": 17,
+      "shifts": 1632
+    },
+    {
+      "models": 120,
+      "p": 19,
+      "shifts": 2280
+    },
+    {
+      "models": 176,
+      "p": 23,
+      "shifts": 4048
+    }
+  ],
+  "q1_models": 160,
+  "q3_models": 352,
+  "shifts": 9280,
+  "software": {
+    "python": "3.13.5",
+    "sympy": "1.14.0"
+  }
+}

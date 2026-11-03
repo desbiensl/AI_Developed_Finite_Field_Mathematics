@@ -1,0 +1,432 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[top=25mm,bottom=24mm,left=27mm,right=27mm]{geometry}
+\usepackage{amsmath,amsthm}
+\usepackage{unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{microtype,setspace,booktabs,longtable,array,needspace}
+\usepackage[unicode,hidelinks]{hyperref}
+\usepackage{xurl}
+\setstretch{1.12}
+\setlength{\parindent}{1.15em}
+\setlength{\parskip}{3pt plus 1pt}
+\setlength{\emergencystretch}{3em}
+\AtBeginDocument{\setlength{\abovedisplayskip}{11pt plus 3pt minus 2pt}\setlength{\belowdisplayskip}{11pt plus 3pt minus 2pt}}
+\numberwithin{equation}{section}
+\newtheorem{prop}{Proposed Proposition}[section]
+\newtheorem{lem}[prop]{Proposed Lemma}
+\newtheorem{cor}[prop]{Proposed Corollary}
+\newcommand{\F}{\mathbf F}
+\newcommand{\Q}{\overline{\mathbf Q}_{\ell}}
+\newcommand{\Tr}{\operatorname{Tr}}
+\newcommand{\tr}{\operatorname{tr}}
+\newcommand{\rk}{\operatorname{rk}}
+\newcommand{\im}{\operatorname{im}}
+\newcommand{\const}{\operatorname{const}}
+\newcommand{\Fr}{\operatorname{Fr}}
+\newcommand{\OO}{\mathcal O}
+\newcommand{\A}{\mathcal A}
+\newcommand{\M}{\mathcal M}
+\newcommand{\B}{\mathcal B}
+\hypersetup{pdftitle={Technical evidence for the quaternionic elliptic Fourier model},pdfauthor={Louis Desbiens (human initiator and curator)},pdfsubject={Technical verification evidence, exact tests, proof obligations, and proposed Frobenius/projector derivations; not independently validated}}
+\title{Technical evidence for the quaternionic elliptic Fourier model\\[5pt]\large Arithmetic normalization, geometric projector, and reproducibility dossier}
+\author{}
+\date{Public mathematical research artifact \textbar\ 2 November 2026}
+\begin{document}
+\maketitle
+\noindent\textbf{Human initiator and curator:} Louis Desbiens\\
+\textbf{AI mathematical research contributor:} OpenAI's ChatGPT\\
+ \textbf{Institutional affiliation:} None claimed\\
+\textbf{Manuscript license:} Creative Commons Attribution 4.0 International (CC BY 4.0)
+
+\noindent\textbf{Verification status.} This technical dossier records AI-developed mathematical arguments and exact computational checks. It is not independent specialist review, peer review, or formal proof verification. The curator does not independently certify the mathematical conclusions. This dossier accompanies the revised Article IV dated 2 November 2026 and the standalone autocorrelation identity manuscript. Established literature inputs and the derivations proposed here are distinguished below; no originality claim is made.
+
+\begin{abstract}
+For an elliptic curve $E/\F_q:y^2=x^3+ax+b$ with odd rational group order, the quadratic ordinate character admits an explicit convolution-square model. For a nonidentity point $T=(u,v)$, its autocorrelation is, up to the elementary sign $-\chi_q(-1)$, the Frobenius trace of the genus-one curve $H_T:w^2=(x-u)(x^3+ax+b)$. A direct finite-field proof treats the points omitted by the chord formula and the two points at infinity. This supplies a simpler route to the autocorrelation envelope and an explicit elliptic realization of the generic rank-two trace model. In the setting $q\equiv3\pmod4$, an inversion lift on the simultaneous Lang cover gives determinant $-q$ on every two-dimensional quaternionic multiplicity space. A diagonal two-torsion action on the convolution surface defines a genuine Frobenius-stable projector without assuming the proposed full convolution group. The origin stalk fixes the punctual eigenvalue at $+1$ and recovers Parseval exactly. Exact tests cover 2,744 prime-field curve models, 93,640 nonzero shifts, and 18 extension-field cases. The global convolution-group identification and semicircle moment theorem remain separate review tasks.
+\end{abstract}
+
+\section{Question, conventions, and established inputs}
+The first-priority question is whether the arithmetic normalization and rank-two square model in Article IV can be established without first assuming its proposed identification of the full convolution Tannaka group. The arguments below provide a proposed affirmative construction; they do not certify every other assertion of that article.
+
+Let $k=\F_q$, $\operatorname{char}k>3$, and
+\begin{equation}\label{eq:curve}
+ E:y^2=g(x),\qquad g(x)=x^3+ax+b,\qquad
+ D=-4a^3-27b^2\ne0.
+\end{equation}
+Let $O$ be the identity and suppose $N=\#E(k)$ is odd. Extend the quadratic character by $\chi_q(0)=0$, and set
+\begin{equation}\label{eq:definitions}
+ f(O)=0,\quad f(P)=\chi_q(y(P))\ (P\ne O),\quad
+ \varepsilon=\chi_q(-1),\quad a_E=q+1-N.
+\end{equation}
+Then $E[2](k)=\{O\}$, $g$ has no root in $k$, and multiplication by two is a bijection of $E(k)$. In particular $f(P)^2=1$ away from $O$. Define
+\begin{align}
+ C_E(T)&=\sum_{P\in E(k)} f(P)f(P+T),\\
+ (f*f)(T)&=\sum_{P\in E(k)} f(P)f(T-P),\\
+ S(\psi)&=\sum_{P\in E(k)}f(P)\psi(P).
+\end{align}
+Here $\psi$ ranges over characters of the elliptic-curve group, not additive characters of the coordinate field. Since $f(-P)=\varepsilon f(P)$,
+\begin{equation}\label{eq:convcor}
+ (f*f)(T)=\varepsilon C_E(T),\qquad C_E(O)=N-1.
+\end{equation}
+Sections 2--3 work for either value of $\varepsilon$. From Section 4 onward assume $q\equiv3\pmod4$, so $\varepsilon=-1$ and $S(\psi)$ is purely imaginary.
+
+The established inputs are the ordinary elliptic group law, Hasse's bound, the Weil theorem for smooth projective curves, Poincare duality, proper base change, and the semisimple property-P convolution formalism. References \cite{Sutherland,Milne,Katz,CDRS} specify these foundations. The elementary character-sum identity below does not require perverse sheaves, a monodromy classification, or any new claim from the October 2026 AI-manuscript collection.
+
+\section{An elementary elliptic model for the autocorrelation}
+\begin{prop}\label{prop:trace}
+For $T=(u,v)\in E(k)\setminus\{O\}$, let $H_T$ be the smooth projective completion of
+\begin{equation}\label{eq:quartic}
+ H_T:\quad w^2=(x-u)g(x).
+\end{equation}
+This is a genus-one curve with rational points, hence an elliptic curve after a choice of identity. If
+\begin{equation}
+ a_{H_T}=q+1-\#H_T(k),
+\end{equation}
+then
+\begin{equation}\label{eq:maintrace}
+ \boxed{(f*f)(T)=-a_{H_T},\qquad
+ C_E(T)=-\varepsilon a_{H_T}.}
+\end{equation}
+In particular, for $q\equiv3\pmod4$, one has $C_E(T)=a_{H_T}$.
+\end{prop}
+\begin{proof}[Proposed proof]
+Since $T$ is not two-torsion, $g(u)=v^2\ne0$. The quartic in \eqref{eq:quartic} has four distinct roots over $\bar k$, so its smooth completion has genus one. Its leading coefficient is one, giving two $k$-rational points at infinity. It also has the rational point $(u,0)$.
+
+Fix $P\in E(k)$, put $Q=T-P$ and $R=P-Q=2P-T$. For distinct abscissas the chord formulas give
+\begin{equation}\label{eq:chord}
+ x(P-Q)-x(P+Q)
+ =\frac{4y(P)y(Q)}{(x(P)-x(Q))^2}.
+\end{equation}
+Indeed the difference of the squared slopes is
+$((y(P)+y(Q))^2-(y(P)-y(Q))^2)/(x(P)-x(Q))^2$.
+Therefore, at nonexceptional points,
+\begin{equation}\label{eq:chartransfer}
+ f(P)f(Q)=\chi_q(x(R)-u).
+\end{equation}
+The map $P\mapsto R=2P-T$ is a bijection of $E(k)$.
+
+There are exactly three exceptional inputs. If $P=O$ or $P=T$, the product is zero, and $R=-T$ or $R=T$, respectively; the right side is also zero. If $P=Q=T/2$, then $R=O$ and the product is $f(T/2)^2=1$. There are no other equal-abscissa cases: $Q=-P$ would imply $T=O$. Consequently
+\begin{align} (f*f)(T)
+ &=1+\sum_{R\in E(k)\setminus\{O\}}\chi_q(x(R)-u)\\
+ &=1+\sum_{x\in k}(1+\chi_q(g(x)))\chi_q(x-u)\\
+ &=1+\sum_{x\in k}\chi_q((x-u)g(x)).
+\end{align}
+The sum of $\chi_q(x-u)$ over $k$ is zero. On the other hand,
+\begin{equation}\label{eq:countquartic}
+ \#H_T(k)=q+2+\sum_{x\in k}\chi_q((x-u)g(x)).
+\end{equation}
+Combining (the displayed convolution calculation) and \eqref{eq:countquartic} gives $(f*f)(T)=-a_{H_T}$; equation \eqref{eq:convcor} gives the correlation identity. Both the $+1$ in (the displayed convolution calculation) and the two points at infinity are essential.
+\end{proof}
+
+\begin{cor}\label{cor:bound}
+Under the hypotheses of Section 1,
+\begin{equation}\label{eq:autobound}
+ |C_E(T)|\le2\sqrt q\qquad(T\in E(k)\setminus\{O\}).
+\end{equation}
+\end{cor}
+\begin{proof}[Proposed deduction]
+Apply Hasse's theorem to the elliptic curve $H_T$ in Proposition \ref{prop:trace}. Hasse's theorem is an established input \cite[Theorem 7.3]{Sutherland}.
+\end{proof}
+This does not infer the original Fourier envelope from an autocorrelation bound. The Fourier envelope uses the different covering-space argument of Section 4.
+
+\section{Computable equations and a worked example}
+The quartic has a useful cubic model. Set $s=1/(x-u)$ and $z=w/(x-u)^2$. Then
+\begin{equation}\label{eq:cubic}
+ z^2=v^2s^3+(3u^2+a)s^2+3us+1.
+\end{equation}
+Writing $c=g(u)=v^2$ and $d=g'(u)=3u^2+a$, the substitution $X=cs$, $Y=cz$ gives
+\begin{equation}\label{eq:monic}
+ Y^2=X^3+dX^2+3ucX+c^2.
+\end{equation}
+Its Weierstrass discriminant and $j$-invariant are
+\begin{align}\label{eq:discriminant}
+ \Delta(H_T)&=16c^2D\ne0,\\
+ j(H_T)&=\frac{256(a^2-3au^2-9bu)^3}{g(u)^2D}.
+\end{align}
+These follow by expansion of the standard cubic discriminant and $c_4$ formulas. The accompanying symbolic checker verifies the polynomial identities, not their geometric interpretation.
+
+For $E/\F_{31}:y^2=x^3+7$, one has $N=21$. Take $T=(1,15)$. Then
+\begin{equation}
+ H_T:\quad z^2=8s^3+3s^2+3s+1.
+\end{equation}
+Exact enumeration gives $\#H_T(\F_{31})=27$, hence $a_{H_T}=5$. Directly summing the 21 terms of $C_E(T)$ also gives $5$. For $T=(0,10)$, the corresponding values are $\#H_T=39$ and $C_E(T)=a_{H_T}=-7$. These are examples over a toy field, not secp256k1 point counts.
+
+For $a=0$, the formula simplifies to
+\begin{equation}\label{eq:cmj}
+ j(H_T)=\frac{6912b\,u^3}{(u^3+b)^2}.
+\end{equation}
+Thus in the $j=0$ setting this auxiliary family is naturally expressed in the sixfold quotient coordinate $u^3$ used elsewhere in the project. This algebraic observation does not by itself establish an isogeny relation along the primitive CM orbit or an algorithm for recovering a hidden scalar.
+
+\section{Frobenius normalization on every character-twisted space}
+The remaining sections assume $q\equiv3\pmod4$. Fix coefficients in $\Q$, with $\ell\ne\operatorname{char}k$, and a complex embedding for absolute values. The geometric root $\zeta\in\bar k$ with $\zeta^2=-1$ and the coefficient scalar $i\in\Q$ mapping to the complex imaginary unit are distinct choices.
+
+\subsection{The simultaneous cover and inversion lift}
+Let $C$ be the smooth projective curve $z^4=g(x)$, with degree-two map $\pi:C\to E$ and deck involution $\iota:z\mapsto-z$. Its branch set is $E[2]$ and its genus is three. For a root $r$ of $g$, put $d_r=g'(r)$ and choose $c_r^2=-d_r$. The automorphism
+\begin{equation}\label{eq:sigmar}
+ \sigma_r(x,z)=\left(r+\frac{d_r}{x-r},\frac{c_rz}{x-r}\right)
+\end{equation}
+lifts translation by $(r,0)$ and satisfies $\sigma_r^2=\iota$. The eight lifts form $Q_8$. Frobenius permutes the three nonzero two-torsion points in a three-cycle, because none is rational. Its induced automorphism of $Q_8$ has order three: the preimages of three-cycles under $\operatorname{Aut}(Q_8)\simeq S_4\to S_3$ are three-cycles.
+
+Let $\mathsf L=\Fr_q-[1]$ be the Lang isogeny. It is etale of odd degree $N$, with deck group $\Gamma=E(k)$. On
+\begin{equation}
+ \widetilde C=C\times_{E,\mathsf L}E
+\end{equation}
+define $U_T\in E[2]$ by $\mathsf L(U_T)=T$. The lift
+\begin{equation}
+ (c,R)\longmapsto(\sigma_T(c),R+U_T)
+\end{equation}
+commutes with $\Gamma$. The fiber product is smooth and connected: its quadratic function-field extension cannot split after the odd-degree Lang extension. The additivity of $T\mapsto U_T$ preserves the quaternionic multiplication law. Frobenius compatibility follows from $\mathsf L(FU_T)=FT$.
+
+The inversion lift needed for all twists, not only the trivial twist, is
+\begin{equation}\label{eq:nu}
+ \widetilde\nu(c,R)=(\nu(c),-R),\qquad \nu(x,z)=(x,\zeta z).
+\end{equation}
+It satisfies $\widetilde\nu^2=\iota$, commutes with the lifted $Q_8$, and conjugates every $\gamma\in\Gamma$ to $-\gamma$. Commutation with the translated second coordinate uses $U_T=-U_T$.
+
+Let $V_\psi$ be the $\psi$-isotypic, $\iota$-anti-invariant part of $H^1(\widetilde C,\Q)$. Choose the character convention so that
+\begin{equation}\label{eq:tracesign}
+ S(\psi)=-\Tr(F\mid V_\psi).
+\end{equation}
+It has dimension four: the corresponding rank-one sheaf on $E\setminus E[2]$ has four tame nontrivial local monodromies, no invariants or dual invariants, and Euler characteristic $-4$. This also covers $\psi=1$ by using the anti-invariant part. The trace formula and duality are standard inputs \cite{Milne}.
+
+\subsection{The pairing and determinant}
+\begin{prop}\label{prop:det}
+There is a decomposition $V_\psi\simeq\rho\otimes W_\psi$, where $\rho$ is the two-dimensional quaternion representation and $\dim W_\psi=2$. With $A\in SL_2$ the three-cycle intertwiner chosen to have trace one, write
+\begin{equation}
+ F\mid V_\psi=A\otimes B_\psi.
+\end{equation}
+Then
+\begin{equation}\label{eq:det}
+ \boxed{\det B_\psi=-q,\qquad
+ U_\psi=\frac{i}{\sqrt q}B_\psi\in SL_2,\qquad
+ \tr U_\psi=\frac{-iS(\psi)}{\sqrt q}.}
+\end{equation}
+This conclusion does not assume a convolution Tannaka-group classification.
+\end{prop}
+\begin{proof}[Proposed proof]
+The center of $Q_8$ acts by $-1$ on $V_\psi$, so only copies of its unique two-dimensional irreducible representation $\rho$ occur. This gives $\rho\otimes W_\psi$. Let $\Omega$ be the cup-product pairing on the covering curve. It pairs the $\psi$ and $\psi^{-1}$ spaces perfectly. Put $J=\widetilde\nu^*$; then $J$ interchanges these two spaces and $J^2=-1$ on the anti-invariant part. Define
+\begin{equation}\label{eq:pairing}
+ b_\psi(v,w)=\Omega(v,Jw),\qquad v,w\in V_\psi.
+\end{equation}
+Since $J$ preserves cup product and $J^{-1}=-J$, this is symmetric and nondegenerate. It is $Q_8$-invariant because $J$ commutes with that group.
+
+Use the cohomological Frobenius convention in which the Weil eigenvalues on $H^1$ have absolute value $\sqrt q$ and the cup-product multiplier is $q$. As $q\equiv3\pmod4$, Frobenius conjugates $\nu$ to $\nu^{-1}$, hence $FJ=-JF$ on the anti-invariant cohomology. Therefore
+\begin{equation}\label{eq:minusq}
+ b_\psi(Fv,Fw)=\Omega(Fv,JFw)
+ =-\Omega(Fv,FJw)=-q\,b_\psi(v,w).
+\end{equation}
+The $Q_8$-invariant alternating form on $\rho$ is unique up to scalar. Thus the symmetric form $b_\psi$ is its tensor product with a nondegenerate alternating form on $W_\psi$. Schur's lemma gives $F=A\otimes B_\psi$. Since $\det A=1$, equation \eqref{eq:minusq} says that $B_\psi$ multiplies the alternating form on $W_\psi$ by $-q$. For a two-by-two matrix this multiplier equals its determinant. Hence $\det B_\psi=-q$. Equations \eqref{eq:tracesign} and $\tr A=1$ give $\tr B_\psi=-S(\psi)$, proving \eqref{eq:det}.
+\end{proof}
+The Weil theorem makes the eigenvalues of $B_\psi$ have absolute value $\sqrt q$: the eigenvalues of $A$ are roots of unity. Thus the eigenvalues of $U_\psi$ are reciprocal unit complex numbers. This recovers the proposed absolute Fourier bound $|S(\psi)|\le2\sqrt q$, as well as the exact determinant normalization. Changing $A$ to $-A$ changes the sign of $B_\psi$, but not its determinant or the squared trace.
+
+\subsection{A sharper, falsifiable arithmetic prediction}
+Let $s=S(\psi)$. The factorization above gives
+\begin{equation}\label{eq:charpoly}
+ \boxed{\det(Z-F\mid V_\psi)
+ =Z^4+sZ^3+(s^2+q)Z^2-qsZ+q^2.}
+\end{equation}
+For example, $A$ has characteristic polynomial $Z^2-Z+1$, while $B_\psi$ has characteristic polynomial $Z^2+sZ-q$. Tensoring their eigenvalues gives \eqref{eq:charpoly}. This is a more specific test than a bound on absolute values.
+
+For the extension character $\psi\circ\operatorname{Norm}_{k_m/k}$, where the norm is addition of Frobenius conjugates on $E$, write $S_m(\psi)$ for the ordinate-character sum over $k_m=\F_{q^m}$. The trace formula gives $S_m=-\Tr(F^m\mid V_\psi)$, hence
+\begin{align}\label{eq:extension}
+ S_2(\psi)&=s^2+2q,\\
+ S_3(\psi)&=-2s^3-6qs.\label{eq:extension3}
+\end{align}
+These apply to norm-pulled-back characters, not arbitrarily chosen unrelated characters on each extension group. For general $m$, set $a_0=2$, $a_1=1$, $a_m=a_{m-1}-a_{m-2}$ and $b_0=2$, $b_1=-s$, $b_m=-sb_{m-1}+qb_{m-2}$; then $S_m=-a_mb_m$.
+
+\section{A sheaf-level projector without the proposed full group}
+A projector on a vector space is not automatically an endomorphism of a sheaf. The following construction addresses that distinction directly.
+
+Let $\A=(\pi_*\Q)^-[1]=j_{!*}\mathcal K_y[1]$ and
+\begin{equation}
+ \M=\A\otimes\const(i/\sqrt q),\qquad \mathcal K=\M*\M.
+\end{equation}
+The notation $\const(c)$ denotes a geometrically constant rank-one Weil object on which the chosen Frobenius acts by $c$. The trace function of $\M$ is $-if/\sqrt q$. The local monodromy of $\mathcal K_y$ is nontrivial at every point of $E[2]$. Twisting by a lisse rank-one sheaf on $E$ preserves this ramification, so the underlying sheaf and its dual have no global invariants. Their cohomology on the proper curve is concentrated in degree one. Thus $\A$ and $\M$ have property P. The published convolution formalism makes $\mathcal K$ perverse with property P; purity and geometric semisimplicity apply to this geometric construction \cite{Katz,CDRS,Deligne}.
+
+On $C\times C$, the diagonal automorphism $(\sigma_T,\sigma_T)$ preserves the sum map
+\begin{equation}
+ s:C\times C\longrightarrow E,\qquad(c_1,c_2)\longmapsto\pi(c_1)+\pi(c_2),
+\end{equation}
+because $2T=O$. Select the $(-1,-1)$-eigensummand for the two deck involutions in $Rs_*\Q[2]$. This is the unnormalized convolution $\A*\A$. On this summand the central diagonal involution acts trivially; the diagonal $Q_8$ action therefore factors through $H=E[2]$. Changing the sign of a lift $\sigma_T$ has no effect on this action, since it inserts the central involution in both factors.
+
+If $D_T$ denotes the resulting operator, define
+\begin{equation}\label{eq:projector}
+ \boxed{e_0=\frac14\sum_{T\in E[2]}D_T,\qquad
+ \B=\im(e_0:\mathcal K\to\mathcal K).}
+\end{equation}
+This is a genuine convolution endomorphism, not only a fiber-functor calculation. Frobenius sends $D_T$ to $D_{FT}$, so $e_0$ is Frobenius-stable and its image has a specified Weil structure. Idempotents split in the semisimple perverse setting \cite{CDRS}.
+
+Geometrically the other three character projectors of $H$ are cyclically permuted by Frobenius. At a $k$-rational point, the operator on their direct sum has zero trace in every cohomological degree. It follows that
+\begin{equation}\label{eq:tracefunction}
+ \boxed{t_{\B}(T)=t_{\mathcal K}(T)
+       =-\frac{(f*f)(T)}q=\frac{C_E(T)}q
+       \quad(T\in E(k)).}
+\end{equation}
+This is a base-field trace-function identity, not a geometric isomorphism $\mathcal K\simeq\B$. Over extensions with degree divisible by three the other sectors no longer have to cancel.
+
+On global cohomology the projector is the average of the diagonal quaternion action on $\rho\otimes\rho$, tensored with the identity on $W\otimes W$. Its invariant line is $\bigwedge^2\rho$. Frobenius acts there by $\det A=1$, so the induced operator is exactly $U_\psi\otimes U_\psi$. Thus no unspecified scalar twist remains in the descended square model. Its Tannakian dimension is four.
+
+\section{The geometric origin of the generic rank two}
+Fix a geometric parameter $T\notin E[2]$ and write $Q=T-P$. The relevant anti-invariant cohomology of the addition fiber can be represented by
+\begin{equation}
+ D_T^{\mathrm{conv}}:\quad w^2=y(P)y(Q),\qquad P+Q=T.
+\end{equation}
+There are eight branch points, so this double cover of $E$ has genus five. A diagonal two-torsion translation acts as
+\begin{equation}\label{eq:diag}
+ (P,w)\longmapsto
+ \left(P+T_r,-\frac{d_r}{(x(P)-r)(x(Q)-r)}w\right).
+\end{equation}
+The action is free, since a nonzero translation fixes no point of the base elliptic curve. Its quotient has genus two by Riemann--Hurwitz.
+
+The quotient is explicit. Put
+\begin{equation}\label{eq:quotient}
+ R=P-Q=2P-T,\qquad h=\frac{2w}{x(P)-x(Q)}.
+\end{equation}
+Both are invariant under \eqref{eq:diag}. Indeed $x(P)-x(Q)$ is multiplied by exactly the same factor as $w$. Equation \eqref{eq:chord} yields
+\begin{equation}\label{eq:genus2}
+ Z_T:\quad h^2=x(R)-u,\qquad y(R)^2=g(x(R)).
+\end{equation}
+For generic $(R,h)$ there are four choices of $P$ with $2P-T=R$, and $w$ is then fixed by \eqref{eq:quotient}. Thus this is the full degree-four quotient, not merely an invariant map. Writing $Y=y(R)$, the genus-two equation is
+\begin{equation}
+ Y^2=(h^2+u)^3+a(h^2+u)+b.
+\end{equation}
+It has the deck involution $(h,Y)\mapsto(-h,Y)$ with quotient $E$, and the hyperelliptic involution $(h,Y)\mapsto(h,-Y)$. The quotient by their product is exactly
+\begin{equation}
+ (X,W)=(h^2+u,hY),\qquad H_T:\quad W^2=(X-u)g(X).
+\end{equation}
+The hyperelliptic involution acts by $-1$ on $H^1(Z_T)$. Therefore pullback from $H_T$ identifies its two-dimensional $H^1$ with the anti-invariant part for $Z_T\to E$. This proves the generic rank-two assertion by an explicit curve correspondence.
+
+Over the open parameter set $E\setminus E[2]$, the restriction of $\B$ is consequently
+\begin{equation}\label{eq:localfamily}
+ \left(R^1h_*\Q\otimes\const(-1/q)\right)[1],
+\end{equation}
+where here $h$ denotes the smooth projective family with fibers $H_T$. The shift contributes a minus sign to stalk traces, which explains why \eqref{eq:localfamily} has trace $+a_{H_T}/q$, not $-a_{H_T}/q$.
+
+\textbf{Two different rank-two objects.} The multiplicity space $W_\psi$ is indexed by an elliptic-group character and can have cyclotomic coefficients. The rank-two local system in \eqref{eq:localfamily} is indexed by a point $T$ and comes from an actual elliptic-curve family. Their roles are related by convolution and Fourier transformation; they must not be identified. In particular, this argument does not say that the original $S(\psi)$ is an integer elliptic-curve trace.
+
+\section{The origin stalk, punctual term, and Parseval}
+The generic rank alone does not fix the value of $t_{\B}$ at the identity. That value is needed for the moment calculation.
+
+On the addition fiber over $O$, the product of quadratic functions is $y(P)y(-P)=-y(P)^2$. Its Kummer local system is geometrically constant, with Frobenius scalar $-1$, on $U=E\setminus E[2]$. Multiplying by the normalization $(i/\sqrt q)^2=-1/q$ leaves scalar $1/q$. The $E[2]$ action is the ordinary translation action after this trivialization.
+
+The compact-support exact sequence is
+\begin{equation}\label{eq:openexact}
+ 0\longrightarrow\Q\longrightarrow\Q^{E[2]}
+ \longrightarrow H_c^1(U,\Q)
+ \longrightarrow H^1(E,\Q)\longrightarrow0.
+\end{equation}
+The permutation representation $\Q^{E[2]}$ is regular. Taking $E[2]$ invariants kills its reduced regular part, while translations act trivially on $H^1(E)$. Also $H_c^2(U)=\Q(-1)$ has Frobenius eigenvalue $q$. Proper base change then gives
+\begin{equation}\label{eq:originstalk}
+ H^{-1}(\B_O)\simeq H^1(E)\otimes\const(1/q),\qquad
+ H^0(\B_O)\simeq\Q\quad\text{with eigenvalue }+1.
+\end{equation}
+Thus
+\begin{equation}\label{eq:origintrace}
+ \boxed{t_{\B}(O)=1-\frac{a_E}{q}=\frac{N-1}{q}.}
+\end{equation}
+This determines the arithmetic sign of the punctual contribution without using the proposed full group.
+
+At a nonzero geometric $S\in E[2]$, the coefficient trivialization instead carries the nontrivial character $T\mapsto e_2(T,S)$ of $E[2]$, where $e_2$ is the commutator pairing of the quaternion extension. To see the sign, describe the normalization of the addition fiber using the graph of $\sigma_S\nu$. Conjugation by a diagonal lift $\sigma_T$ multiplies this graph map by the central commutator $e_2(T,S)$. Hence the invariant projector kills the top compact-support group there. There is no punctual invariant summand at such an $S$. The only possible singular addition parameters are in $E[2]$, so, in the pure semisimple category,
+\begin{equation}\label{eq:Bdecomp}
+ \B\simeq\delta_O\oplus\mathcal L[1],
+\end{equation}
+where $\mathcal L[1]$ denotes the middle extension of the rank-two local system in \eqref{eq:localfamily}. Its generic rank is two and its Tannakian dimension is three. No irreducibility or full monodromy classification of this summand is needed for the trace identity established here.
+
+There is a separate geometric check of its behavior at $O$. Put $z=1/u$ and rescale the quartic coordinate by $w'=uw/v$. Near the parameter $O$,
+\begin{equation}\label{eq:limit}
+ (w')^2=\frac{z x-1}{1+az^2+bz^3}\,g(x).
+\end{equation}
+At $z=0$ this becomes $(w')^2=-g(x)$, the quadratic $(-1)$-twist of $E$. The homogeneous branch divisor remains reduced, so this gives good reduction of the genus-one family at $O$. Its trace is $-a_E$, and the normalizing factor and perverse sign in \eqref{eq:localfamily} give $-a_E/q$, agreeing with \eqref{eq:origintrace} after the $+1$ punctual term.
+
+Finally define $Y_\psi=-iS(\psi)/\sqrt q$. Fourier transformation of \eqref{eq:tracefunction} gives
+\begin{equation}\label{eq:square}
+ \boxed{\widehat{t_{\B}}(\psi)=Y_\psi^2.}
+\end{equation}
+At the identity, Fourier orthogonality gives
+\begin{equation}
+ \frac1N\sum_\psi Y_\psi^2=t_{\B}(O)=\frac{N-1}{q}.
+\end{equation}
+After $X_\psi=Y_\psi/2$, this is the exact second moment $(N-1)/(4q)$. The check is sensitive to the sign, the two points at infinity in the quartic, and the punctual contribution.
+
+\section{Exact computational tests and their limits}
+Two original audit programs accompany this dossier; a third exact group-algebra checker accompanies the standalone identity manuscript. They were run with Python 3.13.5 and SymPy 1.14.0; full outputs and JSON records are included.
+
+\begin{center}
+\begin{tabular}{p{.58\linewidth}r}
+\toprule
+Check & Executed coverage\\
+\midrule
+Prime-field nonsingular models with odd rational order, every prime $5\le p\le43$ & 2,744\\
+Nonzero rational shifts; exact correlation and two elliptic models & 93,640\\
+Subset with $p\equiv3\pmod4$ & 1,288 models\\
+Nonzero shifts in that subset & 43,288\\
+Selected extension-field cases, degrees two through six & 18\\
+Points enumerated across these extension cases & 285,262\\
+Exact integer group-ring coefficient equalities & 282\\
+\bottomrule
+\end{tabular}
+\end{center}
+The extension cases include $E/\F_7:y^2=x^3+2$, whose rational group is $(\mathbf Z/3\mathbf Z)^2$. Thus they are not restricted to cyclic or prime-order groups. The largest field is $\F_{7^6}$. The code constructs finite fields as polynomial quotients, explicitly computes elliptic norm maps, and aggregates the quadratic ordinate character by norm value.
+
+If $a_m(T)$ is that aggregate, equations \eqref{eq:extension}--\eqref{eq:extension3} become identities in the integer group ring:
+\begin{equation}
+ a_2=f*f+2q\delta_O,\qquad
+ a_3=-2f*f*f-6qf.
+\end{equation}
+The general recurrence in Section 4 gives the other degrees. Equality of every group-ring coefficient verifies the corresponding prediction simultaneously for all base-group characters, without floating-point Fourier transforms. Ordinary elliptic Frobenius recurrences also check the extension group cardinalities.
+
+Symbolic tests verify the chord difference, discriminants, birational substitution, the four quaternion projectors, their Frobenius permutation, the invariant-line eigenvalue, the two-dimensional alternating-form multiplier, and the characteristic polynomial \eqref{eq:charpoly}. All executed assertions pass.
+
+These computations do not prove the general cohomological, descent, purity, or middle-extension assertions. They are generated within the same AI-assisted workflow and are not independent review. No secp256k1-sized point count or discrete logarithm was computed.
+
+\section{Traceability, proof obligations, and consequences for Article IV}
+
+\subsection*{Claim-to-evidence matrix}
+\begin{center}\small
+\begin{tabular}{p{.30\linewidth}p{.30\linewidth}p{.31\linewidth}}
+\toprule
+Proposed claim & Reproducible evidence & What is not verified\\
+\midrule
+Exact nonzero-shift autocorrelation & Prime-field checker, all 93,640 sampled shifts; integer point counts & A formally machine-checked general proof\\
+Quartic/cubic formulas and invariants & Symbolic discriminants and substitutions & General projective isomorphism certified by CAS\\
+Multiplicty-space determinant \(-q\) & Quaternion matrices; norm-extension identities & Cohomological descent and Frobenius sign independently reviewed\\
+Fourier extension recurrences & 18 extension cases, 282 exact group-ring comparisons & Every possible finite field and character\\
+Frobenius-stable sheaf projector & Four matrix projectors, cyclic Galois permutation & Existence and purity of the claimed sheaf summand\\
+Generic rank-two geometric model & Genus-two quotient formulas and elliptic traces & Global sheaf comparison at singular fibers\\
+Catalan moments and semicircle & Earlier finite Fourier examples & Tannaka-group classification and higher invariant-tensor proof\\
+\bottomrule
+\end{tabular}
+\end{center}
+\noindent\textbf{Reproducibility boundary.} The programs check finite arithmetic and matrix identities; they are not an independent expert mathematical audit, a Lean formalization, or a certificate of originality. No cryptanalytic shortcut is claimed.
+
+The proposed replacements are local and do not change the advertised numerical bounds.
+
+\textbf{Sections 6.1 and 6.3.} Use the simultaneous-cover construction of Section 4 to treat the pairing explicitly for every character twist. It produces the sign $-q$ and determinant one after normalization on every character space, rather than inferring the determinant from absolute values.
+
+\textbf{Section 7.1.} Define the projector first on the convolution surface, as in \eqref{eq:projector}. Use the explicit genus-two quotient and genus-one factor to obtain generic rank two. The geometric decomposition into translates from the older argument is not needed for this construction; the four actual character projectors suffice. Equation \eqref{eq:origintrace} supplies the boundary normalization directly.
+
+\textbf{Section 9.} The elementary proof in Section 2 can be used as the primary proof of the autocorrelation identity and envelope; the genus-five argument becomes a geometric explanation of the rank-two family rather than the only route to the bound.
+
+\textbf{What is not settled by this dossier.} The proposed full convolution-group identification, its connected component, the description of invariant tensors in all convolution powers, the uniform higher-moment bound, the signed semicircle law, and all extension-field distribution laws still require their own argument and specialist review. A rank-two trace function or a determinant-one two-dimensional operator alone does not prove equidistribution. The rank-two square construction is now more explicit, but this is not a claim that all of Article IV has been independently validated.
+
+The most useful next review is narrow: check the simultaneous-cover pairing, the sheaf-level diagonal projector, and the compact-support calculation at the four two-torsion parameters. These are precise claims with explicit maps and exact test predictions.
+
+\section*{Provenance, rights, and release status}
+This technical dossier documents the first-priority audit of Frobenius normalization and the rank-two-model issue, with the derived computations and remaining proof obligations. Louis Desbiens initiated and curated the investigation. ChatGPT developed the arguments, code, tests, and exposition here. The displayed deductions are not attributed to the published sources as if those sources had proved this particular example. Established tools are cited separately. No claim of novelty, independent certification, or cryptanalytic speedup is made.
+
+Article IV has been revised for the 2 November 2026 collection; the other four principal manuscripts remain unchanged. This file is its companion technical evidence dossier for review. The document and its source are offered under CC BY 4.0 to the extent of rights controlled by the curator; the new verification code is offered under MIT, consistently with the collection's licensing choices. No institutional affiliation or endorsement is claimed; no external funding or competing interests are declared.
+
+\clearpage
+\begin{thebibliography}{9}\small
+\bibitem{Sutherland} A. V. Sutherland, \emph{18.783 Elliptic Curves, Lecture 7: Point counting}, MIT, 22 February 2022, Theorem 7.3 and the quadratic-character point-count formula.\\
+\url{https://math.mit.edu/classes/18.783/2022/LectureNotes7.pdf}
+\bibitem{Milne} J. S. Milne, \emph{Lectures on Etale Cohomology}, version 2.21, 22 March 2013. Sections 14, 17--20, 22, 24--29 supply the curve cohomology, base change, Kunneth, duality and trace-formula background.\\
+\url{https://www.jmilne.org/math/CourseNotes/LEC.pdf}
+\bibitem{Katz} N. M. Katz, \emph{Elliptic convolution, $G_2$, and elliptic surfaces}, Sections 1--2. Fourier-convolution identities, property P, and character-twisted fiber functors.\\
+\url{https://web.math.princeton.edu/~nmk/laumon15.pdf}
+\bibitem{CDRS} B. Collas, M. Dettweiler, S. Reiter and W. Sawin, \emph{Monodromy of elliptic curve convolution, seven-point sheaves of $G_2$-type and motives of Beauville type}, arXiv:1803.05883v2 (2018), Proposition 1.2.2 and Lemmas 1.2.4--1.2.6.\\
+\url{https://arxiv.org/abs/1803.05883}
+\bibitem{Deligne} P. Deligne, \emph{La conjecture de Weil. II}, Publications Mathematiques de l'IHES 52 (1980), 137--252. Standard weight and purity framework used in the semisimple geometric interpretation, not a source of the explicit formulas derived here.\\
+\url{https://www.numdam.org/item/PMIHES_1980__52__137_0/}
+\end{thebibliography}
+\end{document}
